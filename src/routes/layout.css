@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'BlackOpsOne';
+	src: url('/fonts/BlackOpsOne-Regular.ttf') format('truetype');
+	font-weight: 400 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--color-accent: #ecd316;
+	--color-secondary: #7f683f;
+	--font-blackops: 'BlackOpsOne', sans-serif;
+}
