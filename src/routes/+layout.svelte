@@ -74,7 +74,7 @@
 <div class="min-h-screen bg-slate-50 text-slate-950 transition-colors dark:bg-slate-950 dark:text-slate-100">
 	<header bind:this={header} class="sticky top-0 z-50 border-b border-slate-200 bg-white/70 backdrop-blur transition-colors dark:border-slate-800 dark:bg-slate-950/70">
 		<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:pr-20">
-			<a href="#home" onclick={(event) => scrollToSection(event, '#home')} class="font-blackops text-lg font-bold text-accent">PrecisionShot</a>
+			<a href="#home" onclick={(event) => scrollToSection(event, '#home')} class="font-blackops text-lg font-bold text-accent [text-shadow:1px_1px_0px_rgba(0,0,0,1)]">PrecisionShot</a>
 
 			<div class="flex items-center gap-5">
 				<nav class="hidden gap-5 text-sm text-slate-600 md:flex dark:text-slate-300">
