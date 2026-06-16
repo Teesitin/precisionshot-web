@@ -13,3 +13,5 @@
 	--color-secondary: #7f683f;
 	--font-blackops: 'BlackOpsOne', sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

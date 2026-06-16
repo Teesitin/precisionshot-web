@@ -102,62 +102,53 @@
 
 <svelte:head>
 	<title>PrecisionShot Training System</title>
-	<meta name="description" content="PrecisionShot is a UCF Senior Design project focused on a smart laser target system that tracks shot accuracy and gives real-time feedback."/>
+	<meta name="description" content="PrecisionShot is a UCF Senior Design project focused on a smart laser target system that tracks shot accuracy and gives real-time feedback." />
 </svelte:head>
 
-<main>
-    <!-- MainHeor -->
-    <section id="home" class="relative overflow-hidden border-b border-slate-800 bg-linear-to-br from-slate-950 via-slate-900 to-secondary/40">
-        <div class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl"></div>
-        <div class="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-secondary/40 blur-3xl"></div>
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-950 to-transparent"></div>		
-        
-        <div class="mx-auto max-w-6xl px-6 py-20">
-			<p class="mb-4 text-sm font-bold uppercase tracking-widest text-accent">
-				UCF Senior Design - Group 13
-			</p>
+<main class="bg-slate-50 text-slate-950 transition-colors dark:bg-slate-950 dark:text-slate-100">
+	<!-- MainHero -->
+	<section id="home" class="relative overflow-hidden border-b border-slate-200 bg-linear-to-br from-white via-slate-100 to-secondary/20 transition-colors dark:border-slate-800 dark:from-slate-950 dark:via-slate-900 dark:to-secondary/40">
+		<div class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-secondary/25 blur-3xl dark:bg-secondary/40"></div>
+		<div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-50 to-transparent dark:from-slate-950"></div>
 
-			<h1 class="text-4xl font-blackops text-white md:text-6xl">
-				PrecisionShot Training System
-			</h1>
+		<div class="mx-auto max-w-6xl px-6 py-20">
+			<p class="mb-4 text-sm font-bold uppercase tracking-widest text-accent">UCF Senior Design - Group 13</p>
 
-			<p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+			<h1 class="font-blackops text-4xl text-slate-950 md:text-6xl dark:text-white">PrecisionShot Training System</h1>
+
+			<p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300">
 				A smart laser-based target system that detects shot placement and provides real-time
 				training feedback.
 			</p>
 
 			<div class="mt-8 flex flex-wrap gap-4">
-                <a href="#documents" class="rounded bg-accent px-5 py-3 font-bold text-slate-950 transition-colors hover:bg-accent/80">
-                    View Documents
-                </a>
-
-                <a href="#project" class="rounded border border-secondary px-5 py-3 font-bold text-slate-100 transition-colors hover:bg-secondary/30">
-                    Project Overview
-                </a>
+				<a href="#documents" class="rounded bg-accent px-5 py-3 font-bold text-slate-950 transition-colors hover:bg-accent/80">View Documents</a>
+				<a href="#project" class="rounded border border-secondary px-5 py-3 font-bold text-slate-900 transition-colors hover:bg-secondary/20 dark:text-slate-100 dark:hover:bg-secondary/30">Project Overview</a>
 			</div>
 		</div>
 	</section>
 
-    <!-- Team -->
-	<section id="team" class="border-b border-slate-800 bg-slate-900">
+	<!-- Team -->
+	<section id="team" class="border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-900">
 		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="text-3xl font-blackops text-accent">Team</h2>
+			<h2 class="font-blackops text-3xl text-accent">Team</h2>
 
 			<div class="mt-8 grid gap-4 md:grid-cols-2">
 				{#each teamMembers as member}
-					<div class="rounded border border-slate-700 bg-slate-950 p-5">
+					<div class="rounded border border-slate-200 bg-slate-50 p-5 transition-colors dark:border-slate-700 dark:bg-slate-950">
 						<p class="text-sm font-bold text-accent">{member.major}</p>
-						<h3 class="mt-2 text-xl font-bold text-white">{member.name}</h3>
-						<p class="mt-1 text-slate-300">{member.role}</p>
-						<p class="mt-3 text-sm leading-6 text-slate-400">{member.focus}</p>
+						<h3 class="mt-2 text-xl font-bold text-slate-950 dark:text-white">{member.name}</h3>
+						<p class="mt-1 text-slate-700 dark:text-slate-300">{member.role}</p>
+						<p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">{member.focus}</p>
 					</div>
 				{/each}
 			</div>
 
-			<div class="mt-8 rounded border border-slate-700 bg-slate-950 p-5">
-				<h3 class="text-xl font-bold text-white">Reviewers</h3>
+			<div class="mt-8 rounded border border-slate-200 bg-slate-50 p-5 transition-colors dark:border-slate-700 dark:bg-slate-950">
+				<h3 class="text-xl font-bold text-slate-950 dark:text-white">Reviewers</h3>
 
-				<ul class="mt-3 list-disc space-y-1 pl-5 text-slate-300">
+				<ul class="mt-3 list-disc space-y-1 pl-5 text-slate-700 dark:text-slate-300">
 					{#each reviewers as reviewer}
 						<li>{reviewer}</li>
 					{/each}
@@ -166,294 +157,269 @@
 		</div>
 	</section>
 
-    <!-- Project Overview -->
-    <section id="project" class="scroll-mt-24 border-b border-slate-800 bg-slate-950">
-        <div class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-3xl font-blackops text-accent">Project Overview</h2>
+	<!-- Project Overview -->
+	<section id="project" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-950">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="font-blackops text-3xl text-accent">Project Overview</h2>
 
-            <div class="mt-6 flex flex-wrap gap-3">
-                <a href="#project-description" class="rounded border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:border-accent hover:bg-slate-800 hover:text-accent">
-                    Description
-                </a>
+			<div class="mt-6 flex flex-wrap gap-3">
+				<a href="#project-description" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Description</a>
+				<a href="#project-motivation" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Motivation</a>
+				<a href="#project-functionality" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Functionality</a>
+				<a href="#project-goals" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Goals</a>
+				<a href="#project-objectives" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Objectives</a>
+				<a href="#project-sponsorship" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Sponsorship</a>
+			</div>
 
-                <a href="#project-motivation" class="rounded border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:border-accent hover:bg-slate-800 hover:text-accent">
-                    Motivation
-                </a>
+			<div class="mt-8 space-y-8 text-slate-700 dark:text-slate-300">
+				<div id="project-description" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Description</h3>
+					<p class="mt-2 leading-7">
+						PrecisionShot is a smart laser-based training target designed to detect where a laser shot lands and provide real-time feedback to the user. The system is intended to make dry-fire training more useful by showing shot placement instead of only showing whether the target was hit or missed. The project combines a phototransistor sensor array, a microcontroller, visual feedback, a rechargeable power system, and a physical enclosure into one portable training device.
+					</p>
+					<p class="mt-2 text-sm text-slate-500 dark:text-slate-500">Replace this with the final approved project description if the report wording changes.</p>
+				</div>
 
-                <a href="#project-functionality" class="rounded border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:border-accent hover:bg-slate-800 hover:text-accent">
-                    Functionality
-                </a>
+				<div id="project-motivation" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Motivation and Background</h3>
+					<p class="mt-2 leading-7">
+						Traditional firearm training usually requires live ammunition, a safe range location, and proper ventilation or safety equipment. This can make training expensive, less convenient, and harder to practice regularly. PrecisionShot is being designed as a lower-cost training option that allows users to practice aiming with a laser-based system instead of live ammunition.
+					</p>
+					<p class="mt-2 leading-7">
+						The goal is not to replace all live-fire training, but to provide a practical dry-fire tool that helps users practice more often and receive better feedback while training indoors or in controlled environments.
+					</p>
+				</div>
 
-                <a href="#project-goals" class="rounded border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:border-accent hover:bg-slate-800 hover:text-accent">
-                    Goals
-                </a>
+				<div id="project-functionality" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Main Functionality</h3>
+					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
+						<li>Detect incoming laser shots using a phototransistor sensor array.</li>
+						<li>Estimate the location of the laser impact on the target surface.</li>
+						<li>Show shot feedback using LEDs, a display, or another output method.</li>
+						<li>Allow the user to change modes, reset the system, and manage training feedback.</li>
+						<li>Run from a rechargeable battery so the target can be portable.</li>
+						<li>Use a physical enclosure that protects the electronics and helps control ambient light.</li>
+					</ul>
+				</div>
 
-                <a href="#project-objectives" class="rounded border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:border-accent hover:bg-slate-800 hover:text-accent">
-                    Objectives
-                </a>
+				<div id="project-goals" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Goals</h3>
+					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
+						<li>Develop a target system that can detect and show laser shot placement.</li>
+						<li>Create multiple settings or training modes for different practice options.</li>
+						<li>Make the system usable in indoor lighting and, if possible, outdoor daylight.</li>
+						<li>Design the system around rechargeable battery power.</li>
+						<li>Build a clean housing and stand or mounting system for the target.</li>
+					</ul>
+				</div>
 
-                <a href="#project-sponsorship" class="rounded border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:border-accent hover:bg-slate-800 hover:text-accent">
-                    Sponsorship
-                </a>
-            </div>
+				<div id="project-objectives" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Objectives</h3>
+					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
+						<li>Develop an array of phototransistors that can detect incoming laser shots.</li>
+						<li>Process sensor data with a microcontroller to determine shot location.</li>
+						<li>Display shot feedback clearly to the user.</li>
+						<li>Support buttons or controls for reset, mode selection, and calibration.</li>
+						<li>Target a response time of about 100 ms for detecting and displaying shot placement.</li>
+						<li>Design toward a usage distance of 10 meters or more.</li>
+						<li>Reduce false readings from ambient light through calibration and physical light control.</li>
+					</ul>
+				</div>
 
-            <div class="mt-8 space-y-8 text-slate-300">
-                <div id="project-description" class="scroll-mt-24 rounded border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-xl font-bold text-white">Project Description</h3>
-                    <p class="mt-2 leading-7">
-                        PrecisionShot is a smart laser-based training target designed to detect where a laser shot lands and provide real-time feedback to the user. The system is intended to make dry-fire training more useful by showing shot placement instead of only showing whether the target was hit or missed. The project combines a phototransistor sensor array, a microcontroller, visual feedback, a rechargeable power system, and a physical enclosure into one portable training device.
-                    </p>
-                    <p class="mt-2 text-sm text-slate-500">
-                        Replace this with the final approved project description if the report wording changes.
-                    </p>
-                </div>
+				<div id="project-sponsorship" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Acknowledgment and Sponsorship</h3>
+					<p class="mt-2 leading-7">
+						This project is currently self-funded by the PrecisionShot team. The estimated prototype budget is around $500, with the cost shared between team members over the project timeline.
+					</p>
+					<p class="mt-2 leading-7">
+						If sponsorship or outside funding is received, sponsor information and at least one sponsor contact will be added here.
+					</p>
+					<p class="mt-2 text-sm text-slate-500 dark:text-slate-500">Replace this section with final sponsor details if sponsorship is added.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                <div id="project-motivation" class="scroll-mt-24 rounded border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-xl font-bold text-white">Motivation and Background</h3>
-                    <p class="mt-2 leading-7">
-                        Traditional firearm training usually requires live ammunition, a safe range location, and proper ventilation or safety equipment. This can make training expensive, less convenient, and harder to practice regularly. PrecisionShot is being designed as a lower-cost training option that allows users to practice aiming with a laser-based system instead of live ammunition.
-                    </p>
-                    <p class="mt-2 leading-7">
-                        The goal is not to replace all live-fire training, but to provide a practical dry-fire tool that helps users practice more often and receive better feedback while training indoors or in controlled environments.
-                    </p>
-                </div>
+	<!-- Design Outline -->
+	<section id="design" class="scroll-mt-24 border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="font-blackops text-3xl text-accent">Design Outline</h2>
 
-                <div id="project-functionality" class="scroll-mt-24 rounded border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-xl font-bold text-white">Main Functionality</h3>
-                    <ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-                        <li>Detect incoming laser shots using a phototransistor sensor array.</li>
-                        <li>Estimate the location of the laser impact on the target surface.</li>
-                        <li>Show shot feedback using LEDs, a display, or another output method.</li>
-                        <li>Allow the user to change modes, reset the system, and manage training feedback.</li>
-                        <li>Run from a rechargeable battery so the target can be portable.</li>
-                        <li>Use a physical enclosure that protects the electronics and helps control ambient light.</li>
-                    </ul>
-                </div>
+			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
+				This section contains early demo diagrams and proof-of-concept design outlines. These diagrams are placeholders for now and will be updated as the final hardware, software, PCB, power, and enclosure designs become more complete.
+			</p>
 
-                <div id="project-goals" class="scroll-mt-24 rounded border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-xl font-bold text-white">Project Goals</h3>
-                    <ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-                        <li>Develop a target system that can detect and show laser shot placement.</li>
-                        <li>Create multiple settings or training modes for different practice options.</li>
-                        <li>Make the system usable in indoor lighting and, if possible, outdoor daylight.</li>
-                        <li>Design the system around rechargeable battery power.</li>
-                        <li>Build a clean housing and stand or mounting system for the target.</li>
-                    </ul>
-                </div>
+			<div class="mt-8 space-y-6">
+				<SystemBlockDiagram />
+				<PCBDesign />
+				<SoftwareFlowchart />
+				<PowerSystemDesign />
+				<PrototypeEnclosureDesign />
+			</div>
+		</div>
+	</section>
 
-                <div id="project-objectives" class="scroll-mt-24 rounded border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-xl font-bold text-white">Project Objectives</h3>
-                    <ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-                        <li>Develop an array of phototransistors that can detect incoming laser shots.</li>
-                        <li>Process sensor data with a microcontroller to determine shot location.</li>
-                        <li>Display shot feedback clearly to the user.</li>
-                        <li>Support buttons or controls for reset, mode selection, and calibration.</li>
-                        <li>Target a response time of about 100 ms for detecting and displaying shot placement.</li>
-                        <li>Design toward a usage distance of 10 meters or more.</li>
-                        <li>Reduce false readings from ambient light through calibration and physical light control.</li>
-                    </ul>
-                </div>
+	<!-- Documents and Slides -->
+	<section id="documents" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-950">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="font-blackops text-3xl text-accent">Documents and Slides</h2>
 
-                <div id="project-sponsorship" class="scroll-mt-24 rounded border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-xl font-bold text-white">Acknowledgment and Sponsorship</h3>
-                    <p class="mt-2 leading-7">
-                        This project is currently self-funded by the PrecisionShot team. The estimated prototype budget is around $500, with the cost shared between team members over the project timeline.
-                    </p>
-                    <p class="mt-2 leading-7">
-                        If sponsorship or outside funding is received, sponsor information and at least one sponsor contact will be added here.
-                    </p>
-                    <p class="mt-2 text-sm text-slate-500">
-                        Replace this section with final sponsor details if sponsorship is added.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
+				This section contains project documents, presentation materials, and public project management links.
+			</p>
 
-    <!-- Design Outline -->
-    <section id="design" class="scroll-mt-24 border-b border-slate-800 bg-slate-900">
-        <div class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-3xl font-blackops text-accent">Design Outline</h2>
+			<div class="mt-8 space-y-10">
+				{#each resourceSections as section}
+					<div>
+						<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
+							<h3 class="text-xl font-bold text-slate-950 dark:text-white">{section.title}</h3>
+							<p class="mt-1 text-sm text-slate-500 dark:text-slate-500">{section.description}</p>
+						</div>
 
-            <p class="mt-3 max-w-3xl leading-7 text-slate-400">
-                This section contains early demo diagrams and proof-of-concept design outlines. These diagrams are placeholders for now and will be updated as the final hardware, software, PCB, power, and enclosure designs become more complete.
-            </p>
+						<div class="mt-5 grid gap-4 md:grid-cols-2">
+							{#each section.items as item}
+								{#if item.href}
+									<a href={item.href} target="_blank" rel="noreferrer" class="group rounded border border-slate-200 bg-white p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800">
+										<div class="flex flex-wrap items-center gap-2">
+											<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{item.phase}</p>
+											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{item.type}</p>
+										</div>
 
-            <div class="mt-8 space-y-6">
-                <SystemBlockDiagram />
-                <PCBDesign />
-                <SoftwareFlowchart />
-                <PowerSystemDesign />
-                <PrototypeEnclosureDesign />
-            </div>
-        </div>
-    </section>
+										<h4 class="mt-4 font-bold text-slate-950 dark:text-white">{item.title}</h4>
 
-    <!-- Documents and Slides -->
-    <section id="documents" class="scroll-mt-24 border-b border-slate-800 bg-slate-950">
-        <div class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-3xl font-blackops text-accent">Documents and Slides</h2>
+										<p class="mt-3 text-sm text-slate-500 dark:text-slate-500">
+											<span class="text-accent group-hover:underline">{item.action}</span>
+											<span> this resource.</span>
+										</p>
+									</a>
+								{:else}
+									<div class="rounded border border-slate-200 bg-white/70 p-5 opacity-70 transition-colors dark:border-slate-800 dark:bg-slate-900/60">
+										<div class="flex flex-wrap items-center gap-2">
+											<p class="rounded bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">{item.phase}</p>
+											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-500 dark:border-slate-700">{item.type}</p>
+										</div>
 
-            <p class="mt-3 max-w-3xl leading-7 text-slate-400">
-                This section contains project documents, presentation materials, and public project management links.
-            </p>
+										<h4 class="mt-4 font-bold text-slate-700 dark:text-slate-300">{item.title}</h4>
 
-            <div class="mt-8 space-y-10">
-                {#each resourceSections as section}
-                    <div>
-                        <div class="border-b border-slate-800 pb-3">
-                            <h3 class="text-xl font-bold text-white">{section.title}</h3>
-                            <p class="mt-1 text-sm text-slate-500">{section.description}</p>
-                        </div>
+										<p class="mt-3 text-sm text-slate-500">Unavailable at this time.</p>
+									</div>
+								{/if}
+							{/each}
+						</div>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
 
-                        <div class="mt-5 grid gap-4 md:grid-cols-2">
-                            {#each section.items as item}
-                                {#if item.href}
-                                    <a href={item.href} target="_blank" rel="noreferrer" class="group rounded border border-slate-700 bg-slate-900 p-5 transition-colors hover:border-accent hover:bg-slate-800">
-                                        <div class="flex flex-wrap items-center gap-2">
-                                            <p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{item.phase}</p>
-                                            <p class="rounded border border-slate-700 px-2 py-1 text-xs font-bold text-slate-400">{item.type}</p>
-                                        </div>
+	<!-- Videos -->
+	<section id="videos" class="scroll-mt-24 border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="font-blackops text-3xl text-accent">Videos</h2>
 
-                                        <h4 class="mt-4 font-bold text-white">{item.title}</h4>
+			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
+				This section will include YouTube links for required Senior Design demonstration and presentation videos as they become available.
+			</p>
 
-                                        <p class="mt-3 text-sm text-slate-500">
-                                            <span class="text-accent group-hover:underline">{item.action}</span>
-                                            <span> this resource.</span>
-                                        </p>
-                                    </a>
-                                {:else}
-                                    <div class="rounded border border-slate-800 bg-slate-900/60 p-5 opacity-70">
-                                        <div class="flex flex-wrap items-center gap-2">
-                                            <p class="rounded bg-slate-700 px-2 py-1 text-xs font-bold text-slate-300">{item.phase}</p>
-                                            <p class="rounded border border-slate-700 px-2 py-1 text-xs font-bold text-slate-500">{item.type}</p>
-                                        </div>
+			<div class="mt-8 grid gap-4 md:grid-cols-2">
+				{#each videos as video}
+					{#if video.href}
+						<a href={video.href} target="_blank" rel="noreferrer" class="group rounded border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-950 dark:hover:bg-slate-800">
+							<div class="flex flex-wrap items-center gap-2">
+								<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{video.phase}</p>
+								<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{video.type}</p>
+							</div>
 
-                                        <h4 class="mt-4 font-bold text-slate-300">{item.title}</h4>
+							<h3 class="mt-4 font-bold text-slate-950 dark:text-white">{video.title}</h3>
 
-                                        <p class="mt-3 text-sm text-slate-500">
-                                            Unavailable at this time.
-                                        </p>
-                                    </div>
-                                {/if}
-                            {/each}
-                        </div>
-                    </div>
-                {/each}
-            </div>
-        </div>
-    </section>
+							<p class="mt-3 text-sm text-slate-500">
+								<span class="text-accent group-hover:underline">{video.action}</span>
+								<span> this video.</span>
+							</p>
+						</a>
+					{:else}
+						<div class="rounded border border-slate-200 bg-slate-50 p-5 opacity-70 transition-colors dark:border-slate-800 dark:bg-slate-950/70">
+							<div class="flex flex-wrap items-center gap-2">
+								<p class="rounded bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">{video.phase}</p>
+								<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-500 dark:border-slate-700">{video.type}</p>
+							</div>
 
-    <!-- Videos -->
-    <section id="videos" class="scroll-mt-24 border-b border-slate-800 bg-slate-900">
-        <div class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-3xl font-blackops text-accent">Videos</h2>
+							<h3 class="mt-4 font-bold text-slate-700 dark:text-slate-300">{video.title}</h3>
 
-            <p class="mt-3 max-w-3xl leading-7 text-slate-400">
-                This section will include YouTube links for required Senior Design demonstration and presentation videos as they become available.
-            </p>
+							<p class="mt-3 text-sm text-slate-500">Unavailable at this time.</p>
+						</div>
+					{/if}
+				{/each}
+			</div>
+		</div>
+	</section>
 
-            <div class="mt-8 grid gap-4 md:grid-cols-2">
-                {#each videos as video}
-                    {#if video.href}
-                        <a href={video.href} target="_blank" rel="noreferrer" class="group rounded border border-slate-700 bg-slate-950 p-5 transition-colors hover:border-accent hover:bg-slate-800">
-                            <div class="flex flex-wrap items-center gap-2">
-                                <p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{video.phase}</p>
-                                <p class="rounded border border-slate-700 px-2 py-1 text-xs font-bold text-slate-400">{video.type}</p>
-                            </div>
+	<!-- Timeline -->
+	<section id="timeline" class="scroll-mt-24 bg-slate-50 transition-colors dark:bg-slate-950">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="font-blackops text-3xl text-accent">Timeline</h2>
 
-                            <h3 class="mt-4 font-bold text-white">{video.title}</h3>
+			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
+				This is a rough project timeline based on current Senior Design milestones.
+			</p>
 
-                            <p class="mt-3 text-sm text-slate-500">
-                                <span class="text-accent group-hover:underline">{video.action}</span>
-                                <span> this video.</span>
-                            </p>
-                        </a>
-                    {:else}
-                        <div class="rounded border border-slate-800 bg-slate-950/70 p-5 opacity-70">
-                            <div class="flex flex-wrap items-center gap-2">
-                                <p class="rounded bg-slate-700 px-2 py-1 text-xs font-bold text-slate-300">{video.phase}</p>
-                                <p class="rounded border border-slate-700 px-2 py-1 text-xs font-bold text-slate-500">{video.type}</p>
-                            </div>
+			<div class="mt-10 space-y-10">
+				<div>
+					<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
+						<h3 class="text-2xl font-bold text-slate-950 dark:text-white">Senior Design 1</h3>
+						<p class="mt-1 text-sm text-slate-500">Planning, research, documentation, website setup, and early design work.</p>
+					</div>
 
-                            <h3 class="mt-4 font-bold text-slate-300">{video.title}</h3>
+					<div class="mt-6 space-y-4">
+						{#each sd1Timeline as item}
+							<div class="rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-700 dark:bg-slate-900">
+								<div class="flex flex-wrap items-start justify-between gap-3">
+									<div>
+										<p class="text-sm font-bold text-accent">{item.week}</p>
+										<h4 class="mt-1 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h4>
+									</div>
 
-                            <p class="mt-3 text-sm text-slate-500">
-                                Unavailable at this time.
-                            </p>
-                        </div>
-                    {/if}
-                {/each}
-            </div>
-        </div>
-    </section>
+									<p class="rounded border border-slate-300 px-3 py-1 text-sm font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{item.dates}</p>
+								</div>
 
-    <!-- Timeline -->
-    <section id="timeline" class="scroll-mt-24 bg-slate-950">
-        <div class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-3xl font-blackops text-accent">Timeline</h2>
+								<ul class="mt-4 list-disc space-y-2 pl-5 text-slate-700 dark:text-slate-300">
+									{#each item.items as task}
+										<li>{task}</li>
+									{/each}
+								</ul>
+							</div>
+						{/each}
+					</div>
+				</div>
 
-            <p class="mt-3 max-w-3xl leading-7 text-slate-400">
-                This is a rough project timeline based on current Senior Design milestones.
-            </p>
+				<div>
+					<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
+						<h3 class="text-2xl font-bold text-slate-950 dark:text-white">Senior Design 2</h3>
+						<p class="mt-1 text-sm text-slate-500">Prototype build, integration, testing, final presentation, and demonstration.</p>
+					</div>
 
-            <div class="mt-10 space-y-10">
-                <div>
-                    <div class="border-b border-slate-800 pb-3">
-                        <h3 class="text-2xl font-bold text-white">Senior Design 1</h3>
-                        <p class="mt-1 text-sm text-slate-500">Planning, research, documentation, website setup, and early design work.</p>
-                    </div>
+					<div class="mt-6 space-y-4">
+						{#each sd2Timeline as item}
+							<div class="rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-700 dark:bg-slate-900">
+								<div class="flex flex-wrap items-start justify-between gap-3">
+									<div>
+										<p class="text-sm font-bold text-accent">{item.week}</p>
+										<h4 class="mt-1 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h4>
+									</div>
 
-                    <div class="mt-6 space-y-4">
-                        {#each sd1Timeline as item}
-                            <div class="rounded border border-slate-700 bg-slate-900 p-5">
-                                <div class="flex flex-wrap items-start justify-between gap-3">
-                                    <div>
-                                        <p class="text-sm font-bold text-accent">{item.week}</p>
-                                        <h4 class="mt-1 text-xl font-bold text-white">{item.title}</h4>
-                                    </div>
+									<p class="rounded border border-slate-300 px-3 py-1 text-sm font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{item.dates}</p>
+								</div>
 
-                                    <p class="rounded border border-slate-700 px-3 py-1 text-sm font-bold text-slate-400">{item.dates}</p>
-                                </div>
-
-                                <ul class="mt-4 list-disc space-y-2 pl-5 text-slate-300">
-                                    {#each item.items as task}
-                                        <li>{task}</li>
-                                    {/each}
-                                </ul>
-                            </div>
-                        {/each}
-                    </div>
-                </div>
-
-                <div>
-                    <div class="border-b border-slate-800 pb-3">
-                        <h3 class="text-2xl font-bold text-white">Senior Design 2</h3>
-                        <p class="mt-1 text-sm text-slate-500">Prototype build, integration, testing, final presentation, and demonstration.</p>
-                    </div>
-
-                    <div class="mt-6 space-y-4">
-                        {#each sd2Timeline as item}
-                            <div class="rounded border border-slate-700 bg-slate-900 p-5">
-                                <div class="flex flex-wrap items-start justify-between gap-3">
-                                    <div>
-                                        <p class="text-sm font-bold text-accent">{item.week}</p>
-                                        <h4 class="mt-1 text-xl font-bold text-white">{item.title}</h4>
-                                    </div>
-
-                                    <p class="rounded border border-slate-700 px-3 py-1 text-sm font-bold text-slate-400">{item.dates}</p>
-                                </div>
-
-                                <ul class="mt-4 list-disc space-y-2 pl-5 text-slate-300">
-                                    {#each item.items as task}
-                                        <li>{task}</li>
-                                    {/each}
-                                </ul>
-                            </div>
-                        {/each}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+								<ul class="mt-4 list-disc space-y-2 pl-5 text-slate-700 dark:text-slate-300">
+									{#each item.items as task}
+										<li>{task}</li>
+									{/each}
+								</ul>
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
