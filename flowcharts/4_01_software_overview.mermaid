@@ -1,0 +1,86 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart LR
+
+    %% =========================
+    %% PrecisionShot Software Architecture
+    %% =========================
+
+    subgraph TARGET["Target Device: ESP32-S3 Firmware"]
+        direction TB
+
+        SENSORS["Phototransistor<br/>Sensor Array"]
+        MUX["Multiplexer<br/>Scan Logic"]
+        DETECT["Threshold Filtering<br/>and Shot Detection"]
+        SCORE["Mode Logic<br/>and Scoring"]
+        DISPLAY["LCD Display<br/>and Physical Controls"]
+        SD["microSD JSON Logs<br/>Device Debug Storage"]
+        FW["ESP32-S3<br/>Firmware Core"]
+
+        SENSORS --> MUX
+        MUX --> DETECT
+        DETECT --> SCORE
+        SCORE --> FW
+        DISPLAY <--> FW
+        FW --> SD
+    end
+
+    subgraph BLE["Bluetooth Low Energy Link"]
+        direction TB
+
+        BLE1["Event-Based<br/>JSON Packets"]
+        BLE2["App Commands"]
+        BLE3["State Updates"]
+
+        BLE1 <--> BLE2
+        BLE2 <--> BLE3
+    end
+
+    subgraph APP["Mobile App: React Native + Expo"]
+        direction TB
+
+        BLEMANAGER["BLE Connection<br/>Manager"]
+        DASHBOARD["Live Shot<br/>Dashboard"]
+        CONTROLS["Remote Mode, Distance,<br/>and Calibration Controls"]
+        DB["Local SQLite<br/>Storage"]
+        ANALYTICS["History and<br/>Analytics"]
+        DEBUG["Debug View"]
+
+        BLEMANAGER --> DASHBOARD
+        BLEMANAGER --> CONTROLS
+        DASHBOARD --> DB
+        DB --> ANALYTICS
+        BLEMANAGER --> DEBUG
+    end
+
+    subgraph OFFLINE["Offline / Standalone Behavior"]
+        direction TB
+
+        STANDALONE["Target Works<br/>Without App"]
+        LOCALFEEDBACK["Display Shows<br/>Shot Feedback"]
+        LOCALSAVE["microSD Saves<br/>Device Logs"]
+
+        STANDALONE --> LOCALFEEDBACK
+        STANDALONE --> LOCALSAVE
+    end
+
+    FW <--> BLE1
+    BLE3 <--> BLEMANAGER
+    FW --> STANDALONE
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class SENSORS,MUX,DETECT,SCORE,DISPLAY,SD,FW target;
+class BLE1,BLE2,BLE3 ble;
+class BLEMANAGER,DASHBOARD,CONTROLS,DB,ANALYTICS,DEBUG app;
+class STANDALONE,LOCALFEEDBACK,LOCALSAVE process;

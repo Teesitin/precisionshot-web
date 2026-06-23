@@ -1,0 +1,28 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+sequenceDiagram
+    autonumber
+    participant Target as ESP32-S3 Target
+    participant App as Mobile App
+    participant User as User
+
+    Target->>Target: Advertise as PrecisionShot device
+    User->>App: Open app and scan
+    App->>Target: Scan for BLE advertisement
+    App->>Target: Connect to target
+    App->>Target: Request current state
+    Target-->>App: Send mode, distance, threshold, battery, status
+    User->>App: Change setting or start training
+    App->>Target: Send command packet
+    Target-->>App: Send updated state event
+    Target->>Target: Continue standalone shot processing
+    Target-->>App: Send shot packet when connected
+    App->>App: Save shot to local history
+    App--xTarget: Connection lost
+    Target->>Target: Continue display, scoring, and logging
+    App->>Target: Reconnect and request current state
+    Target-->>App: Send latest state

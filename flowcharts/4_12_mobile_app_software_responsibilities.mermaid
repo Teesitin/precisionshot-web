@@ -1,0 +1,55 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart TB
+
+    %% =========================
+    %% Mobile App Responsibilities
+    %% =========================
+
+    APP["PrecisionShot Mobile App<br/>React Native + Expo"]
+
+    subgraph LIVE["Live Target Interaction"]
+        CONNECT["Scan and Connect<br/>Through BLE"]
+        RECEIVE["Receive Shot Data"]
+        CONTROL["Send Remote Commands"]
+        STATE["Request Current<br/>Target State"]
+    end
+
+    subgraph USERDATA["Local User Data"]
+        PROFILE["Single Local Profile"]
+        HISTORY["Shot History<br/>Grouped by Date"]
+        SQLITE["SQLite Local Storage"]
+    end
+
+    subgraph FEATURES["User-Facing Features"]
+        DASH["Live Dashboard"]
+        ANALYTICS["Charts and Analytics"]
+        SETTINGS["Mode, Distance,<br/>Calibration Settings"]
+        DEBUG["Developer Debug View"]
+    end
+
+    APP --> CONNECT --> RECEIVE
+    APP --> CONTROL
+    APP --> STATE
+    RECEIVE --> SQLITE
+    SQLITE --> HISTORY
+    SQLITE --> ANALYTICS
+    PROFILE --> HISTORY
+    APP --> DASH
+    APP --> SETTINGS
+    APP --> DEBUG
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class APP,CONNECT,RECEIVE,CONTROL,STATE,DASH,ANALYTICS,SETTINGS,DEBUG app;
+class PROFILE,HISTORY,SQLITE storage;

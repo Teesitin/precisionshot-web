@@ -1,0 +1,43 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart TB
+
+    %% =========================
+    %% Manual Distance Tracking
+    %% =========================
+
+    USER["User Selects Distance"]
+    DEVICE["Target Controls<br/>Feet or Meters"]
+    APP["Mobile App<br/>Feet or Meters"]
+    STATE["Current Distance Setting<br/>Stored in System State"]
+    SHOT["Shot Detected"]
+    RECORD["Shot Record Includes<br/>Distance + Unit"]
+    DISPLAY["Display Shows<br/>Current Distance"]
+    HISTORY["App History Can Compare<br/>Performance by Distance"]
+
+    USER --> DEVICE
+    USER --> APP
+    DEVICE --> STATE
+    APP --> STATE
+    STATE --> SHOT --> RECORD
+    STATE --> DISPLAY
+    RECORD --> HISTORY
+
+    FUTURE["Future Option<br/>Automatic Distance Sensor<br/>or Camera-Based Detection"]
+    STATE -. not prototype .-> FUTURE
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class USER,DEVICE,STATE,SHOT,RECORD,DISPLAY target;
+class APP,HISTORY app;
+class FUTURE future;

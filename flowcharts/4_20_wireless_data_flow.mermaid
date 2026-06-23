@@ -1,0 +1,58 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart TB
+
+    %% =========================
+    %% Wireless Event Data Flow
+    %% =========================
+
+    TARGET["ESP32-S3 Target"]
+    EVENT{"Event Occurs?"}
+
+    SHOT["Shot Processed"]
+    MODE["Mode Changed"]
+    DISTANCE["Distance Changed"]
+    THRESHOLD["Threshold Changed"]
+    ERROR["Error State"]
+    DEBUG["Debug Data Requested"]
+
+    PACKET["Create JSON Packet"]
+    CONNECTED{"BLE Connected?"}
+    SEND["Send Packet to App"]
+    SAVE["App Saves or Updates UI"]
+    LOCAL["Continue Local Display<br/>and microSD Logging"]
+
+    TARGET --> EVENT
+    EVENT -- Shot --> SHOT
+    EVENT -- Mode --> MODE
+    EVENT -- Distance --> DISTANCE
+    EVENT -- Threshold --> THRESHOLD
+    EVENT -- Error --> ERROR
+    EVENT -- Debug --> DEBUG
+    SHOT --> PACKET
+    MODE --> PACKET
+    DISTANCE --> PACKET
+    THRESHOLD --> PACKET
+    ERROR --> PACKET
+    DEBUG --> PACKET
+    PACKET --> CONNECTED
+    CONNECTED -- Yes --> SEND --> SAVE
+    CONNECTED -- No --> LOCAL
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class TARGET,SHOT,MODE,DISTANCE,THRESHOLD,LOCAL target;
+class EVENT,PACKET,CONNECTED ble;
+class SEND,SAVE app;
+class ERROR warn;
+class DEBUG process;

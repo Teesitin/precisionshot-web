@@ -1,0 +1,52 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart TB
+
+    %% =========================
+    %% Main System Flow
+    %% =========================
+
+    START(["Power On"])
+    INIT["Initialize ESP32-S3,<br/>Display, BLE, Sensors,<br/>Controls, Logs, Settings"]
+    READY["Ready State<br/>Wait for Input or Shot"]
+    INPUT{"Event Detected?"}
+
+    USER["User Setting Change"]
+    APP_CMD["App Command<br/>Mode / Distance / Threshold"]
+    SHOT["Laser Shot Candidate"]
+
+    UPDATE_STATE["Update System State<br/>and Refresh Display"]
+    SCAN["Scan Sensor Array<br/>Through Multiplexers"]
+    FILTER["Apply Threshold<br/>and Filter Noise"]
+    LOCATE["Calculate Shot Location"]
+    SCORE["Score Based on<br/>Current Mode"]
+    DISPLAY["Update LCD Feedback"]
+    LOG["Save Local Log"]
+    CONNECTED{"BLE Connected?"}
+    SEND["Send Shot / State<br/>Packet to App"]
+    APP_UPDATE["App Updates Live View<br/>and Local History"]
+
+    START --> INIT --> READY --> INPUT
+    INPUT -- Physical Control --> USER --> UPDATE_STATE --> READY
+    INPUT -- Mobile App Command --> APP_CMD --> UPDATE_STATE
+    INPUT -- Laser Hit --> SHOT --> SCAN --> FILTER --> LOCATE --> SCORE --> DISPLAY --> LOG --> CONNECTED
+    CONNECTED -- Yes --> SEND --> APP_UPDATE --> READY
+    CONNECTED -- No --> READY
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class START,INIT,READY,INPUT,UPDATE_STATE process;
+class USER,SHOT,SCAN,FILTER,LOCATE,SCORE,DISPLAY target;
+class APP_CMD,SEND,APP_UPDATE app;
+class CONNECTED ble;
+class LOG storage;

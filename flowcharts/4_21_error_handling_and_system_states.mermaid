@@ -1,0 +1,30 @@
+---
+config:
+  theme: base
+---
+
+stateDiagram-v2
+    [*] --> Startup
+    Startup --> Ready: initialization complete
+
+    Ready --> Training: shot candidate detected
+    Training --> Ready: result displayed and logged
+
+    Ready --> Calibration: threshold adjustment
+    Calibration --> Ready: value applied
+
+    Ready --> Connected: app connects
+    Connected --> Ready: app disconnects
+
+    Connected --> Debug: debug mode enabled
+    Debug --> Connected: debug mode disabled
+
+    Ready --> Error: invalid reading or failure
+    Training --> Error: multiple shots detected
+    Calibration --> Error: calibration out of range
+    Connected --> Error: communication issue
+
+    Error --> Ready: recoverable issue cleared
+    Error --> LowBattery: battery warning
+    LowBattery --> Ready: power restored or acknowledged
+    LowBattery --> [*]: shutdown

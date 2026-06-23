@@ -1,0 +1,46 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart TB
+
+    %% =========================
+    %% Scoring and Accuracy Processing
+    %% =========================
+
+    SHOT["Calculated Shot Location"]
+    MODE{"Current Training Mode"}
+
+    FREESTYLE["Freestyle<br/>Show Single Shot Result"]
+    CLASSIC["Classic<br/>Center-Based 10 to 1 Score"]
+    RAPID["Rapid<br/>Accuracy + Speed Score"]
+    MOVING["Moving Target<br/>Track Active Target Area"]
+
+    METRICS["Accuracy Metrics<br/>Distance from Center, Shot Count,<br/>Average Score, Consistency"]
+    MCU["Immediate Score<br/>on ESP32"]
+    APP["Long-Term Analytics<br/>in Mobile App"]
+
+    SHOT --> MODE
+    MODE --> FREESTYLE
+    MODE --> CLASSIC
+    MODE --> RAPID
+    MODE --> MOVING
+    FREESTYLE --> METRICS
+    CLASSIC --> METRICS
+    RAPID --> METRICS
+    MOVING --> METRICS
+    METRICS --> MCU
+    METRICS --> APP
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class SHOT,MODE,FREESTYLE,CLASSIC,RAPID,MOVING,METRICS,MCU target;
+class APP app;

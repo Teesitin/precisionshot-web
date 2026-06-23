@@ -1,0 +1,52 @@
+---
+config:
+  layout: fixed
+  theme: base
+---
+
+flowchart LR
+
+    %% =========================
+    %% LCD Display and Physical Controls
+    %% =========================
+
+    subgraph CONTROLS["Physical Controls"]
+        direction TB
+        BUTTONS["Buttons<br/>Mode / Reset / Navigation"]
+        ENCODER["Rotary Encoder<br/>Calibration Threshold"]
+    end
+
+    MCU["ESP32-S3<br/>System State"]
+
+    subgraph LCD["Onboard LCD Display"]
+        direction TB
+        MODE["Current Mode"]
+        SCORE["Latest Score"]
+        LOCATION["Shot Location"]
+        DISTANCE["Distance Setting"]
+        THRESHOLD["Calibration Threshold"]
+        STATUS["BLE / Battery / Errors"]
+    end
+
+    APP["Mobile App<br/>Can Control Same Major Settings"]
+
+    BUTTONS --> MCU
+    ENCODER --> MCU
+    APP <--> MCU
+    MCU --> MODE
+    MCU --> SCORE
+    MCU --> LOCATION
+    MCU --> DISTANCE
+    MCU --> THRESHOLD
+    MCU --> STATUS
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class BUTTONS,ENCODER,MCU,MODE,SCORE,LOCATION,DISTANCE,THRESHOLD,STATUS target;
+class APP app;
