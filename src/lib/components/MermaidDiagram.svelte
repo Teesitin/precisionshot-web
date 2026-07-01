@@ -166,13 +166,28 @@ classDef externalGroup fill:#020617,stroke:#475569,color:#f8fafc,stroke-width:2p
 linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 `;
 
-	const themedChart = $derived(`
-${isDark ? darkThemeInit : lightThemeInit}
+	function applyTheme(chartSource: string, themeInit: string, sharedStyles: string) {
+		const trimmedChart = chartSource.trim();
+		const frontmatter = trimmedChart.match(/^---\s*\r?\n[\s\S]*?\r?\n---\s*(?:\r?\n|$)/);
+		const chartBody = frontmatter
+			? trimmedChart.slice(frontmatter[0].length).trimStart()
+			: trimmedChart;
+		const flowchartStyles = /^\s*(?:flowchart|graph)\b/m.test(chartBody) ? sharedStyles : '';
 
-${chart.trim()}
+		if (!frontmatter) {
+			return `${themeInit}\n${chartBody}\n${flowchartStyles}`;
+		}
 
-${isDark ? darkSharedStyles : lightSharedStyles}
-`);
+		return `${frontmatter[0].trimEnd()}\n\n${themeInit}\n${chartBody}\n${flowchartStyles}`;
+	}
+
+	const themedChart = $derived(
+		applyTheme(
+			chart,
+			isDark ? darkThemeInit : lightThemeInit,
+			isDark ? darkSharedStyles : lightSharedStyles
+		)
+	);
 
 	function rememberDiagramHeight() {
 		const height = diagramViewportElement?.getBoundingClientRect().height;
@@ -376,7 +391,7 @@ ${isDark ? darkSharedStyles : lightSharedStyles}
 		return point.matrixTransform(matrix.inverse());
 	}
 
-	function zoomAt(multiplier: number, centerX?: number, centerY?: number) {
+	function zoomAt(multiplier: number, centerX = Number.NaN, centerY = Number.NaN) {
 		if (!currentViewBox || !originalViewBox) return;
 
 		const nextZoom = clampZoom(zoom * multiplier);
@@ -384,8 +399,8 @@ ${isDark ? darkSharedStyles : lightSharedStyles}
 
 		if (actualMultiplier === 1) return;
 
-		const x = centerX ?? currentViewBox.x + currentViewBox.width / 2;
-		const y = centerY ?? currentViewBox.y + currentViewBox.height / 2;
+		const x = Number.isNaN(centerX) ? currentViewBox.x + currentViewBox.width / 2 : centerX;
+		const y = Number.isNaN(centerY) ? currentViewBox.y + currentViewBox.height / 2 : centerY;
 		const nextWidth = currentViewBox.width / actualMultiplier;
 		const nextHeight = currentViewBox.height / actualMultiplier;
 		const nextX = x - (x - currentViewBox.x) / actualMultiplier;

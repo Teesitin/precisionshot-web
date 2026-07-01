@@ -1,9 +1,6 @@
 <script lang="ts">
-    import SystemBlockDiagram from '$lib/components/diagrams/SystemBlockDiagram.svelte';
-    import PCBDesign from '$lib/components/diagrams/PCBDesign.svelte';
-    import SoftwareFlowchart from '$lib/components/diagrams/SoftwareFlowchart.svelte';
-    import PowerSystemDesign from '$lib/components/diagrams/PowerSystemDesign.svelte';
-    import PrototypeEnclosureDesign from '$lib/components/diagrams/PrototypeEnclosureDesign.svelte';
+	import MermaidDiagram from '$lib/components/MermaidDiagram.svelte';
+	import { flowcharts } from '$lib/flowcharts';
 
 	const teamMembers = [
 		{
@@ -246,15 +243,13 @@
 			<h2 class="font-blackops text-3xl text-accent">Design Outline</h2>
 
 			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				This section contains early demo diagrams and proof-of-concept design outlines. These diagrams are placeholders for now and will be updated as the final hardware, software, PCB, power, and enclosure designs become more complete.
+				This section contains the current software design flowcharts for the PrecisionShot system.
 			</p>
 
 			<div class="mt-8 space-y-6">
-				<SystemBlockDiagram />
-				<PCBDesign />
-				<SoftwareFlowchart />
-				<PowerSystemDesign />
-				<PrototypeEnclosureDesign />
+				{#each flowcharts as flowchart (flowchart.path)}
+					<MermaidDiagram title={flowchart.title} chart={flowchart.chart} />
+				{/each}
 			</div>
 		</div>
 	</section>
