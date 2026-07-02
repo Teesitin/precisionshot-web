@@ -19,8 +19,10 @@
 	let isDark = $state(true);
 	let isZoomOpen = $state(false);
 	let mermaidInstance = $state<any>(null);
+	let diagramElement = $state<HTMLDivElement | null>(null);
 	let diagramViewportElement = $state<HTMLDivElement | null>(null);
 	let viewerElement = $state<HTMLDivElement | null>(null);
+	let shouldOpenFromUrl = false;
 
 	let zoom = $state(1);
 	let isDragging = $state(false);
@@ -35,6 +37,35 @@
 
 	const minZoom = 0.25;
 	const maxZoom = 80;
+
+	function slugify(value: string) {
+		return value
+			.normalize('NFKD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, '-')
+			.replace(/^-|-$/g, '');
+	}
+
+	function getDeepLinkDetails(chartTitle: string) {
+		const titleMatch = chartTitle.match(/^(\d+)\.(\d+)\s+(.+)$/);
+
+		if (!titleMatch) {
+			const slug = slugify(chartTitle);
+
+			return {
+				figureId: `figure-${slug}`,
+				modalSlug: slug
+			};
+		}
+
+		return {
+			figureId: `figure-${Number(titleMatch[1])}-${Number(titleMatch[2])}`,
+			modalSlug: slugify(titleMatch[3])
+		};
+	}
+
+	const deepLinkDetails = $derived(getDeepLinkDetails(title));
 
 	const lightThemeInit = `
 %%{init: {
@@ -125,6 +156,14 @@ linkStyle default stroke:#64748b,stroke-width:1.5px;
 `;
 
 	const darkSharedStyles = `
+classDef target fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe,stroke-width:2px;
+classDef app fill:#14532d,stroke:#4ade80,color:#dcfce7,stroke-width:2px;
+classDef ble fill:#7c2d12,stroke:#fb923c,color:#ffedd5,stroke-width:2px;
+classDef storage fill:#581c87,stroke:#c084fc,color:#f3e8ff,stroke-width:2px;
+classDef process fill:#1e293b,stroke:#94a3b8,color:#f8fafc,stroke-width:2px;
+classDef warn fill:#7f1d1d,stroke:#f87171,color:#fee2e2,stroke-width:2px;
+classDef future fill:#1e293b,stroke:#94a3b8,color:#f8fafc,stroke-width:2px,stroke-dasharray:5 5;
+
 classDef inputNode fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe,stroke-width:2px;
 classDef routingNode fill:#7c2d12,stroke:#fb923c,color:#ffedd5,stroke-width:2px;
 classDef controlNode fill:#581c87,stroke:#c084fc,color:#f3e8ff,stroke-width:2px;
@@ -200,6 +239,24 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 	onMount(() => {
 		isDark = document.documentElement.classList.contains('dark');
 
+		function handleDeepLink() {
+			const searchParams = new URLSearchParams(window.location.search);
+			const matchesFigure = window.location.hash === `#${deepLinkDetails.figureId}`;
+			const matchesModal = searchParams.get('modal') === deepLinkDetails.modalSlug;
+
+			if (!matchesFigure || !matchesModal) return;
+
+			diagramElement?.scrollIntoView({
+				block: 'start'
+			});
+
+			if (svgMarkup) {
+				void openZoom();
+			} else {
+				shouldOpenFromUrl = true;
+			}
+		}
+
 		const observer = new MutationObserver(() => {
 			rememberDiagramHeight();
 			isDark = document.documentElement.classList.contains('dark');
@@ -220,9 +277,14 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 		}
 
 		loadMermaid();
+		handleDeepLink();
+		window.addEventListener('hashchange', handleDeepLink);
+		window.addEventListener('popstate', handleDeepLink);
 
 		return () => {
 			observer.disconnect();
+			window.removeEventListener('hashchange', handleDeepLink);
+			window.removeEventListener('popstate', handleDeepLink);
 		};
 	});
 
@@ -255,7 +317,10 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 
 				rememberDiagramHeight();
 
-				if (isZoomOpen) {
+				if (shouldOpenFromUrl) {
+					shouldOpenFromUrl = false;
+					await openZoom();
+				} else if (isZoomOpen) {
 					resetViewerViewBox();
 				}
 			})
@@ -474,7 +539,7 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 
 <svelte:window onkeydown={handleKeydown} />
 
-<div>
+<div bind:this={diagramElement} id={deepLinkDetails.figureId} class="scroll-mt-24">
 	<h4 class="font-bold text-slate-950 dark:text-white">{title}</h4>
 
 	{#if errorMessage}
