@@ -29,7 +29,17 @@
 		}
 	];
 
-	const reviewers = ['Dr. Wayesh Qarony', 'Dr. Jaesung Lee', 'Dr. Hadi Kamali'];
+	const reviewers = [
+		'Dr. Azadeh Vosoughi',
+		'Dr. Hadi Mardani Kamali',
+		'Dr. Jaesung Lee',
+		'Dr. Kimia Zamiri Azar',
+		'Dr. Saikat Dey',
+		'Shady Elashhab',
+		'Dr. Wayesh Qarony',
+		'Dr. Lei Wei',
+		'Sreeram Sundaresh'
+	];
 
     const resourceSections = [
         {
@@ -104,24 +114,74 @@
 
 <main class="bg-slate-50 text-slate-950 transition-colors dark:bg-slate-950 dark:text-slate-100">
 	<!-- MainHero -->
-	<section id="home" class="relative overflow-hidden border-b border-slate-200 bg-linear-to-br from-white via-slate-100 to-secondary/20 transition-colors dark:border-slate-800 dark:from-slate-950 dark:via-slate-900 dark:to-secondary/40">
-		<div class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl"></div>
-		<div class="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-secondary/25 blur-3xl dark:bg-secondary/40"></div>
-		<div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-50 to-transparent dark:from-slate-950"></div>
+	<section id="home" class="relative isolate min-h-175 overflow-hidden border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-950">
+		<video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+			<source src="https://delayne.b-cdn.net/precisionshot/temporary-demo-ai-generated-not-finale.mp4" type="video/mp4" />
+		</video>
 
-		<div class="mx-auto max-w-6xl px-6 py-20">
-			<p class="mb-4 text-sm font-bold uppercase tracking-widest text-accent">UCF Senior Design - Group 13</p>
+		<div class="absolute inset-0 bg-white/48 dark:bg-slate-950/66"></div>
+		<div class="absolute inset-0 bg-linear-to-r from-white via-white/85 to-white/30 dark:from-slate-950 dark:via-slate-950/76 dark:to-slate-950/28"></div>
+		<div class="absolute inset-0 bg-linear-to-t from-white via-white/20 to-transparent dark:from-slate-950 dark:via-slate-950/30"></div>
+		<div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(236,211,22,0.16),transparent_30%),radial-gradient(circle_at_88%_48%,rgba(236,211,22,0.16),transparent_34%),radial-gradient(circle_at_82%_58%,rgba(127,104,63,0.16),transparent_38%)] dark:bg-[radial-gradient(circle_at_18%_22%,rgba(236,211,22,0.14),transparent_30%),radial-gradient(circle_at_88%_48%,rgba(236,211,22,0.10),transparent_34%),radial-gradient(circle_at_82%_58%,rgba(127,104,63,0.24),transparent_38%)]"></div>
 
-			<h1 class="font-blackops text-4xl text-slate-950 md:text-6xl dark:text-white">PrecisionShot Training System</h1>
+		<div class="pointer-events-none absolute -right-28 top-1/2 hidden aspect-square w-152 -translate-y-1/2 text-slate-950/14 opacity-70 lg:block dark:text-accent/10 dark:opacity-60">
+			<svg class="h-full w-full drop-shadow-[0_18px_45px_rgba(15,23,42,0.16)] dark:drop-shadow-[0_0_36px_rgba(236,211,22,0.10)]" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+				<circle cx="300" cy="300" r="250" stroke="currentColor" stroke-width="2" />
+				<circle cx="300" cy="300" r="185" stroke="currentColor" stroke-width="2" />
+				<circle cx="300" cy="300" r="118" stroke="currentColor" stroke-width="2" />
+				<circle cx="300" cy="300" r="52" stroke="currentColor" stroke-width="2" />
+				<path d="M300 22V120" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+				<path d="M300 480V578" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+				<path d="M22 300H120" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+				<path d="M480 300H578" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+				<path d="M300 242V358" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+				<path d="M242 300H358" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+				<circle cx="300" cy="300" r="7" class="fill-accent text-accent opacity-80" />
+			</svg>
+		</div>
 
-			<p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300">
-				A smart laser-based target system that detects shot placement and provides real-time
-				training feedback.
-			</p>
+		<div class="pointer-events-none absolute right-10 top-1/2 hidden h-56 w-56 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl lg:block dark:bg-accent/8"></div>
 
-			<div class="mt-8 flex flex-wrap gap-4">
-				<a href="#documents" class="rounded bg-accent px-5 py-3 font-bold text-slate-950 transition-colors hover:bg-accent/80">View Documents</a>
-				<a href="#project" class="rounded border border-secondary px-5 py-3 font-bold text-slate-900 transition-colors hover:bg-secondary/20 dark:text-slate-100 dark:hover:bg-secondary/30">Project Overview</a>
+		<div class="relative z-10 mx-auto flex min-h-175 max-w-6xl items-center px-6 py-20">
+			<div class="max-w-3xl">
+				<div class="mb-5 inline-flex items-center gap-3 rounded-full border border-slate-950/10 bg-white/75 px-4 py-2 text-xs font-black uppercase tracking-widest text-slate-950 shadow-lg backdrop-blur-md dark:border-white/15 dark:bg-white/10 dark:text-accent">
+					<span class="h-2 w-2 rounded-full bg-accent shadow-[0_0_14px_rgba(236,211,22,0.9)]"></span>
+					UCF Senior Design - Group 13
+				</div>
+
+				<h1 class="font-blackops max-w-3xl text-4xl leading-tight text-slate-950 drop-shadow-[0_3px_18px_rgba(255,255,255,0.7)] sm:text-5xl md:text-6xl dark:text-white dark:drop-shadow-2xl">
+					PrecisionShot Training System
+				</h1>
+
+				<p class="mt-5 max-w-2xl text-lg leading-8 text-slate-700 drop-shadow-[0_2px_12px_rgba(255,255,255,0.9)] md:text-xl dark:text-slate-200 dark:drop-shadow-lg">
+					A smart laser-based target system that detects shot placement and provides real-time training feedback.
+				</p>
+
+				<div class="mt-8 flex flex-wrap gap-4">
+					<a href="#documents" class="rounded bg-accent px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_0_30px_rgba(236,211,22,0.24)] transition-all hover:-translate-y-0.5 hover:bg-accent/85 hover:shadow-[0_0_40px_rgba(236,211,22,0.38)]">
+						View Documents
+					</a>
+					<a href="#project" class="rounded border border-slate-950/15 bg-white/70 px-5 py-3 text-sm font-bold text-slate-950 shadow-lg backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-accent/70 hover:bg-white/90 dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:bg-white/20">
+						Project Overview
+					</a>
+				</div>
+
+				<div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+					<div class="rounded-xl border border-slate-950/10 bg-white/75 p-4 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/90 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15">
+						<p class="text-xl font-black text-slate-950 dark:text-white">Laser</p>
+						<p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Shot detection</p>
+					</div>
+
+					<div class="rounded-xl border border-slate-950/10 bg-white/75 p-4 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/90 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15">
+						<p class="text-xl font-black text-slate-950 dark:text-white">Real-Time</p>
+						<p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Training feedback</p>
+					</div>
+
+					<div class="rounded-xl border border-slate-950/10 bg-white/75 p-4 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/90 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15">
+						<p class="text-xl font-black text-slate-950 dark:text-white">Wireless</p>
+						<p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Portable system</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -165,73 +225,108 @@
 				<a href="#project-functionality" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Functionality</a>
 				<a href="#project-goals" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Goals</a>
 				<a href="#project-objectives" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Objectives</a>
+				<a href="#project-requirements" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Requirements</a>
 				<a href="#project-sponsorship" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Sponsorship</a>
 			</div>
 
 			<div class="mt-8 space-y-8 text-slate-700 dark:text-slate-300">
 				<div id="project-description" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
 					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Description</h3>
+
 					<p class="mt-2 leading-7">
-						PrecisionShot is a smart laser-based training target designed to detect where a laser shot lands and provide real-time feedback to the user. The system is intended to make dry-fire training more useful by showing shot placement instead of only showing whether the target was hit or missed. The project combines a phototransistor sensor array, a microcontroller, visual feedback, a rechargeable power system, and a physical enclosure into one portable training device.
+						PrecisionShot is a smart laser-based training system designed to detect where a laser shot lands on a physical target and provide real-time feedback to the user. Instead of functioning as a simple hit-or-miss target, the system is being developed as a complete training platform that can track shot placement, calculate scoring data, display immediate feedback, and send training information to a companion mobile application.
 					</p>
-					<p class="mt-2 text-sm text-slate-500 dark:text-slate-500">Replace this with the final approved project description if the report wording changes.</p>
+
+					<p class="mt-2 leading-7">
+						The target uses a dense phototransistor sensor array to detect incoming laser energy directly on the target surface. The embedded ESP32-S3 control system processes the sensor readings, filters out ambient light, estimates the shot location, updates the target display and LED feedback system, stores useful training data, and communicates with the mobile app through Bluetooth Low Energy.
+					</p>
 				</div>
 
 				<div id="project-motivation" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
 					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Motivation and Background</h3>
+
 					<p class="mt-2 leading-7">
-						Traditional firearm training usually requires live ammunition, a safe range location, and proper ventilation or safety equipment. This can make training expensive, less convenient, and harder to practice regularly. PrecisionShot is being designed as a lower-cost training option that allows users to practice aiming with a laser-based system instead of live ammunition.
+						Traditional firearm training often requires live ammunition, a safe range facility, travel time, range fees, and equipment capable of safely handling fired rounds. These requirements can make regular practice expensive and inconvenient. PrecisionShot is intended to provide a lower-cost and more accessible dry-fire training option by allowing users to practice with a laser-based system instead of live ammunition.
 					</p>
+
 					<p class="mt-2 leading-7">
-						The goal is not to replace all live-fire training, but to provide a practical dry-fire tool that helps users practice more often and receive better feedback while training indoors or in controlled environments.
+						The system is also designed to improve the quality of training by giving users immediate feedback after each shot. Instead of interrupting practice to inspect a paper target, users can view shot placement, score, distance, session history, and performance trends directly through the target interface or the mobile app. This helps users identify patterns, make corrections faster, and track long-term improvement over multiple sessions.
 					</p>
 				</div>
 
 				<div id="project-functionality" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
 					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Main Functionality</h3>
+
 					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-						<li>Detect incoming laser shots using a phototransistor sensor array.</li>
-						<li>Estimate the location of the laser impact on the target surface.</li>
-						<li>Show shot feedback using LEDs, a display, or another output method.</li>
-						<li>Allow the user to change modes, reset the system, and manage training feedback.</li>
-						<li>Run from a rechargeable battery so the target can be portable.</li>
-						<li>Use a physical enclosure that protects the electronics and helps control ambient light.</li>
+						<li>Detect incoming laser shots using a phototransistor sensor array built into the target face.</li>
+						<li>Estimate shot location using sensor readings, threshold filtering, and weighted position logic.</li>
+						<li>Provide immediate physical feedback through the LED hit indicator system and onboard TFT display.</li>
+						<li>Support multiple training modes such as Freestyle, Classic, Rapid, and Moving Target modes.</li>
+						<li>Allow users to control target settings using physical buttons and the onboard display.</li>
+						<li>Connect to a companion mobile app through Bluetooth Low Energy for remote control and training analytics.</li>
+						<li>Store shot history, scores, distance settings, calibration values, and session data locally on the phone.</li>
+						<li>Operate as a standalone target even when the mobile app is not connected.</li>
+						<li>Use a rechargeable power source so the system can remain portable and wireless during training.</li>
+						<li>Use a physical enclosure that protects the electronics while reducing unwanted ambient light exposure.</li>
 					</ul>
 				</div>
 
 				<div id="project-goals" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
 					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Goals</h3>
+
 					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-						<li>Develop a target system that can detect and show laser shot placement.</li>
-						<li>Create multiple settings or training modes for different practice options.</li>
-						<li>Make the system usable in indoor lighting and, if possible, outdoor daylight.</li>
-						<li>Design the system around rechargeable battery power.</li>
-						<li>Build a clean housing and stand or mounting system for the target.</li>
+						<li>Develop a target system that can detect laser shots and show accurate shot placement.</li>
+						<li>Provide real-time visual feedback using LEDs, an onboard display, and the companion mobile app.</li>
+						<li>Use a rechargeable battery or commercial power bank so the target can operate wirelessly.</li>
+						<li>Allow target modes and settings to be controlled using onboard buttons and a screen.</li>
+						<li>Include user statistics and training history through the mobile app and local storage.</li>
+						<li>Support distance settings so training data can be viewed with better performance context.</li>
+						<li>Develop multiple training modes that simulate different practice and shooting drill styles.</li>
+						<li>Keep the target functional as a standalone embedded system without requiring the mobile app.</li>
 					</ul>
 				</div>
 
 				<div id="project-objectives" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
 					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Objectives</h3>
+
 					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-						<li>Develop an array of phototransistors that can detect incoming laser shots.</li>
-						<li>Process sensor data with a microcontroller to determine shot location.</li>
-						<li>Display shot feedback clearly to the user.</li>
-						<li>Support buttons or controls for reset, mode selection, and calibration.</li>
-						<li>Target a response time of about 100 ms for detecting and displaying shot placement.</li>
-						<li>Design toward a usage distance of 10 meters or more.</li>
-						<li>Reduce false readings from ambient light through calibration and physical light control.</li>
+						<li>Develop an array of phototransistors that can detect incoming laser shots while rejecting unrelated ambient light.</li>
+						<li>Implement an LED array that can indicate the detected shot location within approximately 10 ms.</li>
+						<li>Program the ESP32-S3 microcontroller to process sensor readings, shot detection, scoring, display output, and training modes.</li>
+						<li>Use calibration logic to adjust the detection threshold for different lighting environments.</li>
+						<li>Show accurate shot placement in both indoor and outdoor lighting conditions.</li>
+						<li>Update the mobile app within approximately 1 second after a laser hit is detected.</li>
+						<li>Support Bluetooth Low Energy communication between the target and the companion app.</li>
+						<li>Store useful shot records, debug information, and training history for later review.</li>
 					</ul>
+				</div>
+
+				<div id="project-requirements" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
+					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Design Requirements</h3>
+
+					<p class="mt-2 leading-7">
+						The PrecisionShot Training System must provide fast, reliable, and accurate shot detection while remaining practical to use as a portable training device. The phototransistor array must detect the selected laser wavelength while minimizing false detections from room lighting, reflections, and sunlight. The software must support threshold calibration so the target can adapt to different lighting conditions without requiring hardware changes.
+					</p>
+
+					<p class="mt-2 leading-7">
+						The embedded system must coordinate the sensor array, multiplexers, LED feedback, TFT display, physical controls, Bluetooth communication, local logging, and power system. The target must remain responsive during normal training while still supporting multiple modes, scoring logic, mobile app updates, and future software expansion.
+					</p>
+
+					<p class="mt-2 leading-7">
+						The physical design must protect the internal electronics, align the sensor openings with the PCB-mounted phototransistors, reduce unwanted off-axis light, and remain serviceable for debugging, testing, firmware updates, and battery access.
+					</p>
 				</div>
 
 				<div id="project-sponsorship" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
 					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Acknowledgment and Sponsorship</h3>
+
 					<p class="mt-2 leading-7">
-						This project is currently self-funded by the PrecisionShot team. The estimated prototype budget is around $500, with the cost shared between team members over the project timeline.
+						The PrecisionShot Training System is currently planned as a self-funded Senior Design project. The team expects to cover prototype costs out of pocket while continuing to refine the bill of materials, PCB design, enclosure requirements, testing needs, and replacement-part budget.
 					</p>
+
 					<p class="mt-2 leading-7">
-						If sponsorship or outside funding is received, sponsor information and at least one sponsor contact will be added here.
+						The current prototype estimate is expected to increase as the design becomes more finalized because of PCB revisions, sensor quantity, 3D-printed enclosure parts, power components, display hardware, connectors, spare parts, and possible prototyping mistakes. Outside sponsorship is not required at this stage, but it may help reduce personal costs and allow the team to improve the final prototype with higher-quality components.
 					</p>
-					<p class="mt-2 text-sm text-slate-500 dark:text-slate-500">Replace this section with final sponsor details if sponsorship is added.</p>
 				</div>
 			</div>
 		</div>
