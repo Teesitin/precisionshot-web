@@ -47,7 +47,7 @@
             description: 'Senior Design reports and written submissions.',
             items: [
                 { title: 'Divide and Conquer Document', href: 'https://delayne.b-cdn.net/precisionshot/Divide%20%26%20Conquer%20Document%20and%20Committee%20Formation%20-%20Senior%20Design%201%20(12).pdf', phase: 'SD1', type: 'PDF Document', action: 'Download' },
-                { title: 'Midterm Milestone Report', href: '', phase: 'SD1', type: 'PDF Document', action: 'Download' },
+                { title: 'Midterm Report', href: 'https://delayne.b-cdn.net/precisionshot/Midterm%20Report%20-%20Senior%20Design%201%20(1).pdf', phase: 'SD1', type: 'PDF Document', action: 'Download' },
                 { title: 'SD1 Final Report', href: '', phase: 'SD1', type: 'PDF Document', action: 'Download' },
                 { title: '8-Page Conference Paper', href: '', phase: 'SD2', type: 'PDF Document', action: 'Download' },
                 { title: 'SD2 Final Report', href: '', phase: 'SD2', type: 'PDF Document', action: 'Download' }
