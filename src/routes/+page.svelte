@@ -73,7 +73,7 @@
     ];
 
     const videos = [
-        { title: 'Mini Demo Video', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1', phase: 'SD1', type: 'YouTube Video', action: 'Watch' },
+        { title: 'Mini Demo Video', href: 'https://delayne.b-cdn.net/precisionshot/PrecisionShot_SD1_Mini_Demo_2026-07-27.mp4', phase: 'SD1', type: 'Video', action: 'Watch' },
         { title: 'CDR Presentation Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
         { title: 'Midterm Demonstration Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
         { title: 'Final Presentation Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
