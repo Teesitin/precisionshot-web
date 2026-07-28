@@ -103,7 +103,7 @@
 				},
 				{
 					title: 'SD1 Final Report',
-					href: '',
+					href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Final_Report.pdf',
 					phase: 'SD1',
 					type: 'PDF Document',
 					action: 'Download'
