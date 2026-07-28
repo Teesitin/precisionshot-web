@@ -41,36 +41,110 @@
 		'Sreeram Sundaresh'
 	];
 
-    const resourceSections = [
-        {
-            title: 'Documents',
-            description: 'Senior Design reports and written submissions.',
-            items: [
-                { title: 'Divide and Conquer Document', href: 'https://delayne.b-cdn.net/precisionshot/Divide%20%26%20Conquer%20Document%20and%20Committee%20Formation%20-%20Senior%20Design%201%20(12).pdf', phase: 'SD1', type: 'PDF Document', action: 'Download' },
-                { title: 'Midterm Report', href: 'https://delayne.b-cdn.net/precisionshot/Midterm%20Report%20-%20Senior%20Design%201%20(1).pdf', phase: 'SD1', type: 'PDF Document', action: 'Download' },
-                { title: 'SD1 Final Report', href: '', phase: 'SD1', type: 'PDF Document', action: 'Download' },
-                { title: '8-Page Conference Paper', href: '', phase: 'SD2', type: 'PDF Document', action: 'Download' },
-                { title: 'SD2 Final Report', href: '', phase: 'SD2', type: 'PDF Document', action: 'Download' }
-            ]
-        },
-        {
-            title: 'Project Management',
-            description: 'Public project planning views for task tracking and milestones.',
-            items: [
-                { title: 'Project Management List', href: 'https://sharing.clickup.com/9014347314/l/h/5-90149820943-1/262217573a79715', phase: 'SD1', type: 'Public Link', action: 'Open' },
-                { title: 'Project Management Board', href: 'https://sharing.clickup.com/9014347314/b/h/5-90149820943-2/8e160dc482a03a9', phase: 'SD1', type: 'Public Link', action: 'Open' },
-                { title: 'Project Management Gantt Chart', href: 'https://sharing.clickup.com/9014347314/g/h/8cmr1hj-874/21183ef8d0e8e99', phase: 'SD1', type: 'Public Link', action: 'Open' }
-            ]
-        },
-        {
-            title: 'Slides',
-            description: 'Presentation slide decks for Senior Design checkpoints.',
-            items: [
-                { title: 'CDR Presentation Slides', href: '', phase: 'SD2', type: 'PowerPoint', action: 'Download' },
-                { title: 'Final Presentation Slides', href: '', phase: 'SD2', type: 'PowerPoint', action: 'Download' }
-            ]
-        }
-    ];
+	const resourceSections = [
+		{
+			title: 'Project Links',
+			description: 'Official website, task dashboard, and public source-code repositories.',
+			items: [
+				{
+					title: 'Official PrecisionShot Website',
+					href: '/',
+					phase: 'Ongoing',
+					type: 'Project Website',
+					action: 'Open'
+				},
+				{
+					title: 'Project Tasks Dashboard',
+					href: '/tasks',
+					phase: 'Ongoing',
+					type: 'Task Dashboard',
+					action: 'Open'
+				},
+				{
+					title: 'Website Source Code',
+					href: 'https://github.com/Teesitin/precisionshot-web',
+					phase: 'Ongoing',
+					type: 'GitHub Repository',
+					action: 'Open'
+				},
+				{
+					title: 'Mobile Application Source Code',
+					href: 'https://github.com/Teesitin/precisionshot-app',
+					phase: 'Ongoing',
+					type: 'GitHub Repository',
+					action: 'Open'
+				},
+				{
+					title: 'Embedded Firmware Source Code',
+					href: 'https://github.com/Teesitin/precisionshot-firmware',
+					phase: 'Ongoing',
+					type: 'GitHub Repository',
+					action: 'Open'
+				}
+			]
+		},
+		{
+			title: 'Documents',
+			description: 'Senior Design reports and written submissions.',
+			items: [
+				{
+					title: 'Divide and Conquer Document',
+					href: 'https://delayne.b-cdn.net/precisionshot/Divide%20%26%20Conquer%20Document%20and%20Committee%20Formation%20-%20Senior%20Design%201%20(12).pdf',
+					phase: 'SD1',
+					type: 'PDF Document',
+					action: 'Download'
+				},
+				{
+					title: 'Midterm Report',
+					href: 'https://delayne.b-cdn.net/precisionshot/Midterm%20Report%20-%20Senior%20Design%201%20(1).pdf',
+					phase: 'SD1',
+					type: 'PDF Document',
+					action: 'Download'
+				},
+				{
+					title: 'SD1 Final Report',
+					href: '',
+					phase: 'SD1',
+					type: 'PDF Document',
+					action: 'Download'
+				},
+				{
+					title: '8-Page Conference Paper',
+					href: '',
+					phase: 'SD2',
+					type: 'PDF Document',
+					action: 'Download'
+				},
+				{
+					title: 'SD2 Final Report',
+					href: '',
+					phase: 'SD2',
+					type: 'PDF Document',
+					action: 'Download'
+				}
+			]
+		},
+		{
+			title: 'Slides',
+			description: 'Presentation slide decks for Senior Design checkpoints.',
+			items: [
+				{
+					title: 'CDR Presentation Slides',
+					href: '',
+					phase: 'SD2',
+					type: 'PowerPoint',
+					action: 'Download'
+				},
+				{
+					title: 'Final Presentation Slides',
+					href: '',
+					phase: 'SD2',
+					type: 'PowerPoint',
+					action: 'Download'
+				}
+			]
+		}
+	];
 
     const videos = [
         { title: 'Mini Demo Video', href: 'https://delayne.b-cdn.net/precisionshot/PrecisionShot_SD1_Mini_Demo_2026-07-27.mp4', phase: 'SD1', type: 'Video', action: 'Watch' },
@@ -158,8 +232,8 @@
 				</p>
 
 				<div class="mt-8 flex flex-wrap gap-4">
-					<a href="#documents" class="rounded bg-accent px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_0_30px_rgba(236,211,22,0.24)] transition-all hover:-translate-y-0.5 hover:bg-accent/85 hover:shadow-[0_0_40px_rgba(236,211,22,0.38)]">
-						View Documents
+					<a href="#resources" class="rounded bg-accent px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_0_30px_rgba(236,211,22,0.24)] transition-all hover:-translate-y-0.5 hover:bg-accent/85 hover:shadow-[0_0_40px_rgba(236,211,22,0.38)]">
+						View Resources
 					</a>
 					<a href="#project" class="rounded border border-slate-950/15 bg-white/70 px-5 py-3 text-sm font-bold text-slate-950 shadow-lg backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-accent/70 hover:bg-white/90 dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:bg-white/20">
 						Project Overview
@@ -349,49 +423,78 @@
 		</div>
 	</section>
 
-	<!-- Documents and Slides -->
-	<section id="documents" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-950">
+	<!-- Project Resources -->
+	<section id="resources" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-950">
 		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Documents and Slides</h2>
+			<h2 class="font-blackops text-3xl text-accent">Project Resources</h2>
 
 			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				This section contains project documents, presentation materials, and public project management links.
+				This section contains the official project website, public task dashboard,
+				source-code repositories, Senior Design documents, and presentation materials.
 			</p>
 
 			<div class="mt-8 space-y-10">
 				{#each resourceSections as section}
 					<div>
 						<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
-							<h3 class="text-xl font-bold text-slate-950 dark:text-white">{section.title}</h3>
-							<p class="mt-1 text-sm text-slate-500 dark:text-slate-500">{section.description}</p>
+							<h3 class="text-xl font-bold text-slate-950 dark:text-white">
+								{section.title}
+							</h3>
+
+							<p class="mt-1 text-sm text-slate-500 dark:text-slate-500">
+								{section.description}
+							</p>
 						</div>
 
 						<div class="mt-5 grid gap-4 md:grid-cols-2">
 							{#each section.items as item}
 								{#if item.href}
-									<a href={item.href} target="_blank" rel="noreferrer" class="group rounded border border-slate-200 bg-white p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800">
+									<a
+										href={item.href}
+										target={item.href.startsWith('http') ? '_blank' : undefined}
+										rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+										class="group rounded border border-slate-200 bg-white p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
+									>
 										<div class="flex flex-wrap items-center gap-2">
-											<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{item.phase}</p>
-											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{item.type}</p>
+											<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">
+												{item.phase}
+											</p>
+
+											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">
+												{item.type}
+											</p>
 										</div>
 
-										<h4 class="mt-4 font-bold text-slate-950 dark:text-white">{item.title}</h4>
+										<h4 class="mt-4 font-bold text-slate-950 dark:text-white">
+											{item.title}
+										</h4>
 
 										<p class="mt-3 text-sm text-slate-500 dark:text-slate-500">
-											<span class="text-accent group-hover:underline">{item.action}</span>
+											<span class="text-accent group-hover:underline">
+												{item.action}
+											</span>
 											<span> this resource.</span>
 										</p>
 									</a>
 								{:else}
 									<div class="rounded border border-slate-200 bg-white/70 p-5 opacity-70 transition-colors dark:border-slate-800 dark:bg-slate-900/60">
 										<div class="flex flex-wrap items-center gap-2">
-											<p class="rounded bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">{item.phase}</p>
-											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-500 dark:border-slate-700">{item.type}</p>
+											<p class="rounded bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">
+												{item.phase}
+											</p>
+
+											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-500 dark:border-slate-700">
+												{item.type}
+											</p>
 										</div>
 
-										<h4 class="mt-4 font-bold text-slate-700 dark:text-slate-300">{item.title}</h4>
+										<h4 class="mt-4 font-bold text-slate-700 dark:text-slate-300">
+											{item.title}
+										</h4>
 
-										<p class="mt-3 text-sm text-slate-500">Unavailable at this time.</p>
+										<p class="mt-3 text-sm text-slate-500">
+											Unavailable at this time.
+										</p>
 									</div>
 								{/if}
 							{/each}
