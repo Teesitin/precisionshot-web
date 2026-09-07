@@ -1,0 +1,74 @@
+---
+config:
+  layout: dagre
+---
+flowchart LR
+
+subgraph INPUTS["Inputs / Sensing"]
+    Laser["Incoming Laser"]
+    Sensors["Phototransistor Array<br/>Light to Electrical Signals"]
+    Buttons["Physical Buttons<br/>User Input"]
+end
+
+subgraph CONTROL["Signal Acquisition / Control"]
+    MUX["Multiplexer Network<br/>Sensor Channel Selection"]
+    ESP32["ESP32-S3<br/>Read Sensors + Control Outputs"]
+    BLE["Bluetooth Low Energy<br/>Phone Connection"]
+end
+
+subgraph OUTPUTS["Feedback / Peripherals"]
+    LEDs["Addressable LED Array<br/>Shot-Location Feedback"]
+    Display["TFT LCD<br/>Score / Mode / Status"]
+    SD["microSD Interface<br/>Local Device Logs"]
+end
+
+subgraph POWER["Power Distribution"]
+    USB["USB-C / Battery Pack<br/>Rechargeable Supply"]
+    Protection["Power Switch<br/>Protection + Monitoring"]
+    Rail5["5 V Supply Rail"]
+    Regulator["3.3 V Regulation"]
+end
+
+subgraph VALIDATION["Hardware Validation"]
+    Signals["Sensor + Interface Checks<br/>Signal Integrity"]
+    Rails["Power-Rail Checks<br/>Load + Stability"]
+end
+
+Laser --> Sensors --> MUX -->|Sensor readings| ESP32
+ESP32 -. channel selection .-> MUX
+Buttons -->|GPIO| ESP32
+ESP32 -->|LED data| LEDs
+ESP32 -->|Display data| Display
+ESP32 -->|SPI| SD
+ESP32 <--> BLE
+
+USB ==> Protection ==> Rail5 ==> Regulator
+Rail5 ==> LEDs
+Rail5 ==> Display
+Regulator ==> Sensors
+Regulator ==> MUX
+Regulator ==> ESP32
+Regulator ==> SD
+Protection -. supply status .-> ESP32
+Signals -. verifies .-> MUX
+Signals -. verifies .-> ESP32
+Rails -. verifies .-> Rail5
+Rails -. verifies .-> Regulator
+
+style INPUTS fill:#F6F7F9,stroke:#AAB2BA,stroke-width:1.5px,color:#263238
+style CONTROL fill:#F1F7FC,stroke:#76A7C9,stroke-width:1.5px,color:#18364A
+style OUTPUTS fill:#FFF8ED,stroke:#D6A85F,stroke-width:1.5px,color:#3B2B16
+style POWER fill:#F1FAF5,stroke:#86B89B,stroke-width:1.5px,color:#20382A
+style VALIDATION fill:#F8F3FB,stroke:#A88ABB,stroke-width:1.5px,color:#382442
+
+classDef software fill:#DCEEF9,stroke:#2874A6,color:#000,stroke-width:2px;
+classDef hardware fill:#FCE4BF,stroke:#B9770E,color:#000,stroke-width:2px;
+classDef validation fill:#EDE1F2,stroke:#7D3C98,color:#000,stroke-width:2px;
+classDef power fill:#DCF4E6,stroke:#239B56,color:#000,stroke-width:2px;
+classDef external fill:#ECEFF1,stroke:#7F8C8D,color:#000,stroke-width:2px;
+
+class Laser,Sensors,Buttons external;
+class MUX,ESP32,BLE software;
+class LEDs,Display,SD hardware;
+class USB,Protection,Rail5,Regulator power;
+class Signals,Rails validation;

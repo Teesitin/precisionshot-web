@@ -1,0 +1,73 @@
+---
+config:
+  layout: dagre
+---
+flowchart LR
+
+subgraph SCHEMATIC["Schematic / Design Inputs"]
+    Circuits["Component Selection<br/>Sensor / Control / Power Circuits"]
+    Interfaces["Pin Assignments<br/>Connector + Signal Definitions"]
+    Constraints["Board Dimensions<br/>Mounting + Placement Constraints"]
+end
+
+subgraph TARGET["Target PCB"]
+    SensorLayout["Phototransistor Placement<br/>Target Detection Grid"]
+    LEDLayout["LED Placement<br/>Visible Hit Feedback"]
+    TargetRoutes["Sensor + LED Routing<br/>Power / Ground Distribution"]
+end
+
+subgraph MAIN["Main / Control PCB"]
+    Controller["ESP32-S3 Placement<br/>Control + Peripheral Connections"]
+    Power["Power Circuit Layout<br/>Regulation + Decoupling"]
+    Headers["Board + Peripheral Headers<br/>Display / Buttons / microSD"]
+end
+
+subgraph ASSEMBLY["Board Connections / Fit"]
+    Interconnect["Board-to-Board Connections<br/>Signals + Power + Ground"]
+    Alignment["Faceplate Alignment<br/>Sensors + LEDs + Mounting Holes"]
+    Access["Connector Access<br/>Assembly + Service Clearance"]
+end
+
+subgraph RELEASE["Review / Fabrication"]
+    Rules["Electrical + Layout Checks<br/>Clearances / Traces / Connections"]
+    Build["Fabrication Outputs<br/>Board Assembly"]
+    Bringup["Board Bring-Up<br/>Rails / Continuity / Interfaces"]
+end
+
+Circuits --> SensorLayout
+Circuits --> Controller
+Interfaces --> Headers
+Constraints --> Alignment
+SensorLayout --> TargetRoutes
+LEDLayout --> TargetRoutes
+Power ==> Controller
+Power ==> Headers
+Controller --> Headers
+TargetRoutes --> Interconnect
+Headers --> Interconnect
+SensorLayout -. position .-> Alignment
+LEDLayout -. position .-> Alignment
+Headers -. clearance .-> Access
+Interconnect --> Rules
+Alignment --> Rules
+Access --> Rules
+Rules --> Build --> Bringup
+Bringup -. review findings .-> Circuits
+
+style SCHEMATIC fill:#F6F7F9,stroke:#AAB2BA,stroke-width:1.5px,color:#263238
+style TARGET fill:#FFF8ED,stroke:#D6A85F,stroke-width:1.5px,color:#3B2B16
+style MAIN fill:#F1F7FC,stroke:#76A7C9,stroke-width:1.5px,color:#18364A
+style ASSEMBLY fill:#F1FAF5,stroke:#86B89B,stroke-width:1.5px,color:#20382A
+style RELEASE fill:#F8F3FB,stroke:#A88ABB,stroke-width:1.5px,color:#382442
+
+classDef software fill:#DCEEF9,stroke:#2874A6,color:#000,stroke-width:2px;
+classDef hardware fill:#FCE4BF,stroke:#B9770E,color:#000,stroke-width:2px;
+classDef validation fill:#EDE1F2,stroke:#7D3C98,color:#000,stroke-width:2px;
+classDef mechanical fill:#DCF4E6,stroke:#239B56,color:#000,stroke-width:2px;
+classDef external fill:#ECEFF1,stroke:#7F8C8D,color:#000,stroke-width:2px;
+
+class Circuits,Interfaces,Constraints external;
+class SensorLayout,LEDLayout,TargetRoutes hardware;
+class Controller,Power,Headers software;
+class Interconnect,Alignment,Access mechanical;
+class Rules,Build,Bringup validation;

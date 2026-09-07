@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MermaidDiagram from '$lib/components/MermaidDiagram.svelte';
+	import ObjModelViewer from '$lib/components/ObjModelViewer.svelte';
 	import { flowcharts } from '$lib/flowcharts';
 
 	const teamMembers = [
@@ -412,7 +413,7 @@
 			<h2 class="font-blackops text-3xl text-accent">Design Outline</h2>
 
 			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				This section contains the current software design flowcharts for the PrecisionShot system.
+				Five views of the PrecisionShot design: the main hardware block diagram, followed by software, hardware, PCB, and mechanical design summaries.
 			</p>
 
 			<div class="mt-8 space-y-6">
@@ -420,6 +421,7 @@
 					<MermaidDiagram title={flowchart.title} chart={flowchart.chart} />
 				{/each}
 			</div>
+			<ObjModelViewer />
 		</div>
 	</section>
 

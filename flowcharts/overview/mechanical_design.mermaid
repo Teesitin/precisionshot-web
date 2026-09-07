@@ -1,0 +1,72 @@
+---
+config:
+  layout: dagre
+---
+flowchart LR
+
+subgraph INPUTS["Physical Design Inputs"]
+    Board["PCB Dimensions<br/>Sensor + LED Locations"]
+    Peripherals["LCD / Buttons / Connectors<br/>Battery Dimensions"]
+    Use["Target Positioning<br/>Visibility + Portability"]
+end
+
+subgraph FACE["Target Face / Light Control"]
+    Faceplate["Faceplate Geometry<br/>Target Surface + Openings"]
+    Alignment["Sensor + LED Alignment<br/>Clear Optical Paths"]
+    Shielding["Recesses / Light Shielding<br/>Reduce Off-Axis Light"]
+end
+
+subgraph STRUCTURE["Enclosure / Internal Mounting"]
+    Shell["Protective Enclosure<br/>Front + Rear Structure"]
+    Supports["PCB Supports + Fasteners<br/>Board Spacing + Clearances"]
+    Wiring["Cable Routing<br/>Connector + Wiring Clearance"]
+end
+
+subgraph ACCESS["Controls / Power / Service"]
+    Panel["LCD + Button Cutouts<br/>Visible and Accessible Controls"]
+    Battery["Battery Mounting<br/>Charging-Port Access"]
+    Service["Assembly + Service Access<br/>Firmware / Boards / Battery"]
+end
+
+subgraph CHECKS["Prototype / Fit Validation"]
+    Prototype["3D CAD + Prototype Parts"]
+    Fit["Assembly + Alignment Checks<br/>Mounting / Cutouts / Clearances"]
+    Lighting["Lighting + Use Checks<br/>Sensor Exposure + Feedback"]
+end
+
+Board --> Faceplate
+Board --> Supports
+Peripherals --> Panel
+Peripherals --> Battery
+Use --> Shell
+Faceplate --> Alignment --> Shielding
+Faceplate --> Shell
+Shell --> Supports --> Wiring
+Shell --> Service
+Panel -. fits into .-> Shell
+Battery -. secured inside .-> Shell
+Wiring --> Service
+Faceplate --> Prototype
+Shell --> Prototype
+Prototype --> Fit --> Lighting
+Fit -. fit adjustments .-> Supports
+Fit -. opening alignment .-> Faceplate
+Lighting -. light-control feedback .-> Shielding
+
+style INPUTS fill:#F6F7F9,stroke:#AAB2BA,stroke-width:1.5px,color:#263238
+style FACE fill:#F1FAF5,stroke:#86B89B,stroke-width:1.5px,color:#20382A
+style STRUCTURE fill:#FFF8ED,stroke:#D6A85F,stroke-width:1.5px,color:#3B2B16
+style ACCESS fill:#F1F7FC,stroke:#76A7C9,stroke-width:1.5px,color:#18364A
+style CHECKS fill:#F8F3FB,stroke:#A88ABB,stroke-width:1.5px,color:#382442
+
+classDef interface fill:#DCEEF9,stroke:#2874A6,color:#000,stroke-width:2px;
+classDef hardware fill:#FCE4BF,stroke:#B9770E,color:#000,stroke-width:2px;
+classDef validation fill:#EDE1F2,stroke:#7D3C98,color:#000,stroke-width:2px;
+classDef mechanical fill:#DCF4E6,stroke:#239B56,color:#000,stroke-width:2px;
+classDef external fill:#ECEFF1,stroke:#7F8C8D,color:#000,stroke-width:2px;
+
+class Board,Peripherals,Use external;
+class Faceplate,Alignment,Shielding mechanical;
+class Shell,Supports,Wiring hardware;
+class Panel,Battery,Service interface;
+class Prototype,Fit,Lighting validation;

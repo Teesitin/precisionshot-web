@@ -1,0 +1,71 @@
+---
+config:
+  layout: dagre
+---
+flowchart LR
+
+subgraph STARTUP["Startup / Configuration"]
+    Boot["Initialize Peripherals<br/>Load Saved Settings"]
+    Calibrate["Lighting Calibration<br/>Set Detection Thresholds"]
+    Settings["Mode + Distance<br/>Physical or App Controls"]
+end
+
+subgraph DETECTION["Sensor Processing / Shot Logic"]
+    Scan["Scan Sensor Array<br/>Through Multiplexers"]
+    Filter["Filter Ambient Light<br/>Validate Sensor Cluster"]
+    Position["Estimate Shot Position<br/>Weighted Sensor Readings"]
+    Score["Apply Training Mode<br/>Calculate Score"]
+end
+
+subgraph FEEDBACK["Target Feedback / Storage"]
+    LEDs["LED Hit Feedback"]
+    LCD["LCD + Local Controls<br/>Score / Mode / Status"]
+    Logs["microSD Logs<br/>Shot + Diagnostic Data"]
+end
+
+subgraph MOBILE["Companion App / Bluetooth"]
+    BLE["BLE Connection<br/>Events + Commands"]
+    Live["Live Target View<br/>Settings + Session Controls"]
+    History["Local Session Storage<br/>History + Analytics"]
+end
+
+subgraph RELIABILITY["System State / Recovery"]
+    State["Ready / Training<br/>Calibration / Error"]
+    Recovery["Report Errors<br/>Keep Local Operation"]
+end
+
+Boot --> Calibrate --> Scan
+Settings --> Calibrate
+Settings --> Score
+Scan --> Filter --> Position --> Score
+Filter -. invalid reading .-> Scan
+Score --> LEDs
+Score --> LCD
+Score --> Logs
+Score -. shot event .-> BLE
+BLE --> Live --> History
+Live -. settings commands .-> Settings
+Boot --> State
+State -. coordinates .-> Scan
+State --> LCD
+BLE -. disconnected .-> Recovery
+Recovery --> LCD
+Recovery --> Logs
+
+style STARTUP fill:#F6F7F9,stroke:#AAB2BA,stroke-width:1.5px,color:#263238
+style DETECTION fill:#F1F7FC,stroke:#76A7C9,stroke-width:1.5px,color:#18364A
+style FEEDBACK fill:#FFF8ED,stroke:#D6A85F,stroke-width:1.5px,color:#3B2B16
+style MOBILE fill:#F1FAF5,stroke:#86B89B,stroke-width:1.5px,color:#20382A
+style RELIABILITY fill:#F8F3FB,stroke:#A88ABB,stroke-width:1.5px,color:#382442
+
+classDef software fill:#DCEEF9,stroke:#2874A6,color:#000,stroke-width:2px;
+classDef hardware fill:#FCE4BF,stroke:#B9770E,color:#000,stroke-width:2px;
+classDef validation fill:#EDE1F2,stroke:#7D3C98,color:#000,stroke-width:2px;
+classDef companion fill:#DCF4E6,stroke:#239B56,color:#000,stroke-width:2px;
+classDef external fill:#ECEFF1,stroke:#7F8C8D,color:#000,stroke-width:2px;
+
+class Boot,Calibrate,Settings external;
+class Scan,Filter,Position,Score software;
+class LEDs,LCD,Logs hardware;
+class BLE,Live,History companion;
+class State,Recovery validation;

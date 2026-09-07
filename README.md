@@ -46,6 +46,7 @@ The website serves as the central public record for the project and includes:
 - Senior Design I and II milestones
 - Light and dark display modes
 - Interactive Mermaid diagrams with fullscreen zooming and panning
+- An interactive OBJ viewer for the main board, target board, and faceplate
 
 ## Team
 
@@ -65,10 +66,22 @@ The website is built with:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Mermaid](https://mermaid.js.org/)
+- [Three.js](https://threejs.org/)
 - [Vite](https://vite.dev/)
 - [pnpm](https://pnpm.io/)
 
 ## Getting Started
+
+### 3D Model Assets
+
+The Design Outline viewer loads the supplied OBJ/MTL pairs from `static/models/`.
+Keep each original material file beside its matching OBJ when refreshing the
+exports. The source geometry is unchanged; the viewer centers and fits it for
+display. The board exports use Z-up and the faceplate uses Y-up.
+
+The 3D code and first model load when the viewer approaches the viewport. Only
+the selected model is loaded, previous loads are cancelled when switching, and
+the scene renders on interaction or resize rather than in a continuous loop.
 
 ### Requirements
 
