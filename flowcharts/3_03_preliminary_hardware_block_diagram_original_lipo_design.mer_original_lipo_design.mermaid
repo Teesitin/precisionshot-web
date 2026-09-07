@@ -1,0 +1,54 @@
+flowchart LR
+
+    USB["USB-C Input<br/>(TP4056)"]
+    Battery["LiPo Battery"]
+    Switch["SPST Power Switch"]
+    Monitor["Battery Monitor<br/>(MAX17048)"]
+
+    Reg3["3.3 V Regulator<br/>(TPS62130)"]
+    Reg5["5.0 V Regulator<br/>(MT3608)"]
+
+    SD["SD Card"]
+    MCU["MCU<br/>(ESP32-WROOM-32E)"]
+    Sensors["Phototransistor Array"]
+    MUX["MUX"]
+    LEDs["LED Array"]
+    TFT["TFT Display"]
+    Buttons["Push Buttons"]
+
+    USB --> Battery
+
+    Battery --> Switch
+    Battery --> Monitor
+    Battery --> Reg3
+    Battery --> Reg5
+    Battery --> Buttons
+
+    Reg3 --> SD
+    Reg3 --> MCU
+    Reg3 --> Sensors
+
+    Reg5 --> LEDs
+    Reg5 --> TFT
+
+    Monitor --> MCU
+    SD <--> MCU
+
+    Sensors --> MUX
+    MUX -.-> MCU
+
+    LEDs --> MCU
+    TFT --> MCU
+    Buttons --> MCU
+
+    classDef source fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+    classDef power fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+    classDef control fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+    classDef sensor fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+    classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+
+    class USB source;
+    class Battery,Switch,Monitor,Reg3,Reg5 power;
+    class MCU,TFT,Buttons control;
+    class Sensors,MUX,LEDs sensor;
+    class SD storage;

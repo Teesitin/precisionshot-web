@@ -1,0 +1,87 @@
+---
+config:
+  layout: dagre
+---
+flowchart LR
+
+subgraph EXT["External"]
+    Laser["Laser"]
+    Phone["Smartphone"]
+    USB["USB-C Power"]
+end
+
+subgraph NICK["Nick - Enclosure / Battery"]
+    Shell["Enclosure + Faceplate"]
+    Mount["Mounting + Cutouts"]
+    Battery["Battery Pack<br/>Charging + Fuel Gauge"]
+end
+
+subgraph ANTHONY["Anthony - Hardware / PCB"]
+    Sensor["Sensor PCB<br/>400 Sensors + LEDs"]
+    Control["ESP32-S3 + MUX"]
+    Interface["LCD + Buttons + microSD"]
+    Power["3.3 V / 5 V Regulators"]
+end
+
+subgraph DELAYNE["DeLayne - Software / App"]
+    Firmware["Firmware + Shot Logic"]
+    App["React Native App + BLE"]
+    Data["History + Analytics"]
+end
+
+subgraph KENN["Kenn - Research / Testing"]
+    Research["Research + Specifications"]
+    Testing["Testing + Validation"]
+end
+
+Laser --> Shell
+Shell --> Sensor
+Sensor --> Control
+Control --> Firmware
+Control --> Interface
+
+Firmware -->|LED control| Sensor
+Firmware -->|Display data| Interface
+
+USB --> Battery
+Battery --> Power
+Battery -->|Battery % + status| Control
+
+Power ==> Sensor
+Power ==> Control
+Power ==> Interface
+
+Mount -. supports .-> Shell
+Mount -. secures .-> Interface
+Mount -. secures .-> Battery
+
+Firmware -. BLE data .-> App
+App -. commands .-> Firmware
+App --> Data
+Phone -. runs .-> App
+
+Research -. guides .-> Sensor
+Research -. guides .-> Power
+Research -. guides .-> Firmware
+
+Testing -. validates .-> Sensor
+Testing -. validates .-> Firmware
+Testing -. validates .-> App
+
+style EXT fill:#F6F7F9,stroke:#AAB2BA,stroke-width:1.5px,color:#263238
+style NICK fill:#F1FAF5,stroke:#86B89B,stroke-width:1.5px,color:#20382A
+style ANTHONY fill:#FFF8ED,stroke:#D6A85F,stroke-width:1.5px,color:#3B2B16
+style DELAYNE fill:#F1F7FC,stroke:#76A7C9,stroke-width:1.5px,color:#18364A
+style KENN fill:#F8F3FB,stroke:#A88ABB,stroke-width:1.5px,color:#382442
+
+classDef delayne fill:#DCEEF9,stroke:#2874A6,color:#000,stroke-width:2px;
+classDef anthony fill:#FCE4BF,stroke:#B9770E,color:#000,stroke-width:2px;
+classDef kenn fill:#EDE1F2,stroke:#7D3C98,color:#000,stroke-width:2px;
+classDef nick fill:#DCF4E6,stroke:#239B56,color:#000,stroke-width:2px;
+classDef external fill:#ECEFF1,stroke:#7F8C8D,color:#000,stroke-width:2px;
+
+class Firmware,App,Data delayne;
+class Sensor,Control,Interface,Power anthony;
+class Research,Testing kenn;
+class Shell,Mount,Battery nick;
+class Laser,Phone,USB external;

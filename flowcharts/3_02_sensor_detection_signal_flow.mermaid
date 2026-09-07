@@ -1,0 +1,22 @@
+flowchart TB
+
+    Laser["Laser Hits Target"]
+    Detect["One or More Sensors<br/>Detect Light"]
+    Signal["Sensor Signals Sent<br/>to Controller"]
+    Check["Controller Checks<br/>Sensor Location"]
+    Position["Estimated Shot Position"]
+
+    Laser --> Detect
+    Detect --> Signal
+    Signal --> Check
+    Check --> Position
+
+    classDef input fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+    classDef sensor fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+    classDef control fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+    classDef result fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+
+    class Laser input;
+    class Detect,Signal sensor;
+    class Check control;
+    class Position result;

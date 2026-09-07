@@ -1,0 +1,19 @@
+flowchart TB
+
+    PCB["Main PCB"]
+
+    Photo["Photo Transistor Array"]
+    Routing["Sensor Signal Routing"]
+    Power["Power and Ground Rails"]
+    Connectors["Connectors"]
+    TestPoints["Test Points"]
+
+    Control["Control Module"]
+
+    PCB --> Photo
+    PCB --> Routing
+    PCB --> Power
+    PCB --> Connectors
+    PCB --> TestPoints
+
+    Connectors --> Control

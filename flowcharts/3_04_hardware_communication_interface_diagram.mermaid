@@ -1,0 +1,14 @@
+flowchart LR
+
+    Sensor["Sensor Array"]
+    Buttons["Buttons"]
+    Battery["Battery Monitor"]
+
+    MCU["Microcontroller"]
+    Display["LCD Display"]
+
+    Sensor -->|Analog or Digital Signals| MCU
+    Buttons -->|GPIO Inputs| MCU
+    Battery -->|Analog or I2C| MCU
+
+    MCU -->|I2C or SPI| Display

@@ -1,0 +1,55 @@
+---
+config:
+  layout: dagre
+  theme: base
+---
+
+flowchart LR
+
+    USB["USB-C Charger"]
+    Bank["KUXIU Power Bank<br/>Battery + Charging + BMS"]
+    Switch["Power Switch"]
+    Fuse["Polyfuse"]
+    Monitor["INA219<br/>Power Monitor"]
+
+    Rail5["5 V Rail"]
+    Buck["LMR33620<br/>3.3 V Buck"]
+    Rail3["3.3 V Rail"]
+
+    Display["TFT Display"]
+    LEDs["LED Array"]
+    ESP32["ESP32-S3"]
+    Sensors["Sensors + MUX"]
+    SD["microSD"]
+
+    USB --> Bank
+    Bank ==> Switch
+    Switch ==> Fuse
+    Fuse ==> Monitor
+    Monitor ==> Rail5
+
+    Rail5 ==> Display
+    Rail5 ==> LEDs
+    Rail5 ==> Buck
+
+    Buck ==> Rail3
+    Rail3 ==> ESP32
+    Rail3 ==> Sensors
+    Rail3 ==> SD
+
+    Monitor -. "I2C power data" .-> ESP32
+    ESP32 -. "Battery %" .-> Display
+
+classDef target fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#102033;
+classDef app fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#102033;
+classDef ble fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#102033;
+classDef storage fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#102033;
+classDef process fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#102033;
+classDef warn fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#102033;
+classDef future fill:#f1f5f9,stroke:#475569,stroke-width:2px,stroke-dasharray:5 5,color:#102033;
+
+class USB process;
+class Bank app;
+class Switch,Fuse,Monitor,Buck ble;
+class Rail5,Rail3 storage;
+class Display,LEDs,ESP32,Sensors,SD target;
