@@ -131,9 +131,9 @@
 			items: [
 				{
 					title: 'CDR Presentation Slides',
-					href: '',
+					href: 'https://delayne.b-cdn.net/precisionshot/SD2%20-%20CDR%20Presentation%20(3).pdf',
 					phase: 'SD2',
-					type: 'PowerPoint',
+					type: 'PDF Document',
 					action: 'Download'
 				},
 				{
@@ -149,7 +149,7 @@
 
     const videos = [
         { title: 'Mini Demo Video', href: 'https://delayne.b-cdn.net/precisionshot/PrecisionShot_SD1_Mini_Demo_2026-07-27.mp4', phase: 'SD1', type: 'Video', action: 'Watch' },
-        { title: 'CDR Presentation Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
+        { title: 'CDR Presentation Video', href: 'https://delayne.b-cdn.net/precisionshot/Cdr%20V1-1200.mp4', phase: 'SD2', type: 'Video', action: 'Watch' },
         { title: 'Midterm Demonstration Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
         { title: 'Final Presentation Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
         { title: 'Final Demonstration Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' }
@@ -513,7 +513,7 @@
 			<h2 class="font-blackops text-3xl text-accent">Videos</h2>
 
 			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				This section will include YouTube links for required Senior Design demonstration and presentation videos as they become available.
+				Senior Design demonstration and presentation videos are added here as they become available.
 			</p>
 
 			<div class="mt-8 grid gap-4 md:grid-cols-2">

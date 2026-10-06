@@ -3,9 +3,13 @@
 	import type { ObjViewer } from '$lib/obj-viewer';
 
 	const models = [
-		{ name: 'Main board', file: 'Main Board', size: '28 MB', zUp: true },
-		{ name: 'Target board', file: 'PST', size: '29 MB', zUp: true },
-		{ name: 'Faceplate V2.1', file: 'SENIOR DESIGN 2 Faceplate V2.1', size: '1 MB', zUp: false }
+		{ name: 'Main board V4', file: '2026-10-06/Main Board V4', size: '38 MB', zUp: true },
+		{ name: 'Sensor board', file: '2026-10-06/Sensor Board', size: '56 MB', zUp: true },
+		{ name: '3.3 V / 5 V regulator board', file: '2026-10-06/Regulator Board', size: '4.5 MB', zUp: true },
+		{ name: 'Top faceplate V3', file: '2026-10-06/SENIOR DESIGN 2 Faceplate Top V3', size: '0.14 MB', zUp: true },
+		{ name: 'Bottom faceplate V3', file: '2026-10-06/SENIOR DESIGN 2 Faceplate Bottom V3', size: '0.24 MB', zUp: true },
+		{ name: 'Enclosure container V3', file: '2026-10-06/SENIOR DESIGN 2 Container V3', size: '1.1 MB', zUp: true },
+		{ name: 'Diffuser', file: '2026-10-06/SENIOR DESIGN 2 Diffuser', size: '4 KB', zUp: true }
 	];
 	let selected = $state(0);
 	let status = $state<'idle' | 'loading' | 'ready' | 'error'>('idle');
@@ -49,7 +53,8 @@
 		// Abort stalled requests and ignore results from a previous selection.
 		const timeout = setTimeout(() => request.abort(), 90000);
 		async function read(extension: string) {
-			const response = await fetch(`/models/${encodeURIComponent(model.file)}.${extension}`, { signal: request.signal });
+			const path = model.file.split('/').map(encodeURIComponent).join('/');
+			const response = await fetch(`/models/${path}.${extension}`, { signal: request.signal });
 			if (!response.ok) throw new Error('Model file unavailable');
 			return response.text();
 		}

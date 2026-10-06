@@ -1,6 +1,6 @@
 import {
 	Box3, DirectionalLight, DoubleSide, Group, HemisphereLight, MathUtils,
-	Mesh, PerspectiveCamera, Scene, Sphere, Spherical, Vector3, WebGLRenderer
+	Mesh, MeshPhongMaterial, PerspectiveCamera, Scene, Sphere, Spherical, Vector3, WebGLRenderer
 } from 'three';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
@@ -108,6 +108,14 @@ export function createObjViewer(canvas: HTMLCanvasElement) {
 				if (!(object instanceof Mesh)) return;
 				for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
 					material.side = DoubleSide;
+					// Fusion exports its clear diffuser appearance as opaque black in MTL.
+					// Restore a visible translucent surface without changing the source files.
+					if (material instanceof MeshPhongMaterial && material.name === 'Clear') {
+						material.color.set(0xdcebea);
+						material.transparent = true;
+						material.opacity = 0.7;
+						material.depthWrite = false;
+					}
 				}
 			});
 			if (model) { scene.remove(model); disposeModel(model); }
