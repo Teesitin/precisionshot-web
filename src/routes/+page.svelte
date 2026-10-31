@@ -111,7 +111,7 @@
 				},
 				{
 					title: '8-Page Conference Paper',
-					href: '',
+					href: '/documents/Group13_PrecisionShot_Conference_Paper_v2.pdf',
 					phase: 'SD2',
 					type: 'PDF Document',
 					action: 'Download'
