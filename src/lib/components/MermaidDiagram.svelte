@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
 	import Icon from '$lib/components/Icon.svelte';
+	import { darkenDiagramStyles } from '$lib/diagram-colors';
 
 	let { title, chart } = $props<{
 		title: string;
@@ -100,16 +101,19 @@
 		"rankSpacing": 55
 	},
 	"themeVariables": {
+		"darkMode": true,
 		"background": "#0f172a",
 		"mainBkg": "#0f172a",
 		"primaryColor": "#1e293b",
-		"primaryTextColor": "#f8fafc",
+		"primaryTextColor": "#cbd5e1",
+		"textColor": "#cbd5e1",
+		"edgeLabelBackground": "#0f172a",
 		"primaryBorderColor": "#475569",
-		"lineColor": "#94a3b8",
+		"lineColor": "#64748b",
 		"fontFamily": "Inter, system-ui, sans-serif",
 		"clusterBkg": "#020617",
 		"clusterBorder": "#334155",
-		"titleColor": "#f8fafc"
+		"titleColor": "#cbd5e1"
 	}
 }}%%
 `;
@@ -157,53 +161,7 @@ linkStyle default stroke:#64748b,stroke-width:1.5px;
 `;
 
 	const darkSharedStyles = `
-classDef target fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe,stroke-width:2px;
-classDef app fill:#14532d,stroke:#4ade80,color:#dcfce7,stroke-width:2px;
-classDef ble fill:#7c2d12,stroke:#fb923c,color:#ffedd5,stroke-width:2px;
-classDef storage fill:#581c87,stroke:#c084fc,color:#f3e8ff,stroke-width:2px;
-classDef process fill:#1e293b,stroke:#94a3b8,color:#f8fafc,stroke-width:2px;
-classDef warn fill:#7f1d1d,stroke:#f87171,color:#fee2e2,stroke-width:2px;
-classDef future fill:#1e293b,stroke:#94a3b8,color:#f8fafc,stroke-width:2px,stroke-dasharray:5 5;
-
-classDef inputNode fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe,stroke-width:2px;
-classDef routingNode fill:#7c2d12,stroke:#fb923c,color:#ffedd5,stroke-width:2px;
-classDef controlNode fill:#581c87,stroke:#c084fc,color:#f3e8ff,stroke-width:2px;
-classDef powerNode fill:#14532d,stroke:#4ade80,color:#dcfce7,stroke-width:2px;
-classDef buildNode fill:#713f12,stroke:#facc15,color:#fef9c3,stroke-width:2px;
-classDef safetyNode fill:#7f1d1d,stroke:#f87171,color:#fee2e2,stroke-width:2px;
-
-classDef inputGroup fill:#082f49,stroke:#0ea5e9,color:#e0f2fe,stroke-width:2px;
-classDef routingGroup fill:#431407,stroke:#f97316,color:#ffedd5,stroke-width:2px;
-classDef controlGroup fill:#3b0764,stroke:#a855f7,color:#f3e8ff,stroke-width:2px;
-classDef powerGroup fill:#052e16,stroke:#22c55e,color:#dcfce7,stroke-width:2px;
-classDef buildGroup fill:#422006,stroke:#eab308,color:#fef9c3,stroke-width:2px;
-classDef safetyGroup fill:#450a0a,stroke:#ef4444,color:#fee2e2,stroke-width:2px;
-
-classDef startupNode fill:#1e293b,stroke:#94a3b8,color:#f8fafc,stroke-width:2px;
-classDef filteringNode fill:#713f12,stroke:#facc15,color:#fef9c3,stroke-width:2px;
-classDef processingNode fill:#14532d,stroke:#4ade80,color:#dcfce7,stroke-width:2px;
-classDef feedbackNode fill:#581c87,stroke:#c084fc,color:#f3e8ff,stroke-width:2px;
-classDef errorNode fill:#7f1d1d,stroke:#f87171,color:#fee2e2,stroke-width:2px;
-
-classDef startupGroup fill:#020617,stroke:#475569,color:#f8fafc,stroke-width:2px;
-classDef filteringGroup fill:#422006,stroke:#eab308,color:#fef9c3,stroke-width:2px;
-classDef processingGroup fill:#052e16,stroke:#22c55e,color:#dcfce7,stroke-width:2px;
-classDef feedbackGroup fill:#3b0764,stroke:#a855f7,color:#f3e8ff,stroke-width:2px;
-classDef errorGroup fill:#450a0a,stroke:#ef4444,color:#fee2e2,stroke-width:2px;
-
-classDef delayneNode fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe,stroke-width:2px;
-classDef anthonyNode fill:#7c2d12,stroke:#fb923c,color:#ffedd5,stroke-width:2px;
-classDef kennNode fill:#581c87,stroke:#c084fc,color:#f3e8ff,stroke-width:2px;
-classDef nickNode fill:#14532d,stroke:#4ade80,color:#dcfce7,stroke-width:2px;
-classDef externalNode fill:#1e293b,stroke:#94a3b8,color:#f8fafc,stroke-width:2px;
-
-classDef delayneGroup fill:#082f49,stroke:#0ea5e9,color:#e0f2fe,stroke-width:2px;
-classDef anthonyGroup fill:#431407,stroke:#f97316,color:#ffedd5,stroke-width:2px;
-classDef kennGroup fill:#3b0764,stroke:#a855f7,color:#f3e8ff,stroke-width:2px;
-classDef nickGroup fill:#052e16,stroke:#22c55e,color:#dcfce7,stroke-width:2px;
-classDef externalGroup fill:#020617,stroke:#475569,color:#f8fafc,stroke-width:2px;
-
-linkStyle default stroke:#94a3b8,stroke-width:1.5px;
+linkStyle default stroke:#64748b,stroke-width:1.5px;
 `;
 
 	function applyTheme(chartSource: string, themeInit: string, sharedStyles: string) {
@@ -223,7 +181,7 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 
 	const themedChart = $derived(
 		applyTheme(
-			chart,
+			isDark ? darkenDiagramStyles(chart) : chart,
 			isDark ? darkThemeInit : lightThemeInit,
 			isDark ? darkSharedStyles : lightSharedStyles
 		)
