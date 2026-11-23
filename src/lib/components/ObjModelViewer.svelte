@@ -79,9 +79,8 @@
 	}
 </script>
 
-<div id="design-models" bind:this={container} class="mt-10 scroll-mt-24">
-	<h3 class="text-xl font-bold text-slate-950 dark:text-white">3D Models</h3>
-	<p id="model-instructions" class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">Drag to rotate · Scroll or pinch to zoom · Right-drag or use two fingers to move</p>
+<div id="design-models" bind:this={container} class="scroll-mt-24">
+	<p id="model-instructions" class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">Drag to rotate · Scroll to zoom</p>
 	<div class="mt-4 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
 		<div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-950">
 			<div class="flex flex-wrap items-center gap-3">
@@ -103,11 +102,11 @@
 			{#if status !== 'ready'}
 				<div class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-50 px-6 text-center dark:bg-slate-950">
 					{#if status === 'error'}
-						<p role="alert" class="text-sm text-slate-700 dark:text-slate-300">The 3D model couldn’t load. Please try again in a browser with 3D graphics support.</p>
+						<p role="alert" class="text-sm text-slate-700 dark:text-slate-300">3D preview unavailable. Please try again.</p>
 						<button type="button" class={controlClass} onclick={() => void loadModel()}>Try Again</button>
 					{:else}
 						{#if status === 'loading'}<div aria-hidden="true" class="size-9 animate-spin rounded-full border-4 border-slate-300 border-t-accent motion-reduce:animate-none dark:border-slate-700 dark:border-t-accent"></div>{/if}
-						<p role="status" class="text-sm text-slate-600 dark:text-slate-400">{status === 'loading' ? `Loading ${current.name.toLowerCase()}… (${current.size})` : 'The model will load when this viewer is in view.'}</p>
+						<p role="status" class="text-sm text-slate-600 dark:text-slate-400">{status === 'loading' ? `Loading ${current.name.toLowerCase()}… (${current.size})` : '3D preview'}</p>
 					{/if}
 				</div>
 			{/if}

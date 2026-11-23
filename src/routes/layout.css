@@ -144,7 +144,7 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .document-row { display: flex; align-items: center; gap: 15px; min-height: 72px; padding: 13px 0; border-bottom: 1px solid var(--line); }
 .file-icon { color: var(--muted); }
 .document-name { min-width: 0; }
-.document-name h4 { font-size: .85rem; font-weight: 700; line-height: 1.5; }
+.document-name h3 { font-size: .85rem; font-weight: 700; line-height: 1.5; }
 .document-name p { color: var(--muted); font-size: .75rem; margin-top: 4px; }
 .document-action { margin-left: auto; font-size: .75rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; padding: 10px 0 10px 10px; }
 .document-pending { margin-left: auto; color: var(--muted); font-size: .75rem; max-width: 85px; text-align: right; }
@@ -353,7 +353,7 @@ section, [id='documents'] { scroll-margin-top: 0; }
  .archive-video-row h3 { font-size: .85rem; margin-top: 5px; }
  .archive-video-row a { font-size: .75rem; }
  .document-row { gap: 12px; }
- .document-name h4 { font-size: .82rem; }
+ .document-name h3 { font-size: .82rem; }
  .document-action { font-size: .75rem; padding-left: 3px; }
  .document-pending { font-size: .75rem; }
  .source-code-row > div { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -390,7 +390,7 @@ section, [id='documents'] { scroll-margin-top: 0; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 
 /* Keep resource actions and interactive labels comfortable at every viewport. */
-.button-small, .hero-actions .button, .system-tabs button, .diagram-tabs button, .document-action, .document-name h4, .video-feature-info > a, .archive-video-row a, .source-code-row a, .footer-links, .team-member > p, .feature-list, .timeline-row h4 { font-size: .875rem; }
+.button-small, .hero-actions .button, .system-tabs button, .diagram-tabs button, .document-action, .document-name h3, .video-feature-info > a, .archive-video-row a, .source-code-row a, .footer-links, .team-member > p, .feature-list, .timeline-row h4 { font-size: .875rem; }
 
 .document-pending, .milestone-strip p, .timeline-row p, .video-duration { font-size: .875rem; }
 
@@ -422,3 +422,21 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .engineering-detail > #design-models { margin-top: 0; }
 @media (max-width: 800px) { .product-scene { height: 360px; padding: 20px 16px 40px; gap: 14px; } .product-scene .hero-target { max-height: 290px; } .system-overview { gap: 18px; } .system-card-image { height: 250px; padding-inline: 10px; } .system-card-image img { height: 185px; } .system-card-image figcaption { font-size: .75rem; left: 10px; } .parts-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .product-scene { height: 375px; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); } .product-scene .hero-target { max-height: 300px; } .system-overview { grid-template-columns: 1fr; gap: 28px; } .system-card-image { height: 280px; } .system-card-image img { height: 214px; } .diagram-grid { grid-template-columns: 1fr; } .parts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; } .engineering-gallery { margin-block: 24px 32px; } .engineering-page-heading > .eyebrow { margin-top: 28px; } }
+
+/* The project is one continuous page; keep section titles direct and compact. */
+.section-heading h2 { margin-top: 0; }
+.engineering-section .diagram-grid { margin-top: 32px; }
+.reviewers > h3 { font-size: 1rem; margin-bottom: 14px; }
+.reviewers ul { padding-bottom: 0; }
+.timeline-section .full-timeline { padding-bottom: 0; }
+.timeline-note { margin: 0; }
+.hero { min-height: 0; }
+.hero h1 { margin-top: 0; }
+.task-archive .archive-date { color: var(--muted); font-size: .875rem; margin-bottom: 12px; }
+.task-archive table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.task-archive th, .task-archive td { padding: 12px 0; border-bottom: 1px solid var(--line); text-align: left; }
+.task-archive th { font-weight: 600; }
+.task-archive thead { color: var(--muted); }
+.task-archive td, .task-archive th:not(:first-child) { text-align: right; padding-left: 16px; }
+#models, #architecture, #tasks { scroll-margin-top: 100px; }
+@media (max-width: 600px) { .task-archive .section-heading { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; } }

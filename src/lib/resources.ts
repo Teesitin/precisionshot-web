@@ -27,7 +27,7 @@ export const resourceSections: ResourceSection[] = [
 			},
 			{
 				title: 'Project Tasks Dashboard',
-				href: '/tasks',
+				href: '#tasks',
 				phase: 'Ongoing',
 				type: 'Task Dashboard',
 				action: 'Open'
