@@ -74,10 +74,18 @@ The website is built with:
 
 ### 3D Model Assets
 
-The Design Outline viewer loads the supplied OBJ/MTL pairs from `static/models/`.
-Keep each original material file beside its matching OBJ when refreshing the
-exports. The source geometry is unchanged; the viewer centers and fits it for
-display. The current Fusion exports all use Z-up.
+The Design Outline viewer defaults to the **V8 assembled enclosure**, with all
+ten V8 enclosure parts and the three circuit boards available in the selector.
+The supplied `PrecisionShot_V8_Enclosure_STEP_STL_OBJ.zip` is extracted unchanged
+into `static/models/v8/`, including the assembled OBJ, STEP, and STL, the
+individual `OBJ/`, `STEP/`, and `STL/` folders, and the source README.
+
+The V8 OBJ exports contain geometry without material files; the viewer uses
+the OBJ loader's default surface material and does not request an MTL. The
+assembled export retains the installed part positions and is displayed upright
+with its optical face forward. Individual parts retain their supplied print
+orientations and use Z-up for display. Coordinates are in millimeters. Display
+centering, scaling, and rotation never change the source geometry.
 
 The main board viewer uses `static/models/2026-10-06/Main Board V4.obj` and its
 matching MTL, exported from Fusion after refreshing P0008A in Main Board Library
@@ -85,27 +93,21 @@ and regenerating the 3D PCB. The amplifier's eight leads were visually checked
 against the through holes. The earlier `Main Board` export is retained. This is
 a visualization export; Fusion's electrical check still reports 33 airwires.
 
-The viewer's current set was exported through Fusion on October 6, 2026 into
-`static/models/2026-10-06/`. Each OBJ has its original matching MTL:
+The circuit boards were exported through Fusion on October 6, 2026 into
+`static/models/2026-10-06/`. Each board OBJ keeps its original matching MTL
+and uses Z-up for display:
 
 | Viewer model | Fusion source |
 | --- | --- |
 | Main board V4 | Main Board linked 3D PCB, regenerated after the amplifier package refresh |
 | Sensor board | Phototransistor Sensor Board (PSB) / Sensor Board linked 3D PCB |
 | 3.3 V / 5 V regulator board | Regulator / 3.3v & 5V Regulator 3D PCB |
-| Top faceplate V3 | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Faceplate Top V3 |
-| Bottom faceplate V3 | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Faceplate Bottom V3 |
-| Enclosure container V3 | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Container V3 |
-| Diffuser | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Diffuser |
 
-The earlier exports remain in `static/models/` for reference. The V3 Assembly
-document contains imported board STEP references, so it is not used as a complete
-enclosure model. The enclosure parts are available individually in the selector.
+The earlier enclosure exports remain in `static/models/` for reference; the
+viewer now shows V8 instead of the V3 enclosure parts.
 The regulator pair is named `Regulator Board` to avoid an ampersand in asset URLs;
 only its OBJ material-library filename was updated, with geometry and materials
 preserved.
-Fusion's `Clear` material is exported as opaque black; the viewer displays it
-as a pale translucent surface for the diffuser while retaining the original MTL.
 
 The 3D code and first model load when the viewer approaches the viewport. Only
 the selected model is loaded, previous loads are cancelled when switching, and

@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve supplied V8 CAD/mesh exports byte for byte.
+static/models/v8/**/*.obj binary
+static/models/v8/**/*.step binary
+static/models/v8/**/*.stl binary

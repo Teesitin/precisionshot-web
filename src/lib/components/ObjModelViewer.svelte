@@ -2,14 +2,30 @@
 	import { onMount } from 'svelte';
 	import type { ObjViewer } from '$lib/obj-viewer';
 
-	const models = [
-		{ name: 'Main board V4', file: '2026-10-06/Main Board V4', size: '38 MB', zUp: true },
-		{ name: 'Sensor board', file: '2026-10-06/Sensor Board', size: '56 MB', zUp: true },
-		{ name: '3.3 V / 5 V regulator board', file: '2026-10-06/Regulator Board', size: '4.5 MB', zUp: true },
-		{ name: 'Top faceplate V3', file: '2026-10-06/SENIOR DESIGN 2 Faceplate Top V3', size: '0.14 MB', zUp: true },
-		{ name: 'Bottom faceplate V3', file: '2026-10-06/SENIOR DESIGN 2 Faceplate Bottom V3', size: '0.24 MB', zUp: true },
-		{ name: 'Enclosure container V3', file: '2026-10-06/SENIOR DESIGN 2 Container V3', size: '1.1 MB', zUp: true },
-		{ name: 'Diffuser', file: '2026-10-06/SENIOR DESIGN 2 Diffuser', size: '4 KB', zUp: true }
+	type Model = {
+		name: string;
+		file: string;
+		size: string;
+		hasMaterials?: boolean;
+		rotation: [number, number, number];
+	};
+	const printRotation: [number, number, number] = [-Math.PI / 2, 0, 0];
+	const models: Model[] = [
+		// The assembled export is already upright, with its optical face toward -Z.
+		{ name: 'V8 enclosure — assembled', file: 'v8/PrecisionShot_V8_Enclosure_Assembled', size: '11.1 MB', rotation: [0, Math.PI, 0] },
+		{ name: 'V8 hollow-post optical grid', file: 'v8/OBJ/T01_R12_hollow_post_optical_grid', size: '3.1 MB', rotation: printRotation },
+		{ name: 'V8 optical faceplate', file: 'v8/OBJ/T02_R3_optical_faceplate', size: '0.53 MB', rotation: printRotation },
+		{ name: 'V8 lower sensor base', file: 'v8/OBJ/T04_Lower_sensor_base', size: '0.39 MB', rotation: printRotation },
+		{ name: 'V8 upper sensor base', file: 'v8/OBJ/T05_Upper_sensor_base', size: '0.64 MB', rotation: printRotation },
+		{ name: 'V8 lower sensor rear cover', file: 'v8/OBJ/T06_Lower_sensor_rear_cover', size: '1.3 MB', rotation: printRotation },
+		{ name: 'V8 upper sensor rear cover', file: 'v8/OBJ/T07_Upper_sensor_rear_cover', size: '0.77 MB', rotation: printRotation },
+		{ name: 'V8 main-board enclosure', file: 'v8/OBJ/T09_Main_board_enclosure', size: '1.5 MB', rotation: printRotation },
+		{ name: 'V8 main-board rear lid', file: 'v8/OBJ/T10_Main_board_rear_lid', size: '0.85 MB', rotation: printRotation },
+		{ name: 'V8 dual regulator cradle', file: 'v8/OBJ/T11_Dual_regulator_cradle', size: '18 KB', rotation: printRotation },
+		{ name: 'V8 display spacer frame', file: 'v8/OBJ/T12_Display_spacer_frame', size: '0.16 MB', rotation: printRotation },
+		{ name: 'Main board V4', file: '2026-10-06/Main Board V4', size: '38 MB', hasMaterials: true, rotation: printRotation },
+		{ name: 'Sensor board', file: '2026-10-06/Sensor Board', size: '56 MB', hasMaterials: true, rotation: printRotation },
+		{ name: '3.3 V / 5 V regulator board', file: '2026-10-06/Regulator Board', size: '4.5 MB', hasMaterials: true, rotation: printRotation }
 	];
 	let selected = $state(0);
 	let status = $state<'idle' | 'loading' | 'ready' | 'error'>('idle');
@@ -60,12 +76,12 @@
 		}
 		try {
 			const [{ createObjViewer }, obj, mtl] = await Promise.all([
-				import('$lib/obj-viewer'), read('obj'), read('mtl')
+				import('$lib/obj-viewer'), read('obj'), model.hasMaterials ? read('mtl') : undefined
 			]);
 			if (!mounted || id !== requestId) return;
 			if (request.signal.aborted) throw new Error('Model loading timed out');
 			viewer ??= createObjViewer(canvas);
-			viewer.load(obj, mtl, model.zUp);
+			viewer.load(obj, mtl, model.rotation);
 			status = 'ready';
 		} catch {
 			request.abort();
@@ -89,6 +105,7 @@
 
 <div id="design-models" bind:this={container} class="mt-10 scroll-mt-24">
 	<h3 class="text-xl font-bold text-slate-950 dark:text-white">3D Models</h3>
+	<p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">Explore the latest V8 enclosure assembly, its individual parts, and the circuit boards.</p>
 	<p id="model-instructions" class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">Drag to rotate · Scroll or pinch to zoom · Right-drag or use two fingers to move</p>
 	<div class="mt-4 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
 		<div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-950">

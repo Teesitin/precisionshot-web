@@ -89,10 +89,11 @@ export function createObjViewer(canvas: HTMLCanvasElement) {
 	resize();
 
 	return {
-		load(obj: string, mtl: string, zUp: boolean) {
-			const materials = new MTLLoader().parse(mtl, '');
-			const next = new OBJLoader().setMaterials(materials).parse(obj);
-			if (zUp) next.rotation.x = -Math.PI / 2;
+		load(obj: string, mtl: string | undefined, rotation: readonly [number, number, number]) {
+			const loader = new OBJLoader();
+			if (mtl) loader.setMaterials(new MTLLoader().parse(mtl, ''));
+			const next = loader.parse(obj);
+			next.rotation.set(...rotation);
 			const bounds = new Box3().setFromObject(next);
 			const size = bounds.getSize(new Vector3());
 			const largestDimension = Math.max(size.x, size.y, size.z);
