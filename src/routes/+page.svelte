@@ -17,12 +17,10 @@
 		'Kenn Pickavance': 'kenn-pickavance', 'Nicolas Koteff': 'nicolas-koteff'
 	};
 	const systemViews = [
-		{ label: 'Target', icon: 'target' as const, title: 'See the result. Right on target.', description: 'A 4 × 4 optical array detects laser strikes. LEDs and an onboard display return immediate feedback, with or without a phone.', image: 'enclosure-v8-assembled.webp', alt: 'CAD rendering of the V8 enclosure with its upper electronics housing and sixteen optical openings.', caption: 'Enclosure V8 · CAD rendering', tags: ['16 optical zones', 'Onboard scoring', 'Standalone operation'] },
-		{ label: 'Electronics', icon: 'chip' as const, title: 'Custom hardware, working together.', description: 'Three purpose-built PCBs connect optical sensing, power regulation, and ESP32-S3 processing in a single training system.', image: 'main-board.webp', alt: 'PrecisionShot Main Board V4 CAD rendering showing the ESP32-S3, display connector, and sensor interface.', caption: 'Main Board V4 · PCB design', tags: ['ESP32-S3', 'Three custom PCBs', 'Local controls'] },
-		{ label: 'App', icon: 'phone' as const, title: 'Bring every session into focus.', description: 'The companion app connects over Bluetooth for shot feedback, training modes, settings, and session history.', image: 'app-screen.webp', alt: 'PrecisionShot companion app showing its target, training modes, and latest shot panel.', caption: 'Companion app · Actual interface', tags: ['Bluetooth LE', 'Training modes', 'Session history'] }
-	];
-	let selectedView = $state(0);
-	const currentView = $derived(systemViews[selectedView]);
+        { label: 'Target', icon: 'target' as const, description: 'Sixteen optical zones detect laser strikes, with immediate LED feedback and onboard scoring.', image: 'enclosure-v8-assembled.webp', width: 800, height: 1340, alt: 'Complete PrecisionShot V8 enclosure.', caption: 'Enclosure V8 · CAD rendering' },
+        { label: 'Electronics', icon: 'chip' as const, description: 'Three custom PCBs handle sensing, power, and ESP32-S3 processing.', image: 'main-board.webp', width: 1200, height: 725, alt: 'PrecisionShot Main Board V4.', caption: 'Main Board V4 · PCB design' },
+        { label: 'App', icon: 'phone' as const, description: 'Connect over Bluetooth for training modes, shot feedback, settings, and session history.', image: 'app-screen.webp', width: 640, height: 1372, alt: 'PrecisionShot companion app interface.', caption: 'Companion app · Actual interface' }
+    ];
 	let activeVideo = $state<Resource | null>(null);
 	let videoDialog = $state<HTMLDialogElement>();
 	async function watchVideo(video: Resource) {
@@ -69,19 +67,15 @@
 
 	<section id="project" class="section page-width">
 		<div class="section-heading"><div><p class="eyebrow">The system</p><h2>Practice with purpose.</h2></div><p>From a laser strike to a useful result.<br />Every part has a clear job to do.</p></div>
-		<div class="system-explorer">
-			<figure class="system-figure" class:app-view={selectedView === 2} class:board-view={selectedView === 1}>
-				{#key selectedView}<img src={`${imageRoot}${currentView.image}`} alt={currentView.alt} width={selectedView === 0 ? 800 : selectedView === 1 ? 1200 : 640} height={selectedView === 0 ? 1340 : selectedView === 1 ? 725 : 1372} loading="lazy" />{/key}
-				<figcaption>{currentView.caption}</figcaption>
-			</figure>
-			<div class="system-copy">
-				<div class="system-tabs" role="group" aria-label="Explore the system">
-					{#each systemViews as view, index}<button aria-pressed={selectedView === index} class:active={selectedView === index} onclick={() => selectedView = index}><Icon name={view.icon} size={19} />{view.label}</button>{/each}
-				</div>
-				<div class="system-description" aria-live="polite"><h3>{currentView.title}</h3><p>{currentView.description}</p><ul class="feature-list">{#each currentView.tags as tag}<li><Icon name="check" size={18} />{tag}</li>{/each}</ul></div>
-				<a href="/engineering" class="text-link">Explore the engineering</a>
-			</div>
-		</div>
+        <div class="system-overview">
+            {#each systemViews as view}
+                <article class="system-card">
+                    <figure class="system-card-image" class:app-image={view.label === 'App'}><img src={`${imageRoot}${view.image}`} alt={view.alt} width={view.width} height={view.height} loading="lazy" /><figcaption>{view.caption}</figcaption></figure>
+                    <h3><Icon name={view.icon} size={21} />{view.label}</h3><p>{view.description}</p>
+                </article>
+            {/each}
+        </div>
+        <a href="/engineering" class="text-link system-engineering-link">Explore the engineering</a>
 	</section>
 
 	<section id="design" class="engineering-band">
@@ -103,7 +97,7 @@
 				<div class="video-feature-info"><div><p class="eyebrow">The engineering story</p><h3>Final presentation</h3></div><a class="text-link" href="/downloads/final-presentation" aria-label="Download Final Presentation Video" download>Download MP4</a></div>
 			</article>
 		</div>
-		<details class="disclosure video-archive"><summary>Earlier project videos <span>Mini demo, CDR & midterm demo<Icon name="chevron" size={18} /></span></summary><div class="archive-video-list">{#each olderVideos as video}<div class="archive-video-row"><div><span class="phase-label">{video.phase}</span><h3>{video.title}</h3></div><div><a href={video.href} target="_blank" rel="noreferrer">Watch video</a>{#if video.downloadId}<a href={`/downloads/${video.downloadId}`} download aria-label={`Download ${video.title}`}>Download MP4</a>{/if}</div></div>{/each}</div></details>
+		<details open class="disclosure video-archive"><summary>Earlier project videos <span>Mini demo, CDR & midterm demo<Icon name="chevron" size={18} /></span></summary><div class="archive-video-list">{#each olderVideos as video}<div class="archive-video-row"><div><span class="phase-label">{video.phase}</span><h3>{video.title}</h3></div><div><a href={video.href} target="_blank" rel="noreferrer">Watch video</a>{#if video.downloadId}<a href={`/downloads/${video.downloadId}`} download aria-label={`Download ${video.title}`}>Download MP4</a>{/if}</div></div>{/each}</div></details>
 	</section>
 
 	<section id="resources" class="resource-section">
@@ -122,10 +116,10 @@
 	<section id="team" class="section page-width">
 		<div class="section-heading"><div><p class="eyebrow">Meet Group 13</p><h2>The people behind PrecisionShot.</h2></div><p>Four engineers. One shared project.<br />University of Central Florida.</p></div>
 		<div class="team-grid">{#each teamMembers as member}<article class="team-member"><div class="team-portrait"><img src={`${imageRoot}${portraits[member.name]}.webp`} alt={member.name} width="320" height="320" loading="lazy" /></div><h3>{member.name}</h3><p>{member.role.replace(' Design Lead', '').replace(' Lead', '')}</p><span>{member.major === 'CpE' ? 'Computer Engineering' : 'Electrical Engineering'}</span></article>{/each}</div>
-		<details class="disclosure reviewers"><summary>Faculty & project reviewers <span>With thanks<Icon name="chevron" size={18} /></span></summary><ul>{#each reviewers as reviewer}<li>{reviewer}</li>{/each}</ul></details>
+		<details open class="disclosure reviewers"><summary>Faculty & project reviewers <span>With thanks<Icon name="chevron" size={18} /></span></summary><ul>{#each reviewers as reviewer}<li>{reviewer}</li>{/each}</ul></details>
 	</section>
 
-	<section id="timeline" class="timeline-section"><div class="page-width section"><div class="timeline-intro"><p class="eyebrow">May–November 2026</p><h2>A project, from the ground up.</h2></div><ol class="milestone-strip">{#each milestones as milestone}<li><p>{milestone.date}</p><h3>{milestone.title}</h3></li>{/each}</ol><details class="disclosure"><summary>Full project timeline <span>Senior Design I & II<Icon name="chevron" size={18} /></span></summary><p class="timeline-note">Approximate milestone dates from ClickUp and course submissions. Due dates fill gaps where completion dates were not recorded.</p><div class="full-timeline">{#each [{ title: 'Senior Design I', items: sd1Timeline }, { title: 'Senior Design II', items: sd2Timeline }] as phase}<div><h3>{phase.title}</h3>{#each phase.items as item}<div class="timeline-row"><p>{item.dates}{phase.title === 'Senior Design I' ? ', 2026' : ''}</p><h4>{item.title}</h4></div>{/each}</div>{/each}</div></details></div></section>
+	<section id="timeline" class="timeline-section"><div class="page-width section"><div class="timeline-intro"><p class="eyebrow">May–November 2026</p><h2>A project, from the ground up.</h2></div><ol class="milestone-strip">{#each milestones as milestone}<li><p>{milestone.date}</p><h3>{milestone.title}</h3></li>{/each}</ol><details open class="disclosure"><summary>Full project timeline <span>Senior Design I & II<Icon name="chevron" size={18} /></span></summary><p class="timeline-note">Approximate milestone dates from ClickUp and course submissions. Due dates fill gaps where completion dates were not recorded.</p><div class="full-timeline">{#each [{ title: 'Senior Design I', items: sd1Timeline }, { title: 'Senior Design II', items: sd2Timeline }] as phase}<div><h3>{phase.title}</h3>{#each phase.items as item}<div class="timeline-row"><p>{item.dates}{phase.title === 'Senior Design I' ? ', 2026' : ''}</p><h4>{item.title}</h4></div>{/each}</div>{/each}</div></details></div></section>
 </main>
 
 <dialog bind:this={videoDialog} class="video-dialog" onclose={() => activeVideo = null} aria-labelledby="video-dialog-title">

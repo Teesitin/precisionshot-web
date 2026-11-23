@@ -203,14 +203,9 @@
 				.filter((record) => record['Task Name']?.trim())
 				.map(toTask);
 
-			const preferredFolder = folderNamesFrom(tasks).find((name) => name === 'Final Report') ?? folderNamesFrom(tasks)[0];
-			if (preferredFolder) {
-				openFolders = new Set([preferredFolder]);
-				const preferredList = buildFolders(tasks)
-					.find((folder) => folder.name === preferredFolder)
-					?.lists[0];
-				if (preferredList) openGroups = new Set([preferredList.key]);
-			}
+            const folders = buildFolders(tasks);
+            openFolders = new Set(folders.map((folder) => folder.name));
+            openGroups = new Set(folders.flatMap((folder) => folder.lists.map((list) => list.key)));
 		} catch (error) {
 			loadError = error instanceof Error ? error.message : 'The task export could not be loaded.';
 		} finally {
@@ -1109,7 +1104,7 @@
 															{/if}
 
 															{#if taskDetails.length > 0 || task.comments.length > 0}
-																<details class="mt-4 rounded-lg border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/50">
+																<details open class="mt-4 rounded-lg border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/50">
 																	<summary class="cursor-pointer px-3 py-2.5 text-sm font-black text-slate-700 marker:text-accent dark:text-slate-200">View all exported details</summary>
 																	<div class="space-y-4 border-t border-slate-200 p-3 dark:border-slate-800">
 																		{#if task.comments.length > 0}

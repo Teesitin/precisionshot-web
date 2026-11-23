@@ -548,7 +548,7 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 	{/if}
 
 	<div class="relative mt-4 overflow-hidden rounded-lg border border-slate-200 bg-slate-50/50 transition-colors dark:border-slate-800 dark:bg-slate-950">
-		<div bind:this={diagramViewportElement} class="relative overflow-x-auto p-10 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:max-w-full" style={`min-height: ${diagramMinHeight}px;`}>
+		<div bind:this={diagramViewportElement} class="relative overflow-x-auto p-5 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:max-w-full" style={`min-height: ${diagramMinHeight}px;`}>
 			{#if svgMarkup}
 				{@html svgMarkup}
 			{/if}

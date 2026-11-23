@@ -32,7 +32,7 @@ def read_obj():
     return np.array(vertices), np.array(faces), np.array(part_ids), names
 
 
-def render(vertices, faces, part_ids, names, *, exploded=False):
+def render(vertices, faces, part_ids, names, *, exploded=False, filename=None, dimensions=None):
     triangles = vertices[faces].copy()
     if exploded:
         offsets = {
@@ -64,7 +64,7 @@ def render(vertices, faces, part_ids, names, *, exploded=False):
     ])
     colors = np.clip(palette[part_ids] * lighting[:, None], 0, 255).astype(np.uint8)
 
-    width, height = (1400, 1000) if exploded else (800, 1340)
+    width, height = dimensions or ((1400, 1000) if exploded else (800, 1340))
     supersample = 2
     minimum = projected.min(axis=(0, 1))
     extent = projected.max(axis=(0, 1)) - minimum
@@ -76,8 +76,8 @@ def render(vertices, faces, part_ids, names, *, exploded=False):
     for index in np.argsort(depth):
         painter.polygon([tuple(point) for point in projected[index]], fill=tuple(colors[index]) + (255,))
     image = image.resize((width, height), Image.Resampling.LANCZOS)
-    filename = 'enclosure-v8-exploded.webp' if exploded else 'enclosure-v8-assembled.webp'
-    image.save(OUTPUT / filename, 'WEBP', quality=92, method=6)
+    filename = filename or ('enclosure-v8-exploded.webp' if exploded else 'enclosure-v8-assembled.webp')
+    image.save(OUTPUT / filename, 'WEBP', lossless=True, exact=True, method=4)
     print(f'Rendered {filename}: {width} x {height}')
 
 
@@ -85,3 +85,9 @@ if __name__ == '__main__':
     mesh = read_obj()
     render(*mesh)
     render(*mesh, exploded=True)
+
+    vertices, faces, part_ids, names = mesh
+    for part, name in enumerate(names):
+        mask = part_ids == part
+        render(vertices, faces[mask], part_ids[mask], names,
+               filename=f'enclosure-v8-{name[:3].lower()}.webp', dimensions=(800, 640))

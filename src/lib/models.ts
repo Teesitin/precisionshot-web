@@ -29,3 +29,8 @@ export const models: ProjectModel[] = [
 	{ name: 'Sensor board', file: '2026-10-06/Sensor Board', size: '56 MB', zUp: true, material: true, group: 'Electronics' },
 	{ name: '3.3 V / 5 V regulator board', file: '2026-10-06/Regulator Board', size: '4.5 MB', zUp: true, material: true, group: 'Electronics' }
 ];
+
+export const enclosureParts = models.filter((model) => model.group === 'Enclosure V8' && model.file.includes('/OBJ/')).map((model) => ({
+    id: model.file.split('/').pop()!.split('_')[0],
+    name: model.name.split(' · ')[0]
+}));
