@@ -6,7 +6,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Approved theme: gold and brown accents, slate surfaces, BlackOpsOne branding. */
-:root { color-scheme: light; --paper: #ffffff; --ink: #020617; --muted: #475569; --line: #e2e8f0; --soft: #f8fafc; --panel: #f1f5f9; --accent: #ecd316; --accent-ink: #7f683f; --deep: #0f172a; --radius: 12px; }
+:root { color-scheme: light; --paper: #ffffff; --ink: #020617; --muted: #475569; --line: #e2e8f0; --soft: #f8fafc; --panel: #f1f5f9; --accent: #ecd316; --accent-ink: #334155; --deep: #0f172a; --radius: 12px; }
 :root.dark { color-scheme: dark; --paper: #020617; --ink: #f1f5f9; --muted: #94a3b8; --line: #1e293b; --soft: #0f172a; --panel: #1e293b; --accent-ink: #ecd316; }
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }

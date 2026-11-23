@@ -212,3 +212,5 @@ SvelteKit currently uses `adapter-auto`. Select and configure the appropriate Sv
 PrecisionShot is an engineering prototype intended to explore accessible laser-based dry-fire training, embedded sensing, real-time feedback, and performance tracking. It does not replace proper firearm handling, training, or safety practices.
 
 The site uses one continuous page. Keep internal navigation as section anchors. `EngineeringSection.svelte` contains the model viewer, part gallery, and all five diagrams. The task archive shows folder totals and links to the unchanged full CSV export; rebuild its concise snapshot with `python scripts/summarize_tasks.py`. Keep section headings brief and avoid repeated subtitles or explanatory marketing copy.
+
+Light-mode text accents use slate (`#334155`) instead of brown, per the headline-color revision. Dark-mode text accents retain the approved gold.
