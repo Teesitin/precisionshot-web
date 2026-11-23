@@ -39,7 +39,7 @@
 		<div class="page-width header-inner">
 			<a href="#home" class="wordmark" aria-label="PrecisionShot home" onclick={() => menuOpen = false}>
 				<span class="brand-mark" aria-hidden="true"><Icon name="target" size={28} /></span>
-				<span>PrecisionShot<span class="wordmark-dot">.</span></span>
+				<span>PrecisionShot</span>
 			</a>
 			<nav id="main-nav" class="site-nav" class:menu-open={menuOpen} aria-label="Main navigation">
 				{#each navigation as item}
@@ -57,14 +57,17 @@
 
 	{@render children()}
 
-	<footer class="site-footer">
-		<div class="page-width footer-main">
-			<div>
-				<a class="wordmark" href="#home"><span class="brand-mark" aria-hidden="true"><Icon name="target" size={28} /></span><span>PrecisionShot.</span></a>
-
-			</div>
-			<div class="footer-links"><a href="#documents">Documentation</a><a href="#design">Engineering</a><a href="#timeline">Project timeline</a><a href="#tasks">Task archive</a><a href="https://github.com/Teesitin/precisionshot-web" target="_blank" rel="noreferrer">GitHub</a></div>
-		</div>
-		<div class="page-width footer-bottom"><p>© 2026 PrecisionShot</p><p>University of Central Florida · Senior Design · Group 13</p></div>
-	</footer>
+    <footer class="site-footer">
+        <div class="page-width footer-main">
+            <div class="footer-brand">
+                <a class="wordmark" href="#home" aria-label="PrecisionShot home"><span class="brand-mark" aria-hidden="true"><Icon name="target" size={28} /></span><span>PrecisionShot</span></a>
+                <p>University of Central Florida</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="#project">System</a><a href="#design">Engineering</a><a href="#videos">Videos</a><a href="#documents">Downloads</a>
+                <a href="#team">Team</a><a href="#timeline">Timeline</a><a href="#tasks">Task archive</a><a href="https://github.com/Teesitin/precisionshot-web" target="_blank" rel="noreferrer">GitHub</a>
+            </nav>
+        </div>
+        <div class="page-width footer-bottom"><p>© 2026 PrecisionShot</p><p>Senior Design · Group 13</p><a class="footer-top-link" href="#home">Back to top <Icon name="chevron" size={18} /></a></div>
+    </footer>
 </div>

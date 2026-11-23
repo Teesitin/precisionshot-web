@@ -32,7 +32,7 @@
 </script>
 
 <svelte:head>
-	<title>PrecisionShot — Every shot. More insight.</title>
+	<title>PrecisionShot — Every shot More insight</title>
 	<meta name="description" content="Meet PrecisionShot: a laser training target, custom embedded electronics, and companion app. A UCF Senior Design project by Group 13." />
 </svelte:head>
 
@@ -40,9 +40,9 @@
 	<section id="home" class="hero page-width">
 		<div class="hero-copy">
 
-			<h1>Every shot.<br /><span>More insight.</span></h1>
+			<h1>Every shot<br /><span>More insight</span></h1>
 			<p class="hero-description">Laser training with instant feedback, custom electronics, and a connected app.</p>
-			<div class="hero-actions"><a href="#project" class="button">Explore the system</a><button class="button button-quiet" onclick={() => watchVideo(finalDemo)}><Icon name="play" size={18} /> Watch the demo</button></div>
+			<div class="hero-actions"><a href="#project" class="button">Explore the system</a><button class="button button-outline" onclick={() => watchVideo(finalDemo)}><Icon name="play" size={18} /> Watch the demo</button></div>
 
 		</div>
 		<figure class="hero-visual">
@@ -57,10 +57,9 @@
 		</figure>
 	</section>
 
-	<div class="capability-band"><div class="page-width capability-inner"><span>Optical shot detection</span><span>On-target feedback</span><span>Bluetooth connectivity</span><span>Standalone operation</span></div></div>
 
 	<section id="project" class="section page-width">
-		<div class="section-heading"><h2>System.</h2></div>
+		<div class="section-heading"><h2>System</h2></div>
         <div class="system-overview">
             {#each systemViews as view}
                 <article class="system-card">
@@ -75,7 +74,7 @@
     <EngineeringSection />
 
 	<section id="videos" class="section page-width">
-		<div class="section-heading"><h2>Videos.</h2></div>
+		<div class="section-heading"><h2>Videos</h2></div>
         <div class="video-grid">{#each videoCards as video, index}
             <article class="video-card" class:featured={index < 2}>
                 <button type="button" class="video-thumbnail" aria-label={`Watch ${video.title}`} onclick={() => watchVideo(video)}><img src={video.poster} alt={video.thumbnailAlt} width="1280" height="720" loading="lazy" /><span class="play-control"><Icon name="play" size={24} /></span><span class="video-duration">{video.duration}</span></button>
@@ -87,13 +86,13 @@
     <Downloads />
 
 	<section id="team" class="section page-width">
-		<div class="section-heading"><h2>Team.</h2></div>
+		<div class="section-heading"><h2>Team</h2></div>
 		<div class="team-grid">{#each teamMembers as member}<article class="team-member"><div class="team-portrait"><img src={`${imageRoot}${portraits[member.name]}.webp`} alt={member.name} width="320" height="320" loading="lazy" /></div><h3>{member.name}</h3><p>{member.role.replace(' Design Lead', '').replace(' Lead', '')} · {member.major}</p></article>{/each}</div>
 		<div class="reviewers"><h3>Reviewers</h3><ul>{#each reviewers as reviewer}<li>{reviewer}</li>{/each}</ul></div>
 	</section>
 
     <section id="timeline" class="timeline-section"><div class="page-width section">
-        <div class="section-heading"><h2>Timeline.</h2><p class="timeline-note">Approximate milestone dates.</p></div>
+        <div class="section-heading"><h2>Timeline</h2><p class="timeline-note">Approximate milestone dates.</p></div>
         <div class="full-timeline">{#each [{ title: 'Senior Design I', items: sd1Timeline }, { title: 'Senior Design II', items: sd2Timeline }] as phase}<div><h3>{phase.title}</h3>{#each phase.items as item}<div class="timeline-row"><p>{item.dates}{phase.title === 'Senior Design I' ? ', 2026' : ''}</p><h4>{item.title}</h4></div>{/each}</div>{/each}</div>
     </div></section>
     <TaskArchive />

@@ -19,7 +19,7 @@
 
 <section id="documents" class="resource-section">
     <div class="section downloads-panel">
-        <div class="section-heading"><h2>Downloads.</h2></div>
+        <div class="section-heading"><h2>Downloads</h2></div>
         {#each groups as group}
             <div class="download-group"><h3>{group.title}</h3>
                 {#each group.items as item}
