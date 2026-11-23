@@ -2,6 +2,11 @@
 	import MermaidDiagram from '$lib/components/MermaidDiagram.svelte';
 	import ObjModelViewer from '$lib/components/ObjModelViewer.svelte';
 	import { flowcharts } from '$lib/flowcharts';
+	import { resourceSections, videos } from '$lib/resources';
+
+	const deliverables = [...resourceSections.filter((section) => section.title !== 'Project Links').flatMap((section) => section.items), ...videos];
+	const linkedDeliverables = deliverables.filter((item) => item.href).length;
+	const downloadableDeliverables = deliverables.filter((item) => item.href && item.downloadId).length;
 
 	const teamMembers = [
 		{
@@ -42,119 +47,6 @@
 		'Sreeram Sundaresh'
 	];
 
-	const resourceSections = [
-		{
-			title: 'Project Links',
-			description: 'Official website, task dashboard, and public source-code repositories.',
-			items: [
-				{
-					title: 'Official PrecisionShot Website',
-					href: '/',
-					phase: 'Ongoing',
-					type: 'Project Website',
-					action: 'Open'
-				},
-				{
-					title: 'Project Tasks Dashboard',
-					href: '/tasks',
-					phase: 'Ongoing',
-					type: 'Task Dashboard',
-					action: 'Open'
-				},
-				{
-					title: 'Website Source Code',
-					href: 'https://github.com/Teesitin/precisionshot-web',
-					phase: 'Ongoing',
-					type: 'GitHub Repository',
-					action: 'Open'
-				},
-				{
-					title: 'Mobile Application Source Code',
-					href: 'https://github.com/Teesitin/precisionshot-app',
-					phase: 'Ongoing',
-					type: 'GitHub Repository',
-					action: 'Open'
-				},
-				{
-					title: 'Embedded Firmware Source Code',
-					href: 'https://github.com/Teesitin/precisionshot-firmware',
-					phase: 'Ongoing',
-					type: 'GitHub Repository',
-					action: 'Open'
-				}
-			]
-		},
-		{
-			title: 'Documents',
-			description: 'Senior Design reports and written submissions.',
-			items: [
-				{
-					title: 'Divide and Conquer Document',
-					href: 'https://delayne.b-cdn.net/precisionshot/Divide%20%26%20Conquer%20Document%20and%20Committee%20Formation%20-%20Senior%20Design%201%20(12).pdf',
-					phase: 'SD1',
-					type: 'PDF Document',
-					action: 'Download'
-				},
-				{
-					title: 'Midterm Report',
-					href: 'https://delayne.b-cdn.net/precisionshot/Midterm%20Report%20-%20Senior%20Design%201%20(1).pdf',
-					phase: 'SD1',
-					type: 'PDF Document',
-					action: 'Download'
-				},
-				{
-					title: 'SD1 Final Report',
-					href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Final_Report.pdf',
-					phase: 'SD1',
-					type: 'PDF Document',
-					action: 'Download'
-				},
-				{
-					title: '8-Page Conference Paper',
-					href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Conference_Paper_v2.pdf',
-					phase: 'SD2',
-					type: 'PDF Document',
-					action: 'Download'
-				},
-				{
-					title: 'SD2 Final Report',
-					href: '',
-					phase: 'SD2',
-					type: 'PDF Document',
-					action: 'Download'
-				}
-			]
-		},
-		{
-			title: 'Slides',
-			description: 'Presentation slide decks for Senior Design checkpoints.',
-			items: [
-				{
-					title: 'CDR Presentation Slides',
-					href: 'https://delayne.b-cdn.net/precisionshot/SD2%20-%20CDR%20Presentation%20(3).pdf',
-					phase: 'SD2',
-					type: 'PDF Document',
-					action: 'Download'
-				},
-				{
-					title: 'Final Presentation Slides',
-					href: '',
-					phase: 'SD2',
-					type: 'PowerPoint',
-					action: 'Download'
-				}
-			]
-		}
-	];
-
-    const videos = [
-        { title: 'Mini Demo Video', href: 'https://delayne.b-cdn.net/precisionshot/PrecisionShot_SD1_Mini_Demo_2026-07-27.mp4', phase: 'SD1', type: 'Video', action: 'Watch' },
-        { title: 'CDR Presentation Video', href: 'https://delayne.b-cdn.net/precisionshot/Cdr%20V1-1200.mp4', phase: 'SD2', type: 'Video', action: 'Watch' },
-        { title: 'Midterm Demonstration Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
-        { title: 'Final Presentation Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' },
-        { title: 'Final Demonstration Video', href: '', phase: 'SD2', type: 'YouTube Video', action: 'Watch' }
-    ];
-
     const sd1Timeline = [
         { week: 'Week of May 25, 2026', dates: 'May 28 - May 29', title: 'Project Start', items: ['Begin Senior Design 1', 'Confirm project idea', 'Form group roles', 'Submit initial Divide and Conquer report'] },
         { week: 'Week of June 1, 2026', dates: 'June 1 - June 5', title: 'D&C Review and Planning', items: ['Attend D&C group meeting', 'Update project direction', 'Create task list', 'Start website structure'] },
@@ -169,16 +61,16 @@
     ];
 
     const sd2Timeline = [
-        { week: 'Week 1', dates: 'TBD', title: 'Component Ordering', items: ['Order required components', 'Confirm PCB/component availability', 'Prepare testing plan'] },
-        { week: 'Week 2', dates: 'TBD', title: 'Sensor Testing', items: ['Test phototransistors with laser input', 'Test LED or display feedback', 'Record early testing results'] },
-        { week: 'Week 3', dates: 'TBD', title: 'Small Prototype', items: ['Build small-scale sensor array', 'Test microcontroller input/output', 'Begin basic shot detection code'] },
-        { week: 'Week 4', dates: 'TBD', title: 'PCB Design', items: ['Finish PCB schematic', 'Create PCB layout', 'Review power and signal routing'] },
-        { week: 'Week 5', dates: 'TBD', title: 'PCB Assembly', items: ['Order PCB', 'Assemble board', 'Check voltage rails and sensor connections'] },
-        { week: 'Week 6', dates: 'TBD', title: 'Software Integration', items: ['Program shot detection logic', 'Program scoring logic', 'Program user interface modes'] },
-        { week: 'Week 7', dates: 'TBD', title: 'Enclosure Build', items: ['Build target enclosure', 'Mount PCB and sensors', 'Add display, buttons, and battery access'] },
-        { week: 'Week 8', dates: 'TBD', title: 'System Integration', items: ['Combine hardware and software', 'Debug full prototype', 'Test calibration in different lighting conditions'] },
-        { week: 'Week 9', dates: 'TBD', title: 'Final Testing', items: ['Test accuracy and response time', 'Fix prototype issues', 'Document results'] },
-        { week: 'Week 10', dates: 'TBD', title: 'Final Presentation and Demo', items: ['Prepare final presentation', 'Record final demonstration', 'Complete final website updates'] }
+        { week: 'Milestone 1', dates: 'September 11, 2026', title: 'Component Ordering', items: ['Order required components', 'Confirm PCB/component availability', 'Prepare testing plan'] },
+        { week: 'Milestone 2', dates: 'September 18, 2026', title: 'Sensor Testing', items: ['Test phototransistors with laser input', 'Test LED or display feedback', 'Record early testing results'] },
+        { week: 'Milestone 3', dates: 'September 18, 2026', title: 'PCB Design', items: ['Finish PCB schematic', 'Create PCB layout', 'Review power and signal routing'] },
+        { week: 'Milestone 4', dates: 'September 23, 2026', title: 'Small Prototype', items: ['Build small-scale sensor array', 'Test microcontroller input/output', 'Begin basic shot detection code'] },
+        { week: 'Milestone 5', dates: 'October 9, 2026', title: 'PCB Assembly', items: ['Order PCB', 'Assemble board', 'Check voltage rails and sensor connections'] },
+        { week: 'Milestone 6', dates: 'October 16, 2026', title: 'Software Integration', items: ['Program shot detection logic', 'Program scoring logic', 'Program user interface modes'] },
+        { week: 'Milestone 7', dates: 'October 23, 2026', title: 'System Integration', items: ['Combine hardware and software', 'Debug full prototype', 'Test calibration in different lighting conditions'] },
+        { week: 'Milestone 8', dates: 'November 6, 2026', title: 'Enclosure Build', items: ['Build target enclosure', 'Mount PCB and sensors', 'Add display, buttons, and battery access'] },
+        { week: 'Milestone 9', dates: 'November 6, 2026', title: 'Final Testing', items: ['Test accuracy and response time', 'Fix prototype issues', 'Document results'] },
+        { week: 'Milestone 10', dates: 'November 13–18, 2026', title: 'Final Presentation and Demo', items: ['Prepare final presentation', 'Record final demonstration', 'Attend final project review'] }
     ];
 </script>
 
@@ -434,10 +326,15 @@
 				This section contains the official project website, public task dashboard,
 				source-code repositories, Senior Design documents, and presentation materials.
 			</p>
+			<p class="mt-4 text-sm text-slate-600 dark:text-slate-400">
+				<span class="font-bold text-slate-950 dark:text-white">Final documentation:</span>
+				{linkedDeliverables} of {deliverables.length} resources linked · {downloadableDeliverables} downloads available.
+				<a href="#videos" class="text-accent hover:underline">View presentation and demo videos.</a>
+			</p>
 
 			<div class="mt-8 space-y-10">
 				{#each resourceSections as section}
-					<div>
+					<div id={section.title.toLowerCase().replaceAll(' ', '-')} class="scroll-mt-24">
 						<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
 							<h3 class="text-xl font-bold text-slate-950 dark:text-white">
 								{section.title}
@@ -452,9 +349,10 @@
 							{#each section.items as item}
 								{#if item.href}
 									<a
-										href={item.href}
-										target={item.href.startsWith('http') ? '_blank' : undefined}
-										rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+										href={item.downloadId ? `/downloads/${item.downloadId}` : item.href}
+										download={item.downloadId ? true : undefined}
+										target={!item.downloadId && item.href.startsWith('http') ? '_blank' : undefined}
+										rel={!item.downloadId && item.href.startsWith('http') ? 'noreferrer' : undefined}
 										class="group rounded border border-slate-200 bg-white p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
 									>
 										<div class="flex flex-wrap items-center gap-2">
@@ -513,13 +411,13 @@
 			<h2 class="font-blackops text-3xl text-accent">Videos</h2>
 
 			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				Senior Design demonstration and presentation videos are added here as they become available.
+				Watch the Senior Design demonstrations and presentations, or download the available MP4 files.
 			</p>
 
 			<div class="mt-8 grid gap-4 md:grid-cols-2">
 				{#each videos as video}
 					{#if video.href}
-						<a href={video.href} target="_blank" rel="noreferrer" class="group rounded border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-950 dark:hover:bg-slate-800">
+						<article class="rounded border border-slate-200 bg-slate-50 p-5 transition-colors dark:border-slate-700 dark:bg-slate-950">
 							<div class="flex flex-wrap items-center gap-2">
 								<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{video.phase}</p>
 								<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{video.type}</p>
@@ -527,11 +425,15 @@
 
 							<h3 class="mt-4 font-bold text-slate-950 dark:text-white">{video.title}</h3>
 
-							<p class="mt-3 text-sm text-slate-500">
-								<span class="text-accent group-hover:underline">{video.action}</span>
-								<span> this video.</span>
-							</p>
-						</a>
+							<div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+								<a href={video.href} target="_blank" rel="noreferrer" aria-label={`Watch ${video.title}`} class="font-bold text-accent hover:underline">Watch video <span aria-hidden="true">↗</span></a>
+								{#if video.downloadId}
+									<a href={`/downloads/${video.downloadId}`} download aria-label={`Download ${video.title}`} class="font-bold text-accent hover:underline">Download MP4</a>
+								{:else}
+									<span class="text-slate-500 dark:text-slate-400">MP4 download pending</span>
+								{/if}
+							</div>
+						</article>
 					{:else}
 						<div class="rounded border border-slate-200 bg-slate-50 p-5 opacity-70 transition-colors dark:border-slate-800 dark:bg-slate-950/70">
 							<div class="flex flex-wrap items-center gap-2">
@@ -555,7 +457,8 @@
 			<h2 class="font-blackops text-3xl text-accent">Timeline</h2>
 
 			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				This is a rough project timeline based on current Senior Design milestones.
+				Project milestones and approximate completion dates, based on ClickUp records and course submissions.
+				Course and milestone due dates are used where completion dates were not recorded.
 			</p>
 
 			<div class="mt-10 space-y-10">
