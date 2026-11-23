@@ -214,3 +214,5 @@ PrecisionShot is an engineering prototype intended to explore accessible laser-b
 The site uses one continuous page. Keep internal navigation as section anchors. `EngineeringSection.svelte` contains the model viewer, part gallery, and all five diagrams. The task archive shows folder totals and links to the unchanged full CSV export; rebuild its concise snapshot with `python scripts/summarize_tasks.py`. Keep section headings brief and avoid repeated subtitles or explanatory marketing copy.
 
 Light-mode text accents use slate (`#334155`) instead of brown, per the headline-color revision. Dark-mode text accents retain the approved gold.
+
+All file download actions belong in `Downloads.svelte`, grouped into one column at half the page width on desktop and full width on mobile. Keep download buttons out of engineering, video cards, the task archive, and the player. Video posters are selected frames from the actual recordings; regenerate them with `python scripts/extract_video_posters.py` (FFmpeg required). Poster paths, accessible descriptions, and durations are in `src/lib/resources.ts`.

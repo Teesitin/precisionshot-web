@@ -3,17 +3,14 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import { resourceSections, videos, type Resource } from '$lib/resources';
 	import { teamMembers, reviewers, sd1Timeline, sd2Timeline } from '$lib/project';
-	import { enclosureDownload } from '$lib/models';
+    import Downloads from '$lib/components/Downloads.svelte';
     import EngineeringSection from '$lib/components/EngineeringSection.svelte';
     import TaskArchive from '$lib/components/TaskArchive.svelte';
 
 	const imageRoot = '/images/showcase/';
-	const documents = resourceSections.find((section) => section.title === 'Documents')!.items;
-	const slides = resourceSections.find((section) => section.title === 'Slides')!.items;
-	const projectLinks = resourceSections.find((section) => section.title === 'Project Links')!.items.filter((item) => item.title.includes('Source Code'));
 	const finalDemo = videos.find((item) => item.downloadId === 'final-demonstration')!;
 	const finalPresentation = videos.find((item) => item.downloadId === 'final-presentation')!;
-	const olderVideos = videos.filter((item) => item !== finalDemo && item !== finalPresentation);
+	const videoCards = [finalDemo, finalPresentation, ...videos.filter((item) => item !== finalDemo && item !== finalPresentation)];
 	const portraits: Record<string, string> = {
 		'Anthony Fontana': 'anthony-fontana', 'DeLayne Russell': 'delayne-russell',
 		'Kenn Pickavance': 'kenn-pickavance', 'Nicolas Koteff': 'nicolas-koteff'
@@ -63,7 +60,7 @@
 	<div class="capability-band"><div class="page-width capability-inner"><span>Optical shot detection</span><span>On-target feedback</span><span>Bluetooth connectivity</span><span>Standalone operation</span></div></div>
 
 	<section id="project" class="section page-width">
-		<div class="section-heading"><h2>The system.</h2></div>
+		<div class="section-heading"><h2>System.</h2></div>
         <div class="system-overview">
             {#each systemViews as view}
                 <article class="system-card">
@@ -79,31 +76,15 @@
 
 	<section id="videos" class="section page-width">
 		<div class="section-heading"><h2>Videos.</h2></div>
-		<div class="featured-videos">
-			<article class="video-feature">
-				<button class="video-thumbnail" aria-label="Watch Final Demonstration Video" onclick={() => watchVideo(finalDemo)}><img src={`${imageRoot}prototype-demo.webp`} alt="The working PrecisionShot target showing illuminated sensing zones and its onboard score display." width="1280" height="720" loading="lazy" /><span class="play-control"><Icon name="play" size={24} /></span><span class="video-duration">10:17</span></button>
-				<div class="video-feature-info"><div><h3>Final demonstration</h3></div><a class="text-link" href="/downloads/final-demonstration" aria-label="Download Final Demonstration Video" download>Download MP4</a></div>
-			</article>
-			<article class="video-feature">
-				<button class="video-thumbnail presentation-thumbnail" aria-label="Watch Final Presentation Video" onclick={() => watchVideo(finalPresentation)}><img src={`${imageRoot}main-board.webp`} alt="The custom PrecisionShot main board design." width="1200" height="725" loading="lazy" /><span class="play-control"><Icon name="play" size={24} /></span><span class="video-duration">23:31</span></button>
-				<div class="video-feature-info"><div><h3>Final presentation</h3></div><a class="text-link" href="/downloads/final-presentation" aria-label="Download Final Presentation Video" download>Download MP4</a></div>
-			</article>
-		</div>
-		<div class="video-archive"><div class="archive-video-list">{#each olderVideos as video}<div class="archive-video-row"><div><h3>{video.title}</h3></div><div><button type="button" class="text-link" onclick={() => watchVideo(video)}>Watch video</button>{#if video.downloadId}<a href={`/downloads/${video.downloadId}`} download aria-label={`Download ${video.title}`}>Download MP4</a>{/if}</div></div>{/each}</div></div>
+        <div class="video-grid">{#each videoCards as video, index}
+            <article class="video-card" class:featured={index < 2}>
+                <button type="button" class="video-thumbnail" aria-label={`Watch ${video.title}`} onclick={() => watchVideo(video)}><img src={video.poster} alt={video.thumbnailAlt} width="1280" height="720" loading="lazy" /><span class="play-control"><Icon name="play" size={24} /></span><span class="video-duration">{video.duration}</span></button>
+                <h3>{video.title.replace(/ Video$/, '')}</h3>
+            </article>
+        {/each}</div>
 	</section>
 
-	<section id="resources" class="resource-section">
-		<div class="page-width section" id="documents">
-			<div class="section-heading"><h2>Downloads.</h2></div>
-			<div class="document-columns">
-				{#each [documents, slides] as items}
-					<div class="document-group"><div class="document-list">{#each items as document}<div class="document-row"><span class="file-icon"><Icon name="file" size={21} /></span><div class="document-name"><h3>{document.title}</h3></div>{#if document.href && document.downloadId}<a href={`/downloads/${document.downloadId}`} download aria-label={`Download ${document.title}`} class="document-action">Download</a>{:else}<span class="document-pending">Pending</span>{/if}</div>{/each}</div></div>
-				{/each}
-			</div>
-			<div class="cad-resource"><div><h3>Enclosure V8</h3><p>STEP · STL · OBJ</p></div><a class="button button-small" href={enclosureDownload.href} download={enclosureDownload.filename}>Download CAD · 16 MB</a></div>
-			<div class="source-code-row"><h3>Source code</h3><div>{#each projectLinks as link}<a href={link.href} target="_blank" rel="noreferrer">{link.title === 'Website Source Code' ? 'Website' : link.title === 'Mobile Application Source Code' ? 'Mobile app' : 'Firmware'} <span>GitHub</span></a>{/each}<a href="#tasks">Task archive</a></div></div>
-		</div>
-	</section>
+    <Downloads />
 
 	<section id="team" class="section page-width">
 		<div class="section-heading"><h2>Team.</h2></div>
@@ -122,6 +103,6 @@
 	{#if activeVideo}
 		<div class="video-dialog-header"><h2 id="video-dialog-title">{activeVideo.title}</h2><button class="icon-button" aria-label="Close video" onclick={() => videoDialog?.close()}><Icon name="close" /></button></div>
 		<video controls autoplay playsinline preload="metadata" aria-label={activeVideo.title}><source src={activeVideo.href} type="video/mp4" /><track kind="captions" src={hasCaptions ? `/captions/${activeVideo.downloadId}.en.vtt` : undefined} srclang="en" label="English (auto-generated)" /></video>
-		<div class="video-dialog-footer">{#if hasCaptions}<p>Auto-generated captions</p>{/if}<a href={`/downloads/${activeVideo.downloadId}`} download>Download MP4</a></div>
+		<div class="video-dialog-footer">{#if hasCaptions}<p>Auto-generated captions</p>{/if}<a href="#documents" onclick={() => videoDialog?.close()}>All downloads</a></div>
 	{/if}
 </dialog>

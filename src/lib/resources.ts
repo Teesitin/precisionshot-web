@@ -124,10 +124,16 @@ export const resourceSections: ResourceSection[] = [
 	}
 ];
 
-export const videos: Resource[] = [
-	{ title: 'Mini Demo Video', href: 'https://delayne.b-cdn.net/precisionshot/PrecisionShot_SD1_Mini_Demo_2026-07-27.mp4', downloadId: 'mini-demo', phase: 'SD1', type: 'MP4 Video', action: 'Watch' },
-	{ title: 'CDR Presentation Video', href: 'https://delayne.b-cdn.net/precisionshot/Cdr%20V1-1200.mp4', downloadId: 'cdr-presentation', phase: 'SD2', type: 'MP4 Video', action: 'Watch' },
-	{ title: 'Midterm Demonstration Video', href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Midterm_Demonstration.mp4', downloadId: 'midterm-demonstration', phase: 'SD2', type: 'MP4 Video', action: 'Watch' },
-	{ title: 'Final Presentation Video', href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Final_Presentation.mp4', downloadId: 'final-presentation', phase: 'SD2', type: 'MP4 Video', action: 'Watch' },
-	{ title: 'Final Demonstration Video', href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Final_Demonstration.mp4', downloadId: 'final-demonstration', phase: 'SD2', type: 'MP4 Video', action: 'Watch' }
+export interface VideoResource extends Resource {
+    poster: string;
+    thumbnailAlt: string;
+    duration: string;
+}
+
+export const videos: VideoResource[] = [
+	{ title: 'Mini Demo Video', href: 'https://delayne.b-cdn.net/precisionshot/PrecisionShot_SD1_Mini_Demo_2026-07-27.mp4', downloadId: 'mini-demo', poster: '/images/videos/mini-demo.jpg', duration: '3:47', thumbnailAlt: 'The early PrecisionShot prototype with its companion app, onboard display, and breadboard electronics.', phase: 'SD1', type: 'MP4 Video', action: 'Watch' },
+	{ title: 'CDR Presentation Video', href: 'https://delayne.b-cdn.net/precisionshot/Cdr%20V1-1200.mp4', downloadId: 'cdr-presentation', poster: '/images/videos/cdr-presentation.jpg', duration: '22:29', thumbnailAlt: 'The PrecisionShot critical design review title slide.', phase: 'SD2', type: 'MP4 Video', action: 'Watch' },
+	{ title: 'Midterm Demonstration Video', href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Midterm_Demonstration.mp4', downloadId: 'midterm-demonstration', poster: '/images/videos/midterm-demonstration.jpg', duration: '10:46', thumbnailAlt: 'The PrecisionShot app, sensor board, main board, and battery laid out for the midterm demonstration.', phase: 'SD2', type: 'MP4 Video', action: 'Watch' },
+	{ title: 'Final Presentation Video', href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Final_Presentation.mp4', downloadId: 'final-presentation', poster: '/images/videos/final-presentation.jpg', duration: '23:31', thumbnailAlt: 'The final PrecisionShot presentation cover showing the V8 target and laser controller.', phase: 'SD2', type: 'MP4 Video', action: 'Watch' },
+	{ title: 'Final Demonstration Video', href: 'https://delayne.b-cdn.net/precisionshot/Group13_PrecisionShot_Final_Demonstration.mp4', downloadId: 'final-demonstration', poster: '/images/videos/final-demonstration.jpg', duration: '10:17', thumbnailAlt: 'The working PrecisionShot target with illuminated hit feedback and its companion app during a rapid drill.', phase: 'SD2', type: 'MP4 Video', action: 'Watch' }
 ];

@@ -8,10 +8,10 @@
 	let isDark = $state(true);
 	let menuOpen = $state(false);
 	const navigation = [
-		{ label: 'The system', href: '#project' },
+		{ label: 'System', href: '#project' },
 		{ label: 'Engineering', href: '#design' },
 		{ label: 'Videos', href: '#videos' },
-		{ label: 'The team', href: '#team' }
+		{ label: 'Team', href: '#team' }
 	];
 
 	onMount(() => {
