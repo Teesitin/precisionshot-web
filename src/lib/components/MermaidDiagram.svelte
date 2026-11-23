@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
+	import Icon from '$lib/components/Icon.svelte';
 
 	let { title, chart } = $props<{
 		title: string;
@@ -560,9 +561,7 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 		</div>
 
 		<button type="button" onclick={openZoom} disabled={!svgMarkup} aria-label="Open fullscreen diagram" class="absolute right-3 top-3 grid size-9 place-items-center rounded-full border border-slate-300 bg-white/90 text-slate-700 shadow-lg backdrop-blur transition hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-200">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="size-5 fill-current">
-				<path d="M120-120v-240h80v104l124-124 56 56-124 124h104v80H120Zm480 0v-80h104L580-324l56-56 124 124v-104h80v240H600ZM324-580 200-704v104h-80v-240h240v80H256l124 124-56 56Zm312 0-56-56 124-124H600v-80h240v240h-80v-104L636-580Z" />
-			</svg>
+			<Icon name="fullscreen" size={20} />
 		</button>
 	</div>
 
@@ -578,9 +577,7 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 					</div>
 
 					<button type="button" onclick={closeZoom} aria-label="Close fullscreen diagram" class="grid size-10 place-items-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-accent hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="size-6 fill-current">
-							<path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-						</svg>
+						<Icon name="close" size={24} />
 					</button>
 				</div>
 

@@ -3,6 +3,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import { resourceSections, videos, type Resource } from '$lib/resources';
 	import { teamMembers, reviewers, sd1Timeline, sd2Timeline } from '$lib/project';
+	import { enclosureDownload } from '$lib/models';
 
 	const imageRoot = '/images/showcase/';
 	const documents = resourceSections.find((section) => section.title === 'Documents')!.items;
@@ -16,7 +17,7 @@
 		'Kenn Pickavance': 'kenn-pickavance', 'Nicolas Koteff': 'nicolas-koteff'
 	};
 	const systemViews = [
-		{ label: 'Target', icon: 'target' as const, title: 'See the result. Right on target.', description: 'A 4 × 4 optical array detects laser strikes. LEDs and an onboard display return immediate feedback, with or without a phone.', image: 'target-front.webp', alt: 'CAD rendering of the PrecisionShot target with its display and sixteen optical sensing zones.', caption: 'Target enclosure · CAD rendering', tags: ['16 optical zones', 'Onboard scoring', 'Standalone operation'] },
+		{ label: 'Target', icon: 'target' as const, title: 'See the result. Right on target.', description: 'A 4 × 4 optical array detects laser strikes. LEDs and an onboard display return immediate feedback, with or without a phone.', image: 'enclosure-v8-assembled.webp', alt: 'CAD rendering of the V8 enclosure with its upper electronics housing and sixteen optical openings.', caption: 'Enclosure V8 · CAD rendering', tags: ['16 optical zones', 'Onboard scoring', 'Standalone operation'] },
 		{ label: 'Electronics', icon: 'chip' as const, title: 'Custom hardware, working together.', description: 'Three purpose-built PCBs connect optical sensing, power regulation, and ESP32-S3 processing in a single training system.', image: 'main-board.webp', alt: 'PrecisionShot Main Board V4 CAD rendering showing the ESP32-S3, display connector, and sensor interface.', caption: 'Main Board V4 · PCB design', tags: ['ESP32-S3', 'Three custom PCBs', 'Local controls'] },
 		{ label: 'App', icon: 'phone' as const, title: 'Bring every session into focus.', description: 'The companion app connects over Bluetooth for shot feedback, training modes, settings, and session history.', image: 'app-screen.webp', alt: 'PrecisionShot companion app showing its target, training modes, and latest shot panel.', caption: 'Companion app · Actual interface', tags: ['Bluetooth LE', 'Training modes', 'Session history'] }
 	];
@@ -56,11 +57,11 @@
 			<div class="product-scene">
 				<div class="scene-circle" aria-hidden="true"></div>
 				<span class="scene-corner corner-one" aria-hidden="true"></span><span class="scene-corner corner-two" aria-hidden="true"></span>
-				<img class="hero-target" src={`${imageRoot}target-front.webp`} alt="PrecisionShot target design with an onboard display and sixteen optical sensing zones." width="700" height="1204" fetchpriority="high" />
+				<img class="hero-target" src={`${imageRoot}enclosure-v8-assembled.webp`} alt="PrecisionShot V8 enclosure with its upper electronics housing and sixteen optical openings." width="800" height="1340" fetchpriority="high" />
 				<div class="hero-phone"><img src={`${imageRoot}app-screen.webp`} alt="The PrecisionShot companion app interface." width="640" height="1372" /></div>
 				<span class="scene-label">Designed to connect.</span>
 			</div>
-			<figcaption><span>PrecisionShot Training System</span><span>Target render + app interface</span></figcaption>
+			<figcaption><span>PrecisionShot Training System</span><span>V8 enclosure + app interface</span></figcaption>
 		</figure>
 	</section>
 
@@ -70,7 +71,7 @@
 		<div class="section-heading"><div><p class="eyebrow">The system</p><h2>Practice with purpose.</h2></div><p>From a laser strike to a useful result.<br />Every part has a clear job to do.</p></div>
 		<div class="system-explorer">
 			<figure class="system-figure" class:app-view={selectedView === 2} class:board-view={selectedView === 1}>
-				{#key selectedView}<img src={`${imageRoot}${currentView.image}`} alt={currentView.alt} width={selectedView === 1 ? 1200 : 700} height={selectedView === 1 ? 725 : 1204} loading="lazy" />{/key}
+				{#key selectedView}<img src={`${imageRoot}${currentView.image}`} alt={currentView.alt} width={selectedView === 0 ? 800 : selectedView === 1 ? 1200 : 640} height={selectedView === 0 ? 1340 : selectedView === 1 ? 725 : 1372} loading="lazy" />{/key}
 				<figcaption>{currentView.caption}</figcaption>
 			</figure>
 			<div class="system-copy">
@@ -86,7 +87,7 @@
 	<section id="design" class="engineering-band">
 		<div class="page-width engineering-inner">
 			<div class="engineering-copy"><p class="eyebrow">Behind the build</p><h2>Designed from<br />the inside out.</h2><p>Custom electronics. A modular enclosure. Embedded software that connects it all.</p><a class="button button-accent" href="/engineering">Inside the engineering</a><span class="engineering-note">Schematics, architecture & interactive 3D models</span></div>
-			<figure><img src={`${imageRoot}sensor-assembly.webp`} alt="Exploded CAD view of the sensor enclosure, lenses, optical grid, sensor PCB, and rear covers." width="1300" height="798" loading="lazy" /><figcaption>Sensor assembly · Exploded CAD view</figcaption></figure>
+			<figure><img src={`${imageRoot}enclosure-v8-exploded.webp`} alt="Exploded CAD view of the ten V8 enclosure parts, including the faceplate, optical grid, bases, and rear covers." width="1400" height="1000" loading="lazy" /><figcaption>Enclosure V8 · Exploded CAD view</figcaption></figure>
 		</div>
 	</section>
 
@@ -113,6 +114,7 @@
 					<div class="document-group"><h3>{group.title}</h3><div class="document-list">{#each group.items as document}<div class="document-row"><span class="file-icon"><Icon name="file" size={21} /></span><div class="document-name"><h4>{document.title}</h4><p>{document.phase} · PDF</p></div>{#if document.href && document.downloadId}<a href={`/downloads/${document.downloadId}`} download aria-label={`Download ${document.title}`} class="document-action">Download</a>{:else}<span class="document-pending">Awaiting final file</span>{/if}</div>{/each}</div></div>
 				{/each}
 			</div>
+			<div class="cad-resource"><div><h3>Enclosure V8</h3><p>Assembly + 10 parts · STEP, STL & OBJ</p></div><a class="button button-small" href={enclosureDownload.href} download={enclosureDownload.filename}>Download CAD · 16 MB</a></div>
 			<div class="source-code-row"><h3>Open engineering.</h3><div>{#each projectLinks as link}<a href={link.href} target="_blank" rel="noreferrer">{link.title === 'Website Source Code' ? 'Website' : link.title === 'Mobile Application Source Code' ? 'Mobile app' : 'Firmware'} <span>GitHub</span></a>{/each}<a href="/tasks">Project tasks <span>Archive</span></a></div></div>
 		</div>
 	</section>

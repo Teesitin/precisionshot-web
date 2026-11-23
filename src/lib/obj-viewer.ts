@@ -89,10 +89,12 @@ export function createObjViewer(canvas: HTMLCanvasElement) {
 	resize();
 
 	return {
-		load(obj: string, mtl: string, zUp: boolean) {
-			const materials = new MTLLoader().parse(mtl, '');
-			const next = new OBJLoader().setMaterials(materials).parse(obj);
+		load(obj: string, mtl: string | null, zUp: boolean, frontNegativeZ = false) {
+			const loader = new OBJLoader();
+			if (mtl) loader.setMaterials(new MTLLoader().parse(mtl, ''));
+			const next = loader.parse(obj);
 			if (zUp) next.rotation.x = -Math.PI / 2;
+			if (frontNegativeZ) next.rotation.y = Math.PI;
 			const bounds = new Box3().setFromObject(next);
 			const size = bounds.getSize(new Vector3());
 			const largestDimension = Math.max(size.x, size.y, size.z);
@@ -108,6 +110,13 @@ export function createObjViewer(canvas: HTMLCanvasElement) {
 				if (!(object instanceof Mesh)) return;
 				for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
 					material.side = DoubleSide;
+					// The V8 print meshes have no material library. Give them a neutral
+					// display finish while preserving the supplied geometry and files.
+					if (!mtl && material instanceof MeshPhongMaterial) {
+						material.color.set(0x8b9d92);
+						material.specular.set(0x28382f);
+						material.shininess = 25;
+					}
 					// Fusion exports its clear diffuser appearance as opaque black in MTL.
 					// Restore a visible translucent surface without changing the source files.
 					if (material instanceof MeshPhongMaterial && material.name === 'Clear') {

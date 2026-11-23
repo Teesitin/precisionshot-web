@@ -74,42 +74,23 @@ The website is built with:
 
 ### 3D Model Assets
 
-The Design Outline viewer loads the supplied OBJ/MTL pairs from `static/models/`.
-Keep each original material file beside its matching OBJ when refreshing the
-exports. The source geometry is unchanged; the viewer centers and fits it for
-display. The current Fusion exports all use Z-up.
+The engineering page defaults to the complete V8 enclosure supplied on November 23, 2026 in `PrecisionShot_V8_Enclosure_STEP_STL_OBJ.zip`. The original assembled OBJ and all ten individual OBJs are stored in `static/models/2026-11-23-v8/`, with the package README. The unchanged full ZIP is available from Project Resources and the engineering page at `/downloads/PrecisionShot_V8_Enclosure_STEP_STL_OBJ.zip`. It includes assembled and individual STEP, STL, and OBJ exports. These new files remain local on the design branch for review.
 
-The main board viewer uses `static/models/2026-10-06/Main Board V4.obj` and its
-matching MTL, exported from Fusion after refreshing P0008A in Main Board Library
-and regenerating the 3D PCB. The amplifier's eight leads were visually checked
-against the through holes. The earlier `Main Board` export is retained. This is
-a visualization export; Fusion's electrical check still reports 33 airwires.
+`src/lib/models.ts` defines the model selector, download link, source paths, sizes, and orientation. The assembled V8 OBJ uses Y-up with its front facing negative Z; the individual parts use their original Z-up print orientations. The viewer centers and fits geometry for display without modifying the source files. The V8 exports have no MTL library, so the viewer applies a neutral display finish. The prior V3 enclosure assets remain in the repository as historical exports and are no longer offered in the current selector.
 
-The viewer's current set was exported through Fusion on October 6, 2026 into
-`static/models/2026-10-06/`. Each OBJ has its original matching MTL:
+The electronics models remain the October 6 Fusion exports in `static/models/2026-10-06/`, with each original matching MTL:
 
 | Viewer model | Fusion source |
 | --- | --- |
 | Main board V4 | Main Board linked 3D PCB, regenerated after the amplifier package refresh |
 | Sensor board | Phototransistor Sensor Board (PSB) / Sensor Board linked 3D PCB |
 | 3.3 V / 5 V regulator board | Regulator / 3.3v & 5V Regulator 3D PCB |
-| Top faceplate V3 | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Faceplate Top V3 |
-| Bottom faceplate V3 | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Faceplate Bottom V3 |
-| Enclosure container V3 | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Container V3 |
-| Diffuser | Enclosure / V3 Enclosure / SENIOR DESIGN 2 Diffuser |
 
-The earlier exports remain in `static/models/` for reference. The V3 Assembly
-document contains imported board STEP references, so it is not used as a complete
-enclosure model. The enclosure parts are available individually in the selector.
-The regulator pair is named `Regulator Board` to avoid an ampersand in asset URLs;
-only its OBJ material-library filename was updated, with geometry and materials
-preserved.
-Fusion's `Clear` material is exported as opaque black; the viewer displays it
-as a pale translucent surface for the diffuser while retaining the original MTL.
+The main board was exported after refreshing P0008A in Main Board Library and regenerating the 3D PCB. The amplifier's eight leads were visually checked against the through holes. This is a visualization export; Fusion's electrical check still reports 33 airwires. The regulator pair is named `Regulator Board` to avoid an ampersand in asset URLs; only its OBJ material-library filename was updated.
 
-The 3D code and first model load when the viewer approaches the viewport. Only
-the selected model is loaded, previous loads are cancelled when switching, and
-the scene renders on interaction or resize rather than in a continuous loop.
+The V8 homepage and engineering images are rendered directly from the assembled OBJ by `python scripts/render_enclosure.py` (NumPy and Pillow required). The assembled view preserves installed positions; the exploded view separates the named parts for visibility. Colors are a neutral visualization finish. The original CAD geometry and downloadable package are unchanged.
+
+The 3D code and first model load only after opening the interactive viewer. Only the selected model is loaded, previous loads are cancelled when switching, and the scene renders on interaction or resize rather than in a continuous loop.
 
 ### Requirements
 
@@ -212,7 +193,7 @@ The three SD2 videos were downloaded from those YouTube links as 1080p H.264/AAC
 
 The local `design/polished-showcase` branch adds shorter copy, a responsive system explorer, an in-page video player, and a compact resource library. `static/images/showcase/` contains original CAD renders, app screenshots, and team portraits extracted from the shared final presentation, plus a still from the final demo. These are project visuals, not generated product photography. The homepage captions distinguish CAD renders from the working prototype. New showcase images and captions are kept local for review; no deployment or Bunny writes are part of this redesign.
 
-`static/captions/` contains YouTube's auto-generated English VTT tracks for the two final recordings; the video player labels them accordingly. Manrope is self-hosted under `static/fonts/` with its OFL license. Large diagrams and 3D assets load on the engineering page instead of the homepage, and 3D model loading requires an explicit click.
+`static/captions/` contains YouTube's auto-generated English VTT tracks for the two final recordings; the video player labels them accordingly. Manrope is self-hosted under `static/fonts/` with its OFL license. Interface icons use Google Material Symbols Outlined, self-hosted as a 15-icon WOFF2 subset with its Apache 2.0 license. `Icon.svelte` maps to the bundled ligatures; update the subset when adding symbols. Large diagrams and 3D assets load on the engineering page instead of the homepage, and 3D model loading requires an explicit click.
 
 The SD2 timeline uses approximate historical milestone dates. ClickUp mostly has no completion timestamps, so the dates use the due dates for [bench hardware and procurement](https://app.clickup.com/t/wdy2xh0kyg), [PCB fabrication and parts](https://app.clickup.com/t/wdy2xh0kyq), [integrated detection and app workflow](https://app.clickup.com/t/wdy2xh0kzq), [midterm hardware build](https://app.clickup.com/t/wdy2xh0kzu), [final enclosure](https://app.clickup.com/t/wdy2xh0m09), and [final retests](https://app.clickup.com/t/wdy2xh0m08). Course anchors are the September 23 CDR package, October 9 PCB assembly deadline, and November 13 final-form submission / November 18 review meeting. Sensor testing and the small prototype are approximate dates around the bench and CDR milestones. ClickUp and Webcourses were read-only.
 

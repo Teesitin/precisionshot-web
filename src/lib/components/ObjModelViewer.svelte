@@ -1,16 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import Icon from '$lib/components/Icon.svelte';
 	import type { ObjViewer } from '$lib/obj-viewer';
-
-	const models = [
-		{ name: 'Main board V4', file: '2026-10-06/Main Board V4', size: '38 MB', zUp: true },
-		{ name: 'Sensor board', file: '2026-10-06/Sensor Board', size: '56 MB', zUp: true },
-		{ name: '3.3 V / 5 V regulator board', file: '2026-10-06/Regulator Board', size: '4.5 MB', zUp: true },
-		{ name: 'Top faceplate V3', file: '2026-10-06/SENIOR DESIGN 2 Faceplate Top V3', size: '0.14 MB', zUp: true },
-		{ name: 'Bottom faceplate V3', file: '2026-10-06/SENIOR DESIGN 2 Faceplate Bottom V3', size: '0.24 MB', zUp: true },
-		{ name: 'Enclosure container V3', file: '2026-10-06/SENIOR DESIGN 2 Container V3', size: '1.1 MB', zUp: true },
-		{ name: 'Diffuser', file: '2026-10-06/SENIOR DESIGN 2 Diffuser', size: '4 KB', zUp: true }
-	];
+	import { models } from '$lib/models';
 	let selected = $state(0);
 	let status = $state<'idle' | 'loading' | 'ready' | 'error'>('idle');
 	let canvas = $state<HTMLCanvasElement>();
@@ -21,7 +13,7 @@
 	let mounted = false;
 	let requestId = 0;
 	const current = $derived(models[selected]);
-	const controlClass = 'min-h-10 rounded border border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-accent disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200';
+	const controlClass = 'inline-flex min-h-10 items-center justify-center gap-2 rounded border border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-accent disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200';
 
 	onMount(() => {
 		mounted = true;
@@ -60,12 +52,12 @@
 		}
 		try {
 			const [{ createObjViewer }, obj, mtl] = await Promise.all([
-				import('$lib/obj-viewer'), read('obj'), read('mtl')
+				import('$lib/obj-viewer'), read('obj'), model.material ? read('mtl') : Promise.resolve(null)
 			]);
 			if (!mounted || id !== requestId) return;
 			if (request.signal.aborted) throw new Error('Model loading timed out');
 			viewer ??= createObjViewer(canvas);
-			viewer.load(obj, mtl, model.zUp);
+			viewer.load(obj, mtl, model.zUp, model.frontNegativeZ);
 			status = 'ready';
 		} catch {
 			request.abort();
@@ -95,13 +87,15 @@
 			<div class="flex flex-wrap items-center gap-3">
 				<label for="obj-model" class="text-sm font-bold text-slate-700 dark:text-slate-300">Model</label>
 				<select id="obj-model" class={controlClass} value={selected} onchange={(event) => { selected = Number(event.currentTarget.value); void loadModel(); }}>
-					{#each models as model, i}<option value={i}>{model.name}</option>{/each}
+					{#each ['Enclosure V8', 'Electronics'] as group}
+						<optgroup label={group}>{#each models as model, i}{#if model.group === group}<option value={i}>{model.name}</option>{/if}{/each}</optgroup>
+					{/each}
 				</select>
 			</div>
 			<div class="flex items-center gap-2">
-				<button type="button" class={controlClass} disabled={status !== 'ready'} onclick={() => viewer?.zoom(0.8)} aria-label="Zoom in on model">+</button>
-				<button type="button" class={controlClass} disabled={status !== 'ready'} onclick={() => viewer?.zoom(1.25)} aria-label="Zoom out of model">−</button>
-				<button type="button" class={controlClass} disabled={status !== 'ready'} onclick={() => viewer?.reset()}>Reset View</button>
+				<button type="button" class={controlClass} disabled={status !== 'ready'} onclick={() => viewer?.zoom(0.8)} aria-label="Zoom in on model"><Icon name="plus" size={20} /></button>
+				<button type="button" class={controlClass} disabled={status !== 'ready'} onclick={() => viewer?.zoom(1.25)} aria-label="Zoom out of model"><Icon name="minus" size={20} /></button>
+				<button type="button" class={controlClass} disabled={status !== 'ready'} onclick={() => viewer?.reset()}><Icon name="reset" size={20} />Reset View</button>
 			</div>
 		</div>
 		<div class="relative h-88 bg-slate-50/50 sm:h-120 dark:bg-slate-950" aria-busy={status === 'loading'}>

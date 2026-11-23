@@ -2,6 +2,7 @@
 
 @font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-Regular.ttf') format('truetype'); font-style: normal; font-weight: 400 500; font-display: swap; }
 @font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-Bold.ttf') format('truetype'); font-style: normal; font-weight: 600 800; font-display: swap; }
+@font-face { font-family: 'Material Symbols Outlined'; src: url('/fonts/MaterialSymbolsOutlined.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: block; }
 @theme { --color-accent: #dce63e; --color-secondary: #476451; --font-blackops: 'Manrope', sans-serif; }
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -42,12 +43,7 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .site-header { position: sticky; top: 0; z-index: 40; background: var(--paper); border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 86px; gap: 25px; }
 .wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 1.4rem; font-weight: 700; letter-spacing: -.06em; line-height: 1; }
-.brand-mark { display: grid; place-items: center; width: 27px; height: 27px; border: 1.7px solid currentColor; border-radius: 50%; position: relative; }
-.brand-mark::before, .brand-mark::after { position: absolute; content: ''; background: var(--paper); }
-.brand-mark::before { width: 7px; height: 31px; }
-.brand-mark::after { width: 31px; height: 7px; }
-.brand-mark span { width: 13px; height: 13px; border: 1.7px solid currentColor; border-radius: 50%; z-index: 1; }
-.brand-mark span::after { content: ''; display: block; width: 3px; height: 3px; border-radius: 50%; background: currentColor; margin: 3.3px; }
+.brand-mark { display: grid; place-items: center; width: 28px; height: 28px; }
 .wordmark-dot { color: #9aab1d; }
 .site-nav { display: flex; gap: 28px; align-items: center; margin-left: auto; }
 .site-nav > a { font-size: .875rem; font-weight: 500; color: var(--muted); transition: color .2s; }
@@ -101,7 +97,7 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .system-description > p { color: var(--muted); margin-top: 18px; line-height: 1.85; max-width: 430px; }
 .feature-list { display: grid; gap: 11px; list-style: none; padding: 0; margin: 25px 0; font-size: .85rem; }
 .feature-list li { display: flex; align-items: center; gap: 10px; }
-.feature-list svg { color: #6c855c; }
+.feature-list .google-icon { color: #6c855c; }
 .system-copy > .text-link { display: inline-block; margin-top: 17px; }
 .engineering-band { background: var(--deep); color: #fff; overflow: hidden; }
 .engineering-inner { display: grid; grid-template-columns: .85fr 1.15fr; gap: 55px; align-items: center; padding-block: 75px; }
@@ -118,7 +114,7 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .video-thumbnail > img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
 .video-thumbnail:hover > img { transform: scale(1.025); }
 .play-control { display: grid; place-items: center; width: 61px; height: 61px; border-radius: 50%; background: #fff; color: #172b25; position: absolute; left: 25px; bottom: 25px; box-shadow: 0 4px 25px #132c261a; }
-.play-control svg { margin-left: 3px; }
+.play-control .google-icon { margin-left: 3px; }
 .video-duration { position: absolute; bottom: 29px; right: 25px; background: #172b25e0; color: #fff; border-radius: 5px; padding: 4px 10px; font-size: .8rem; }
 .presentation-thumbnail { background: #e5ecdf; }
 .presentation-thumbnail > img { position: absolute; width: 90%; height: 67%; object-fit: contain; right: -12%; bottom: 8px; transform: rotate(-8deg); }
@@ -133,8 +129,8 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .disclosure summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 23px; list-style: none; font-size: .9rem; font-weight: 700; }
 .disclosure summary::-webkit-details-marker { display: none; }
 .disclosure summary > span { display: flex; gap: 18px; align-items: center; font-size: .78rem; font-weight: 400; color: var(--muted); }
-.disclosure summary svg { transition: transform .2s; }
-.disclosure[open] summary svg { transform: rotate(180deg); }
+.disclosure summary .google-icon { transition: transform .2s; }
+.disclosure[open] summary .google-icon { transform: rotate(180deg); }
 .video-archive { margin-top: 42px; }
 .archive-video-row { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-top: 1px solid var(--line); gap: 20px; }
 .archive-video-row > div { display: flex; align-items: center; gap: 20px; }
@@ -152,6 +148,10 @@ section, [id='documents'] { scroll-margin-top: 0; }
 .document-action { margin-left: auto; font-size: .75rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; padding: 10px 0 10px 10px; }
 .document-pending { margin-left: auto; color: var(--muted); font-size: .75rem; max-width: 85px; text-align: right; }
 .source-code-row { display: flex; justify-content: space-between; gap: 25px; border-top: 1px solid var(--line); margin-top: 55px; padding-top: 25px; }
+.cad-resource { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; border: 1px solid var(--line); border-radius: 10px; margin-top: 35px; padding: 22px 25px; }
+.cad-resource h3 { font-size: 1rem; letter-spacing: -.03em; }
+.cad-resource p { color: var(--muted); font-size: .875rem; margin-top: 4px; }
+.cad-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .source-code-row > h3 { font-size: 1rem; letter-spacing: -.03em; }
 .source-code-row > div { display: flex; flex-wrap: wrap; gap: 33px; }
 .source-code-row a { font-size: .8rem; font-weight: 700; }
@@ -230,7 +230,6 @@ section, [id='documents'] { scroll-margin-top: 0; }
  .system-explorer { gap: 40px; }
  .system-tabs { gap: 15px; }
  .system-tabs button { font-size: .75rem; gap: 5px; }
- .system-tabs svg { width: 17px; }
  .system-description h3 { font-size: 1.8rem; }
  .document-columns { gap: 35px; }
  .source-code-row > div { gap: 22px; }
@@ -353,7 +352,6 @@ section, [id='documents'] { scroll-margin-top: 0; }
  .archive-video-row h3 { font-size: .85rem; margin-top: 5px; }
  .archive-video-row a { font-size: .75rem; }
  .document-row { gap: 12px; }
- .file-icon svg { width: 19px; }
  .document-name h4 { font-size: .82rem; }
  .document-action { font-size: .75rem; padding-left: 3px; }
  .document-pending { font-size: .75rem; }

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
+	import Icon from '$lib/components/Icon.svelte';
 
 	const CSV_PATH = '/clickup-tasks-static/export-7-22-26.csv';
 	const SNAPSHOT_CREATED = 'July 22, 2026';
@@ -1002,9 +1003,7 @@
 									<p class="shrink-0 text-xs font-bold text-slate-500">{folder.completed}/{folder.total} complete · {folder.lists.length} lists</p>
 								</div>
 							</div>
-							<svg class={`size-5 shrink-0 text-slate-400 transition-transform ${openFolders.has(folder.name) ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-								<path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
+							<span class={`flex shrink-0 text-slate-400 transition-transform ${openFolders.has(folder.name) ? 'rotate-180' : ''}`}><Icon name="chevron" size={20} /></span>
 						</button>
 
 						{#if openFolders.has(folder.name)}
@@ -1035,9 +1034,7 @@
 													<p class="shrink-0 text-xs font-bold text-slate-500">{list.completed}/{list.total} complete</p>
 												</div>
 											</div>
-											<svg class={`size-5 shrink-0 text-slate-400 transition-transform ${openGroups.has(list.key) ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-												<path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
-											</svg>
+											<span class={`flex shrink-0 text-slate-400 transition-transform ${openGroups.has(list.key) ? 'rotate-180' : ''}`}><Icon name="chevron" size={20} /></span>
 										</button>
 
 										{#if openGroups.has(list.key)}

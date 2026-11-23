@@ -31,6 +31,7 @@
 	<link rel="icon" href={favicon} />
 	<link rel="preload" href="/fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 	<link rel="preload" href="/fonts/Manrope-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/MaterialSymbolsOutlined.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 	<meta name="theme-color" content="#edf149" />
 </svelte:head>
 
@@ -39,7 +40,7 @@
 	<header class="site-header">
 		<div class="page-width header-inner">
 			<a href={homeLink('#home')} class="wordmark" aria-label="PrecisionShot home" onclick={() => menuOpen = false}>
-				<span class="brand-mark" aria-hidden="true"><span></span></span>
+				<span class="brand-mark" aria-hidden="true"><Icon name="target" size={28} /></span>
 				<span>PrecisionShot<span class="wordmark-dot">.</span></span>
 			</a>
 			<nav id="main-nav" class="site-nav" class:menu-open={menuOpen} aria-label="Main navigation">
@@ -61,7 +62,7 @@
 	<footer class="site-footer">
 		<div class="page-width footer-main">
 			<div>
-				<a class="wordmark" href={homeLink('#home')}><span class="brand-mark" aria-hidden="true"><span></span></span><span>PrecisionShot.</span></a>
+				<a class="wordmark" href={homeLink('#home')}><span class="brand-mark" aria-hidden="true"><Icon name="target" size={28} /></span><span>PrecisionShot.</span></a>
 				<p>Built to make practice measurable.</p>
 			</div>
 			<div class="footer-links"><a href={homeLink('#documents')}>Documentation</a><a href="/engineering">Engineering</a><a href={homeLink('#timeline')}>Project timeline</a><a href="/tasks">Task archive</a><a href="https://github.com/Teesitin/precisionshot-web" target="_blank" rel="noreferrer">GitHub</a></div>
