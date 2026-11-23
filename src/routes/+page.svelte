@@ -1,523 +1,135 @@
 <script lang="ts">
-	import MermaidDiagram from '$lib/components/MermaidDiagram.svelte';
-	import ObjModelViewer from '$lib/components/ObjModelViewer.svelte';
-	import { flowcharts } from '$lib/flowcharts';
-	import { resourceSections, videos } from '$lib/resources';
+	import { tick } from 'svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import { resourceSections, videos, type Resource } from '$lib/resources';
+	import { teamMembers, reviewers, sd1Timeline, sd2Timeline } from '$lib/project';
 
-	const deliverables = [...resourceSections.filter((section) => section.title !== 'Project Links').flatMap((section) => section.items), ...videos];
-	const linkedDeliverables = deliverables.filter((item) => item.href).length;
-	const downloadableDeliverables = deliverables.filter((item) => item.href && item.downloadId).length;
-
-	const teamMembers = [
-		{
-			name: 'Anthony Fontana',
-			major: 'CpE',
-			role: 'Hardware Design Lead',
-			focus: 'Phototransistor array, PCB planning, power system, and hardware connections.'
-		},
-		{
-			name: 'DeLayne Russell',
-			major: 'CpE',
-			role: 'Software Design Lead',
-			focus: 'Shot detection logic, scoring, calibration, display output, and user controls.'
-		},
-		{
-			name: 'Kenn Pickavance',
-			major: 'EE',
-			role: 'Specifications and Research Lead',
-			focus: 'Project goals, objectives, requirements, research, and measurable specs.'
-		},
-		{
-			name: 'Nicolas Koteff',
-			major: 'EE',
-			role: 'Prototype and Enclosure Lead',
-			focus: 'Target layout, enclosure design, mounting system, and physical structure.'
-		}
+	const imageRoot = '/images/showcase/';
+	const documents = resourceSections.find((section) => section.title === 'Documents')!.items;
+	const slides = resourceSections.find((section) => section.title === 'Slides')!.items;
+	const projectLinks = resourceSections.find((section) => section.title === 'Project Links')!.items.filter((item) => item.title.includes('Source Code'));
+	const finalDemo = videos.find((item) => item.downloadId === 'final-demonstration')!;
+	const finalPresentation = videos.find((item) => item.downloadId === 'final-presentation')!;
+	const olderVideos = videos.filter((item) => item !== finalDemo && item !== finalPresentation);
+	const portraits: Record<string, string> = {
+		'Anthony Fontana': 'anthony-fontana', 'DeLayne Russell': 'delayne-russell',
+		'Kenn Pickavance': 'kenn-pickavance', 'Nicolas Koteff': 'nicolas-koteff'
+	};
+	const systemViews = [
+		{ label: 'Target', icon: 'target' as const, title: 'See the result. Right on target.', description: 'A 4 × 4 optical array detects laser strikes. LEDs and an onboard display return immediate feedback, with or without a phone.', image: 'target-front.webp', alt: 'CAD rendering of the PrecisionShot target with its display and sixteen optical sensing zones.', caption: 'Target enclosure · CAD rendering', tags: ['16 optical zones', 'Onboard scoring', 'Standalone operation'] },
+		{ label: 'Electronics', icon: 'chip' as const, title: 'Custom hardware, working together.', description: 'Three purpose-built PCBs connect optical sensing, power regulation, and ESP32-S3 processing in a single training system.', image: 'main-board.webp', alt: 'PrecisionShot Main Board V4 CAD rendering showing the ESP32-S3, display connector, and sensor interface.', caption: 'Main Board V4 · PCB design', tags: ['ESP32-S3', 'Three custom PCBs', 'Local controls'] },
+		{ label: 'App', icon: 'phone' as const, title: 'Bring every session into focus.', description: 'The companion app connects over Bluetooth for shot feedback, training modes, settings, and session history.', image: 'app-screen.webp', alt: 'PrecisionShot companion app showing its target, training modes, and latest shot panel.', caption: 'Companion app · Actual interface', tags: ['Bluetooth LE', 'Training modes', 'Session history'] }
 	];
-
-	const reviewers = [
-		'Dr. Azadeh Vosoughi',
-		'Dr. Hadi Mardani Kamali',
-		'Dr. Jaesung Lee',
-		'Dr. Kimia Zamiri Azar',
-		'Dr. Saikat Dey',
-		'Shady Elashhab',
-		'Dr. Wayesh Qarony',
-		'Dr. Lei Wei',
-		'Sreeram Sundaresh'
+	let selectedView = $state(0);
+	const currentView = $derived(systemViews[selectedView]);
+	let activeVideo = $state<Resource | null>(null);
+	let videoDialog = $state<HTMLDialogElement>();
+	async function watchVideo(video: Resource) {
+		activeVideo = video;
+		await tick();
+		videoDialog?.showModal();
+	}
+	const milestones = [
+		{ date: 'May 2026', title: 'Project kickoff' },
+		{ date: 'July 28', title: 'SD1 final report' },
+		{ date: 'October 2', title: 'Design review' },
+		{ date: 'October 17', title: 'Midterm demo' },
+		{ date: 'November 18', title: 'Final review' }
 	];
-
-    const sd1Timeline = [
-        { week: 'Week of May 25, 2026', dates: 'May 28 - May 29', title: 'Project Start', items: ['Begin Senior Design 1', 'Confirm project idea', 'Form group roles', 'Submit initial Divide and Conquer report'] },
-        { week: 'Week of June 1, 2026', dates: 'June 1 - June 5', title: 'D&C Review and Planning', items: ['Attend D&C group meeting', 'Update project direction', 'Create task list', 'Start website structure'] },
-        { week: 'Week of June 8, 2026', dates: 'June 8 - June 12', title: 'Website and D&C Update', items: ['Update Divide and Conquer document', 'Upload D&C document to website', 'Add project overview and team information'] },
-        { week: 'Week of June 15, 2026', dates: 'June 15 - June 19', title: 'Early Design Work', items: ['Refine system requirements', 'Create early hardware diagram', 'Create early software diagram', 'Begin component research'] },
-        { week: 'Week of June 22, 2026', dates: 'June 22 - June 26', title: 'Design and Research Push', items: ['Finish ABET lectures', 'Continue PCB and power research', 'Plan prototype approach', 'Update design outline'] },
-        { week: 'Week of June 29, 2026', dates: 'June 29 - July 3', title: 'Midterm Report Prep', items: ['Draft midterm milestone report', 'Update diagrams', 'Review component choices', 'Prepare website updates'] },
-        { week: 'Week of July 6, 2026', dates: 'July 6 - July 10', title: 'Midterm Report', items: ['Submit Midterm Report', 'Attend Midterm Report group meeting', 'Record instructor feedback', 'Update project plan'] },
-        { week: 'Week of July 13, 2026', dates: 'July 13 - July 17', title: 'Midterm Website Update', items: ['Update and upload Midterm Report', 'Revise website content', 'Clean document and video placeholders', 'Continue final report writing'] },
-        { week: 'Week of July 20, 2026', dates: 'July 20 - July 24', title: 'Final SD1 Push', items: ['Finish SD1 final report draft', 'Prepare mini demo plan', 'Finalize design sections', 'Review website for missing content'] },
-        { week: 'Week of July 27, 2026', dates: 'July 27 - July 28', title: 'SD1 Final Submission', items: ['Submit SD1 Final Report', 'Submit Mini Demo Video', 'Finalize SD1 website content'] }
-    ];
-
-    const sd2Timeline = [
-        { week: 'Milestone 1', dates: 'September 11, 2026', title: 'Component Ordering', items: ['Order required components', 'Confirm PCB/component availability', 'Prepare testing plan'] },
-        { week: 'Milestone 2', dates: 'September 18, 2026', title: 'Sensor Testing', items: ['Test phototransistors with laser input', 'Test LED or display feedback', 'Record early testing results'] },
-        { week: 'Milestone 3', dates: 'September 18, 2026', title: 'PCB Design', items: ['Finish PCB schematic', 'Create PCB layout', 'Review power and signal routing'] },
-        { week: 'Milestone 4', dates: 'September 23, 2026', title: 'Small Prototype', items: ['Build small-scale sensor array', 'Test microcontroller input/output', 'Begin basic shot detection code'] },
-        { week: 'Milestone 5', dates: 'October 9, 2026', title: 'PCB Assembly', items: ['Order PCB', 'Assemble board', 'Check voltage rails and sensor connections'] },
-        { week: 'Milestone 6', dates: 'October 16, 2026', title: 'Software Integration', items: ['Program shot detection logic', 'Program scoring logic', 'Program user interface modes'] },
-        { week: 'Milestone 7', dates: 'October 23, 2026', title: 'System Integration', items: ['Combine hardware and software', 'Debug full prototype', 'Test calibration in different lighting conditions'] },
-        { week: 'Milestone 8', dates: 'November 6, 2026', title: 'Enclosure Build', items: ['Build target enclosure', 'Mount PCB and sensors', 'Add display, buttons, and battery access'] },
-        { week: 'Milestone 9', dates: 'November 6, 2026', title: 'Final Testing', items: ['Test accuracy and response time', 'Fix prototype issues', 'Document results'] },
-        { week: 'Milestone 10', dates: 'November 13–18, 2026', title: 'Final Presentation and Demo', items: ['Prepare final presentation', 'Record final demonstration', 'Attend final project review'] }
-    ];
 </script>
 
 <svelte:head>
-	<title>PrecisionShot Training System</title>
-	<meta name="description" content="PrecisionShot is a UCF Senior Design project focused on a smart laser target system that tracks shot accuracy and gives real-time feedback." />
+	<title>PrecisionShot — Every shot. More insight.</title>
+	<meta name="description" content="Meet PrecisionShot: a laser training target, custom embedded electronics, and companion app. A UCF Senior Design project by Group 13." />
 </svelte:head>
 
-<main class="bg-slate-50 text-slate-950 transition-colors dark:bg-slate-950 dark:text-slate-100">
-	<!-- MainHero -->
-	<section id="home" class="relative isolate min-h-175 overflow-hidden border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-950">
-		<video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-			<source src="https://delayne.b-cdn.net/precisionshot/temporary-demo-ai-generated-not-finale.mp4" type="video/mp4" />
-		</video>
-
-		<div class="absolute inset-0 bg-white/48 dark:bg-slate-950/66"></div>
-		<div class="absolute inset-0 bg-linear-to-r from-white via-white/85 to-white/30 dark:from-slate-950 dark:via-slate-950/76 dark:to-slate-950/28"></div>
-		<div class="absolute inset-0 bg-linear-to-t from-white via-white/20 to-transparent dark:from-slate-950 dark:via-slate-950/30"></div>
-		<div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(236,211,22,0.16),transparent_30%),radial-gradient(circle_at_88%_48%,rgba(236,211,22,0.16),transparent_34%),radial-gradient(circle_at_82%_58%,rgba(127,104,63,0.16),transparent_38%)] dark:bg-[radial-gradient(circle_at_18%_22%,rgba(236,211,22,0.14),transparent_30%),radial-gradient(circle_at_88%_48%,rgba(236,211,22,0.10),transparent_34%),radial-gradient(circle_at_82%_58%,rgba(127,104,63,0.24),transparent_38%)]"></div>
-
-		<div class="pointer-events-none absolute -right-28 top-1/2 hidden aspect-square w-152 -translate-y-1/2 text-slate-950/14 opacity-70 lg:block dark:text-accent/10 dark:opacity-60">
-			<svg class="h-full w-full drop-shadow-[0_18px_45px_rgba(15,23,42,0.16)] dark:drop-shadow-[0_0_36px_rgba(236,211,22,0.10)]" viewBox="0 0 600 600" fill="none" aria-hidden="true">
-				<circle cx="300" cy="300" r="250" stroke="currentColor" stroke-width="2" />
-				<circle cx="300" cy="300" r="185" stroke="currentColor" stroke-width="2" />
-				<circle cx="300" cy="300" r="118" stroke="currentColor" stroke-width="2" />
-				<circle cx="300" cy="300" r="52" stroke="currentColor" stroke-width="2" />
-				<path d="M300 22V120" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-				<path d="M300 480V578" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-				<path d="M22 300H120" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-				<path d="M480 300H578" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-				<path d="M300 242V358" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-				<path d="M242 300H358" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-				<circle cx="300" cy="300" r="7" class="fill-accent text-accent opacity-80" />
-			</svg>
+<main id="main">
+	<section id="home" class="hero page-width">
+		<div class="hero-copy">
+			<p class="eyebrow"><span class="eyebrow-line"></span> UCF Senior Design · Group 13</p>
+			<h1>Every shot.<br /><span>More insight.</span></h1>
+			<p class="hero-description">A smarter way to practice. PrecisionShot pairs a laser target with real-time feedback and a connected companion app.</p>
+			<div class="hero-actions"><a href="#project" class="button">Explore the system</a><button class="button button-quiet" onclick={() => watchVideo(finalDemo)}><Icon name="play" size={18} /> Watch the demo</button></div>
+			<div class="hero-note"><span class="note-rule"></span><span>Hardware. Firmware. Mobile.<br /><strong>One integrated training system.</strong></span></div>
 		</div>
+		<figure class="hero-visual">
+			<div class="product-scene">
+				<div class="scene-circle" aria-hidden="true"></div>
+				<span class="scene-corner corner-one" aria-hidden="true"></span><span class="scene-corner corner-two" aria-hidden="true"></span>
+				<img class="hero-target" src={`${imageRoot}target-front.webp`} alt="PrecisionShot target design with an onboard display and sixteen optical sensing zones." width="700" height="1204" fetchpriority="high" />
+				<div class="hero-phone"><img src={`${imageRoot}app-screen.webp`} alt="The PrecisionShot companion app interface." width="640" height="1372" /></div>
+				<span class="scene-label">Designed to connect.</span>
+			</div>
+			<figcaption><span>PrecisionShot Training System</span><span>Target render + app interface</span></figcaption>
+		</figure>
+	</section>
 
-		<div class="pointer-events-none absolute right-10 top-1/2 hidden h-56 w-56 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl lg:block dark:bg-accent/8"></div>
+	<div class="capability-band"><div class="page-width capability-inner"><span>Optical shot detection</span><span>On-target feedback</span><span>Bluetooth connectivity</span><span>Standalone operation</span></div></div>
 
-		<div class="relative z-10 mx-auto flex min-h-175 max-w-6xl items-center px-6 py-20">
-			<div class="max-w-3xl">
-				<div class="mb-5 inline-flex items-center gap-3 rounded-full border border-slate-950/10 bg-white/75 px-4 py-2 text-xs font-black uppercase tracking-widest text-slate-950 shadow-lg backdrop-blur-md dark:border-white/15 dark:bg-white/10 dark:text-accent">
-					<span class="h-2 w-2 rounded-full bg-accent shadow-[0_0_14px_rgba(236,211,22,0.9)]"></span>
-					UCF Senior Design - Group 13
+	<section id="project" class="section page-width">
+		<div class="section-heading"><div><p class="eyebrow">The system</p><h2>Practice with purpose.</h2></div><p>From a laser strike to a useful result.<br />Every part has a clear job to do.</p></div>
+		<div class="system-explorer">
+			<figure class="system-figure" class:app-view={selectedView === 2} class:board-view={selectedView === 1}>
+				{#key selectedView}<img src={`${imageRoot}${currentView.image}`} alt={currentView.alt} width={selectedView === 1 ? 1200 : 700} height={selectedView === 1 ? 725 : 1204} loading="lazy" />{/key}
+				<figcaption>{currentView.caption}</figcaption>
+			</figure>
+			<div class="system-copy">
+				<div class="system-tabs" role="group" aria-label="Explore the system">
+					{#each systemViews as view, index}<button aria-pressed={selectedView === index} class:active={selectedView === index} onclick={() => selectedView = index}><Icon name={view.icon} size={19} />{view.label}</button>{/each}
 				</div>
-
-				<h1 class="font-blackops max-w-3xl text-4xl leading-tight text-slate-950 drop-shadow-[0_3px_18px_rgba(255,255,255,0.7)] sm:text-5xl md:text-6xl dark:text-white dark:drop-shadow-2xl">
-					PrecisionShot Training System
-				</h1>
-
-				<p class="mt-5 max-w-2xl text-lg leading-8 text-slate-700 drop-shadow-[0_2px_12px_rgba(255,255,255,0.9)] md:text-xl dark:text-slate-200 dark:drop-shadow-lg">
-					A smart laser-based target system that detects shot placement and provides real-time training feedback.
-				</p>
-
-				<div class="mt-8 flex flex-wrap gap-4">
-					<a href="#resources" class="rounded bg-accent px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_0_30px_rgba(236,211,22,0.24)] transition-all hover:-translate-y-0.5 hover:bg-accent/85 hover:shadow-[0_0_40px_rgba(236,211,22,0.38)]">
-						View Resources
-					</a>
-					<a href="#project" class="rounded border border-slate-950/15 bg-white/70 px-5 py-3 text-sm font-bold text-slate-950 shadow-lg backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-accent/70 hover:bg-white/90 dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:bg-white/20">
-						Project Overview
-					</a>
-				</div>
-
-				<div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-					<div class="rounded-xl border border-slate-950/10 bg-white/75 p-4 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/90 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15">
-						<p class="text-xl font-black text-slate-950 dark:text-white">Laser</p>
-						<p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Shot detection</p>
-					</div>
-
-					<div class="rounded-xl border border-slate-950/10 bg-white/75 p-4 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/90 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15">
-						<p class="text-xl font-black text-slate-950 dark:text-white">Real-Time</p>
-						<p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Training feedback</p>
-					</div>
-
-					<div class="rounded-xl border border-slate-950/10 bg-white/75 p-4 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/90 dark:border-white/10 dark:bg-white/10 dark:hover:bg-white/15">
-						<p class="text-xl font-black text-slate-950 dark:text-white">Wireless</p>
-						<p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Portable system</p>
-					</div>
-				</div>
+				<div class="system-description" aria-live="polite"><h3>{currentView.title}</h3><p>{currentView.description}</p><ul class="feature-list">{#each currentView.tags as tag}<li><Icon name="check" size={18} />{tag}</li>{/each}</ul></div>
+				<a href="/engineering" class="text-link">Explore the engineering</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- Team -->
-	<section id="team" class="border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-900">
-		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Team</h2>
+	<section id="design" class="engineering-band">
+		<div class="page-width engineering-inner">
+			<div class="engineering-copy"><p class="eyebrow">Behind the build</p><h2>Designed from<br />the inside out.</h2><p>Custom electronics. A modular enclosure. Embedded software that connects it all.</p><a class="button button-accent" href="/engineering">Inside the engineering</a><span class="engineering-note">Schematics, architecture & interactive 3D models</span></div>
+			<figure><img src={`${imageRoot}sensor-assembly.webp`} alt="Exploded CAD view of the sensor enclosure, lenses, optical grid, sensor PCB, and rear covers." width="1300" height="798" loading="lazy" /><figcaption>Sensor assembly · Exploded CAD view</figcaption></figure>
+		</div>
+	</section>
 
-			<div class="mt-8 grid gap-4 md:grid-cols-2">
-				{#each teamMembers as member}
-					<div class="rounded border border-slate-200 bg-slate-50 p-5 transition-colors dark:border-slate-700 dark:bg-slate-950">
-						<p class="text-sm font-bold text-accent">{member.major}</p>
-						<h3 class="mt-2 text-xl font-bold text-slate-950 dark:text-white">{member.name}</h3>
-						<p class="mt-1 text-slate-700 dark:text-slate-300">{member.role}</p>
-						<p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">{member.focus}</p>
-					</div>
+	<section id="videos" class="section page-width">
+		<div class="section-heading"><div><p class="eyebrow">See it in action</p><h2>From design to demonstration.</h2></div><p>The working prototype, the thinking behind it,<br />and the complete project story.</p></div>
+		<div class="featured-videos">
+			<article class="video-feature">
+				<button class="video-thumbnail" aria-label="Watch Final Demonstration Video" onclick={() => watchVideo(finalDemo)}><img src={`${imageRoot}prototype-demo.webp`} alt="The working PrecisionShot target showing illuminated sensing zones and its onboard score display." width="1280" height="720" loading="lazy" /><span class="play-control"><Icon name="play" size={24} /></span><span class="video-duration">10:17</span></button>
+				<div class="video-feature-info"><div><p class="eyebrow">The working prototype</p><h3>Final demonstration</h3></div><a class="text-link" href="/downloads/final-demonstration" aria-label="Download Final Demonstration Video" download>Download MP4</a></div>
+			</article>
+			<article class="video-feature">
+				<button class="video-thumbnail presentation-thumbnail" aria-label="Watch Final Presentation Video" onclick={() => watchVideo(finalPresentation)}><span class="presentation-label">PRECISIONSHOT<span>Final project presentation</span></span><img src={`${imageRoot}main-board.webp`} alt="The custom PrecisionShot main board design." width="1200" height="725" loading="lazy" /><span class="play-control"><Icon name="play" size={24} /></span><span class="video-duration">23:31</span></button>
+				<div class="video-feature-info"><div><p class="eyebrow">The engineering story</p><h3>Final presentation</h3></div><a class="text-link" href="/downloads/final-presentation" aria-label="Download Final Presentation Video" download>Download MP4</a></div>
+			</article>
+		</div>
+		<details class="disclosure video-archive"><summary>Earlier project videos <span>Mini demo, CDR & midterm demo<Icon name="chevron" size={18} /></span></summary><div class="archive-video-list">{#each olderVideos as video}<div class="archive-video-row"><div><span class="phase-label">{video.phase}</span><h3>{video.title}</h3></div><div><a href={video.href} target="_blank" rel="noreferrer">Watch video</a>{#if video.downloadId}<a href={`/downloads/${video.downloadId}`} download aria-label={`Download ${video.title}`}>Download MP4</a>{/if}</div></div>{/each}</div></details>
+	</section>
+
+	<section id="resources" class="resource-section">
+		<div class="page-width section" id="documents">
+			<div class="section-heading"><div><p class="eyebrow">Project resources</p><h2>The complete paper trail.</h2></div><p>Reports, slide decks, and source code.<br />All in one place.</p></div>
+			<div class="document-columns">
+				{#each [{ title: 'Reports & papers', items: documents }, { title: 'Presentation slides', items: slides }] as group}
+					<div class="document-group"><h3>{group.title}</h3><div class="document-list">{#each group.items as document}<div class="document-row"><span class="file-icon"><Icon name="file" size={21} /></span><div class="document-name"><h4>{document.title}</h4><p>{document.phase} · PDF</p></div>{#if document.href && document.downloadId}<a href={`/downloads/${document.downloadId}`} download aria-label={`Download ${document.title}`} class="document-action">Download</a>{:else}<span class="document-pending">Awaiting final file</span>{/if}</div>{/each}</div></div>
 				{/each}
 			</div>
-
-			<div class="mt-8 rounded border border-slate-200 bg-slate-50 p-5 transition-colors dark:border-slate-700 dark:bg-slate-950">
-				<h3 class="text-xl font-bold text-slate-950 dark:text-white">Reviewers</h3>
-
-				<ul class="mt-3 list-disc space-y-1 pl-5 text-slate-700 dark:text-slate-300">
-					{#each reviewers as reviewer}
-						<li>{reviewer}</li>
-					{/each}
-				</ul>
-			</div>
+			<div class="source-code-row"><h3>Open engineering.</h3><div>{#each projectLinks as link}<a href={link.href} target="_blank" rel="noreferrer">{link.title === 'Website Source Code' ? 'Website' : link.title === 'Mobile Application Source Code' ? 'Mobile app' : 'Firmware'} <span>GitHub</span></a>{/each}<a href="/tasks">Project tasks <span>Archive</span></a></div></div>
 		</div>
 	</section>
 
-	<!-- Project Overview -->
-	<section id="project" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-950">
-		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Project Overview</h2>
-
-			<div class="mt-6 flex flex-wrap gap-3">
-				<a href="#project-description" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Description</a>
-				<a href="#project-motivation" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Motivation</a>
-				<a href="#project-functionality" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Functionality</a>
-				<a href="#project-goals" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Goals</a>
-				<a href="#project-objectives" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Objectives</a>
-				<a href="#project-requirements" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Requirements</a>
-				<a href="#project-sponsorship" class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-accent hover:bg-slate-100 hover:text-accent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">Sponsorship</a>
-			</div>
-
-			<div class="mt-8 space-y-8 text-slate-700 dark:text-slate-300">
-				<div id="project-description" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Description</h3>
-
-					<p class="mt-2 leading-7">
-						PrecisionShot is a smart laser-based training system designed to detect where a laser shot lands on a physical target and provide real-time feedback to the user. Instead of functioning as a simple hit-or-miss target, the system is being developed as a complete training platform that can track shot placement, calculate scoring data, display immediate feedback, and send training information to a companion mobile application.
-					</p>
-
-					<p class="mt-2 leading-7">
-						The target uses a dense phototransistor sensor array to detect incoming laser energy directly on the target surface. The embedded ESP32-S3 control system processes the sensor readings, filters out ambient light, estimates the shot location, updates the target display and LED feedback system, stores useful training data, and communicates with the mobile app through Bluetooth Low Energy.
-					</p>
-				</div>
-
-				<div id="project-motivation" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Motivation and Background</h3>
-
-					<p class="mt-2 leading-7">
-						Traditional firearm training often requires live ammunition, a safe range facility, travel time, range fees, and equipment capable of safely handling fired rounds. These requirements can make regular practice expensive and inconvenient. PrecisionShot is intended to provide a lower-cost and more accessible dry-fire training option by allowing users to practice with a laser-based system instead of live ammunition.
-					</p>
-
-					<p class="mt-2 leading-7">
-						The system is also designed to improve the quality of training by giving users immediate feedback after each shot. Instead of interrupting practice to inspect a paper target, users can view shot placement, score, distance, session history, and performance trends directly through the target interface or the mobile app. This helps users identify patterns, make corrections faster, and track long-term improvement over multiple sessions.
-					</p>
-				</div>
-
-				<div id="project-functionality" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Main Functionality</h3>
-
-					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-						<li>Detect incoming laser shots using a phototransistor sensor array built into the target face.</li>
-						<li>Estimate shot location using sensor readings, threshold filtering, and weighted position logic.</li>
-						<li>Provide immediate physical feedback through the LED hit indicator system and onboard TFT display.</li>
-						<li>Support multiple training modes such as Freestyle, Classic, Rapid, and Moving Target modes.</li>
-						<li>Allow users to control target settings using physical buttons and the onboard display.</li>
-						<li>Connect to a companion mobile app through Bluetooth Low Energy for remote control and training analytics.</li>
-						<li>Store shot history, scores, distance settings, calibration values, and session data locally on the phone.</li>
-						<li>Operate as a standalone target even when the mobile app is not connected.</li>
-						<li>Use a rechargeable power source so the system can remain portable and wireless during training.</li>
-						<li>Use a physical enclosure that protects the electronics while reducing unwanted ambient light exposure.</li>
-					</ul>
-				</div>
-
-				<div id="project-goals" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Goals</h3>
-
-					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-						<li>Develop a target system that can detect laser shots and show accurate shot placement.</li>
-						<li>Provide real-time visual feedback using LEDs, an onboard display, and the companion mobile app.</li>
-						<li>Use a rechargeable battery or commercial power bank so the target can operate wirelessly.</li>
-						<li>Allow target modes and settings to be controlled using onboard buttons and a screen.</li>
-						<li>Include user statistics and training history through the mobile app and local storage.</li>
-						<li>Support distance settings so training data can be viewed with better performance context.</li>
-						<li>Develop multiple training modes that simulate different practice and shooting drill styles.</li>
-						<li>Keep the target functional as a standalone embedded system without requiring the mobile app.</li>
-					</ul>
-				</div>
-
-				<div id="project-objectives" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Project Objectives</h3>
-
-					<ul class="mt-3 list-disc space-y-2 pl-5 leading-7">
-						<li>Develop an array of phototransistors that can detect incoming laser shots while rejecting unrelated ambient light.</li>
-						<li>Implement an LED array that can indicate the detected shot location within approximately 10 ms.</li>
-						<li>Program the ESP32-S3 microcontroller to process sensor readings, shot detection, scoring, display output, and training modes.</li>
-						<li>Use calibration logic to adjust the detection threshold for different lighting environments.</li>
-						<li>Show accurate shot placement in both indoor and outdoor lighting conditions.</li>
-						<li>Update the mobile app within approximately 1 second after a laser hit is detected.</li>
-						<li>Support Bluetooth Low Energy communication between the target and the companion app.</li>
-						<li>Store useful shot records, debug information, and training history for later review.</li>
-					</ul>
-				</div>
-
-				<div id="project-requirements" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Design Requirements</h3>
-
-					<p class="mt-2 leading-7">
-						The PrecisionShot Training System must provide fast, reliable, and accurate shot detection while remaining practical to use as a portable training device. The phototransistor array must detect the selected laser wavelength while minimizing false detections from room lighting, reflections, and sunlight. The software must support threshold calibration so the target can adapt to different lighting conditions without requiring hardware changes.
-					</p>
-
-					<p class="mt-2 leading-7">
-						The embedded system must coordinate the sensor array, multiplexers, LED feedback, TFT display, physical controls, Bluetooth communication, local logging, and power system. The target must remain responsive during normal training while still supporting multiple modes, scoring logic, mobile app updates, and future software expansion.
-					</p>
-
-					<p class="mt-2 leading-7">
-						The physical design must protect the internal electronics, align the sensor openings with the PCB-mounted phototransistors, reduce unwanted off-axis light, and remain serviceable for debugging, testing, firmware updates, and battery access.
-					</p>
-				</div>
-
-				<div id="project-sponsorship" class="scroll-mt-24 rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-800 dark:bg-slate-900">
-					<h3 class="text-xl font-bold text-slate-950 dark:text-white">Acknowledgment and Sponsorship</h3>
-
-					<p class="mt-2 leading-7">
-						The PrecisionShot Training System is currently planned as a self-funded Senior Design project. The team expects to cover prototype costs out of pocket while continuing to refine the bill of materials, PCB design, enclosure requirements, testing needs, and replacement-part budget.
-					</p>
-
-					<p class="mt-2 leading-7">
-						The current prototype estimate is expected to increase as the design becomes more finalized because of PCB revisions, sensor quantity, 3D-printed enclosure parts, power components, display hardware, connectors, spare parts, and possible prototyping mistakes. Outside sponsorship is not required at this stage, but it may help reduce personal costs and allow the team to improve the final prototype with higher-quality components.
-					</p>
-				</div>
-			</div>
-		</div>
+	<section id="team" class="section page-width">
+		<div class="section-heading"><div><p class="eyebrow">Meet Group 13</p><h2>The people behind PrecisionShot.</h2></div><p>Four engineers. One shared project.<br />University of Central Florida.</p></div>
+		<div class="team-grid">{#each teamMembers as member}<article class="team-member"><div class="team-portrait"><img src={`${imageRoot}${portraits[member.name]}.webp`} alt={member.name} width="320" height="320" loading="lazy" /></div><h3>{member.name}</h3><p>{member.role.replace(' Design Lead', '').replace(' Lead', '')}</p><span>{member.major === 'CpE' ? 'Computer Engineering' : 'Electrical Engineering'}</span></article>{/each}</div>
+		<details class="disclosure reviewers"><summary>Faculty & project reviewers <span>With thanks<Icon name="chevron" size={18} /></span></summary><ul>{#each reviewers as reviewer}<li>{reviewer}</li>{/each}</ul></details>
 	</section>
 
-	<!-- Design Outline -->
-	<section id="design" class="scroll-mt-24 border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-900">
-		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Design Outline</h2>
-
-			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				Five views of the PrecisionShot design: the main hardware block diagram, followed by software, hardware, PCB, and mechanical design summaries.
-			</p>
-
-			<div class="mt-8 space-y-6">
-				{#each flowcharts as flowchart (flowchart.path)}
-					<MermaidDiagram title={flowchart.title} chart={flowchart.chart} />
-				{/each}
-			</div>
-			<ObjModelViewer />
-		</div>
-	</section>
-
-	<!-- Project Resources -->
-	<section id="resources" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 transition-colors dark:border-slate-800 dark:bg-slate-950">
-		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Project Resources</h2>
-
-			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				This section contains the official project website, public task dashboard,
-				source-code repositories, Senior Design documents, and presentation materials.
-			</p>
-			<p class="mt-4 text-sm text-slate-600 dark:text-slate-400">
-				<span class="font-bold text-slate-950 dark:text-white">Final documentation:</span>
-				{linkedDeliverables} of {deliverables.length} resources linked · {downloadableDeliverables} downloads available.
-				<a href="#videos" class="text-accent hover:underline">View presentation and demo videos.</a>
-			</p>
-
-			<div class="mt-8 space-y-10">
-				{#each resourceSections as section}
-					<div id={section.title.toLowerCase().replaceAll(' ', '-')} class="scroll-mt-24">
-						<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
-							<h3 class="text-xl font-bold text-slate-950 dark:text-white">
-								{section.title}
-							</h3>
-
-							<p class="mt-1 text-sm text-slate-500 dark:text-slate-500">
-								{section.description}
-							</p>
-						</div>
-
-						<div class="mt-5 grid gap-4 md:grid-cols-2">
-							{#each section.items as item}
-								{#if item.href}
-									<a
-										href={item.downloadId ? `/downloads/${item.downloadId}` : item.href}
-										download={item.downloadId ? true : undefined}
-										target={!item.downloadId && item.href.startsWith('http') ? '_blank' : undefined}
-										rel={!item.downloadId && item.href.startsWith('http') ? 'noreferrer' : undefined}
-										class="group rounded border border-slate-200 bg-white p-5 transition-colors hover:border-accent hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
-									>
-										<div class="flex flex-wrap items-center gap-2">
-											<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">
-												{item.phase}
-											</p>
-
-											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">
-												{item.type}
-											</p>
-										</div>
-
-										<h4 class="mt-4 font-bold text-slate-950 dark:text-white">
-											{item.title}
-										</h4>
-
-										<p class="mt-3 text-sm text-slate-500 dark:text-slate-500">
-											<span class="text-accent group-hover:underline">
-												{item.action}
-											</span>
-											<span> this resource.</span>
-										</p>
-									</a>
-								{:else}
-									<div class="rounded border border-slate-200 bg-white/70 p-5 opacity-70 transition-colors dark:border-slate-800 dark:bg-slate-900/60">
-										<div class="flex flex-wrap items-center gap-2">
-											<p class="rounded bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">
-												{item.phase}
-											</p>
-
-											<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-500 dark:border-slate-700">
-												{item.type}
-											</p>
-										</div>
-
-										<h4 class="mt-4 font-bold text-slate-700 dark:text-slate-300">
-											{item.title}
-										</h4>
-
-										<p class="mt-3 text-sm text-slate-500">
-											Unavailable at this time.
-										</p>
-									</div>
-								{/if}
-							{/each}
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
-	</section>
-
-	<!-- Videos -->
-	<section id="videos" class="scroll-mt-24 border-b border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-900">
-		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Videos</h2>
-
-			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				Watch the Senior Design demonstrations and presentations, or download the available MP4 files.
-			</p>
-
-			<div class="mt-8 grid gap-4 md:grid-cols-2">
-				{#each videos as video}
-					{#if video.href}
-						<article class="rounded border border-slate-200 bg-slate-50 p-5 transition-colors dark:border-slate-700 dark:bg-slate-950">
-							<div class="flex flex-wrap items-center gap-2">
-								<p class="rounded bg-accent px-2 py-1 text-xs font-bold text-slate-950">{video.phase}</p>
-								<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{video.type}</p>
-							</div>
-
-							<h3 class="mt-4 font-bold text-slate-950 dark:text-white">{video.title}</h3>
-
-							<div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
-								<a href={video.href} target="_blank" rel="noreferrer" aria-label={`Watch ${video.title}`} class="font-bold text-accent hover:underline">Watch video <span aria-hidden="true">↗</span></a>
-								{#if video.downloadId}
-									<a href={`/downloads/${video.downloadId}`} download aria-label={`Download ${video.title}`} class="font-bold text-accent hover:underline">Download MP4</a>
-								{:else}
-									<span class="text-slate-500 dark:text-slate-400">MP4 download pending</span>
-								{/if}
-							</div>
-						</article>
-					{:else}
-						<div class="rounded border border-slate-200 bg-slate-50 p-5 opacity-70 transition-colors dark:border-slate-800 dark:bg-slate-950/70">
-							<div class="flex flex-wrap items-center gap-2">
-								<p class="rounded bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">{video.phase}</p>
-								<p class="rounded border border-slate-300 px-2 py-1 text-xs font-bold text-slate-500 dark:border-slate-700">{video.type}</p>
-							</div>
-
-							<h3 class="mt-4 font-bold text-slate-700 dark:text-slate-300">{video.title}</h3>
-
-							<p class="mt-3 text-sm text-slate-500">Unavailable at this time.</p>
-						</div>
-					{/if}
-				{/each}
-			</div>
-		</div>
-	</section>
-
-	<!-- Timeline -->
-	<section id="timeline" class="scroll-mt-24 bg-slate-50 transition-colors dark:bg-slate-950">
-		<div class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="font-blackops text-3xl text-accent">Timeline</h2>
-
-			<p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
-				Project milestones and approximate completion dates, based on ClickUp records and course submissions.
-				Course and milestone due dates are used where completion dates were not recorded.
-			</p>
-
-			<div class="mt-10 space-y-10">
-				<div>
-					<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
-						<h3 class="text-2xl font-bold text-slate-950 dark:text-white">Senior Design 1</h3>
-						<p class="mt-1 text-sm text-slate-500">Planning, research, documentation, website setup, and early design work.</p>
-					</div>
-
-					<div class="mt-6 space-y-4">
-						{#each sd1Timeline as item}
-							<div class="rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-700 dark:bg-slate-900">
-								<div class="flex flex-wrap items-start justify-between gap-3">
-									<div>
-										<p class="text-sm font-bold text-accent">{item.week}</p>
-										<h4 class="mt-1 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h4>
-									</div>
-
-									<p class="rounded border border-slate-300 px-3 py-1 text-sm font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{item.dates}</p>
-								</div>
-
-								<ul class="mt-4 list-disc space-y-2 pl-5 text-slate-700 dark:text-slate-300">
-									{#each item.items as task}
-										<li>{task}</li>
-									{/each}
-								</ul>
-							</div>
-						{/each}
-					</div>
-				</div>
-
-				<div>
-					<div class="border-b border-slate-200 pb-3 dark:border-slate-800">
-						<h3 class="text-2xl font-bold text-slate-950 dark:text-white">Senior Design 2</h3>
-						<p class="mt-1 text-sm text-slate-500">Prototype build, integration, testing, final presentation, and demonstration.</p>
-					</div>
-
-					<div class="mt-6 space-y-4">
-						{#each sd2Timeline as item}
-							<div class="rounded border border-slate-200 bg-white p-5 transition-colors dark:border-slate-700 dark:bg-slate-900">
-								<div class="flex flex-wrap items-start justify-between gap-3">
-									<div>
-										<p class="text-sm font-bold text-accent">{item.week}</p>
-										<h4 class="mt-1 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h4>
-									</div>
-
-									<p class="rounded border border-slate-300 px-3 py-1 text-sm font-bold text-slate-600 dark:border-slate-700 dark:text-slate-400">{item.dates}</p>
-								</div>
-
-								<ul class="mt-4 list-disc space-y-2 pl-5 text-slate-700 dark:text-slate-300">
-									{#each item.items as task}
-										<li>{task}</li>
-									{/each}
-								</ul>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<section id="timeline" class="timeline-section"><div class="page-width section"><div class="timeline-intro"><p class="eyebrow">May–November 2026</p><h2>A project, from the ground up.</h2></div><ol class="milestone-strip">{#each milestones as milestone}<li><p>{milestone.date}</p><h3>{milestone.title}</h3></li>{/each}</ol><details class="disclosure"><summary>Full project timeline <span>Senior Design I & II<Icon name="chevron" size={18} /></span></summary><p class="timeline-note">Approximate milestone dates from ClickUp and course submissions. Due dates fill gaps where completion dates were not recorded.</p><div class="full-timeline">{#each [{ title: 'Senior Design I', items: sd1Timeline }, { title: 'Senior Design II', items: sd2Timeline }] as phase}<div><h3>{phase.title}</h3>{#each phase.items as item}<div class="timeline-row"><p>{item.dates}{phase.title === 'Senior Design I' ? ', 2026' : ''}</p><h4>{item.title}</h4></div>{/each}</div>{/each}</div></details></div></section>
 </main>
+
+<dialog bind:this={videoDialog} class="video-dialog" onclose={() => activeVideo = null} aria-labelledby="video-dialog-title">
+	{#if activeVideo}
+		<div class="video-dialog-header"><h2 id="video-dialog-title">{activeVideo.title}</h2><button class="icon-button" aria-label="Close video" onclick={() => videoDialog?.close()}><Icon name="close" /></button></div>
+		<video controls autoplay playsinline preload="metadata" aria-label={activeVideo.title}><source src={activeVideo.href} type="video/mp4" /><track kind="captions" src={`/captions/${activeVideo.downloadId}.en.vtt`} srclang="en" label="English (auto-generated)" /></video>
+		<div class="video-dialog-footer"><p>English captions are auto-generated.</p><a href={`/downloads/${activeVideo.downloadId}`} download>Download MP4</a></div>
+	{/if}
+</dialog>

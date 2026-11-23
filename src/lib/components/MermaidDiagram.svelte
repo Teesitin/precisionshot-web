@@ -540,7 +540,7 @@ linkStyle default stroke:#94a3b8,stroke-width:1.5px;
 <svelte:window onkeydown={handleKeydown} />
 
 <div bind:this={diagramElement} id={deepLinkDetails.figureId} class="scroll-mt-24">
-	<h4 class="font-bold text-slate-950 dark:text-white">{title}</h4>
+	<h3 class="font-bold text-slate-950 dark:text-white">{title}</h3>
 
 	{#if errorMessage}
 		<p class="mt-3 text-sm text-red-600 dark:text-red-300">{errorMessage}</p>

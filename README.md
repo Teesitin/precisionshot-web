@@ -196,18 +196,23 @@ python scripts/export_mermaid_pngs.py
 
 ## Updating Website Content
 
-- Edit the main project copy and timelines in `src/routes/+page.svelte`.
+- Edit the main project copy and homepage milestone highlights in `src/routes/+page.svelte`.
+- The polished showcase keeps the team, reviewer list, and full milestone dates in `src/lib/project.ts`. Detailed diagrams and the opt-in 3D model viewer are on `/engineering`.
 - Edit document, slide, and video links in `src/lib/resources.ts`. Store downloadable assets in the Bunny `delayne/precisionshot` folder and use public `https://delayne.b-cdn.net/precisionshot/` URLs.
 - Give each available PDF or MP4 a unique `downloadId`. The `/downloads/[id]` endpoint streams that allowlisted file from Bunny with an attachment header, so the download action saves a file instead of opening a PDF or video tab. It requires no Bunny credentials at runtime.
 - Edit navigation, theme behavior, or the footer in `src/routes/+layout.svelte`.
 - Edit shared visual styles in `src/routes/layout.css`.
 - Add or update design diagrams only in `flowcharts/`.
 
-The final documentation list contains all 12 required deliverables. As of November 23, 2026, 11 have downloadable Bunny files; only the SD2 Final Report is awaiting its file. Keep `downloadId` unset until a downloadable file is available; the page derives its availability counts from this inventory.
+The final documentation list contains all 12 required deliverables. As of November 23, 2026, 11 have downloadable Bunny files; only the SD2 Final Report is awaiting its file. Keep `downloadId` unset until a downloadable file is available; the page keeps pending resources visible.
 
 The final presentation slides were exported from the shared Google Slides deck (last modified November 17, 2026) and uploaded as `Group13_PrecisionShot_Final_Presentation.pdf`. The midterm video link comes from the submitted Webcourses Midterm Demo Form, and the final video and conference-paper links come from the submitted Final Presentation Form. Webcourses and Google Drive were used read-only.
 
 The three SD2 videos were downloaded from those YouTube links as 1080p H.264/AAC MP4s and uploaded to Bunny with fast-start metadata. Their source IDs are `K3y44JINBK8` (midterm demo), `2viNiAzjPvQ` (final presentation), and `4HD-EzRiYyo` (final demo). Both Watch and Download actions now use the Bunny copies.
+
+The local `design/polished-showcase` branch adds shorter copy, a responsive system explorer, an in-page video player, and a compact resource library. `static/images/showcase/` contains original CAD renders, app screenshots, and team portraits extracted from the shared final presentation, plus a still from the final demo. These are project visuals, not generated product photography. The homepage captions distinguish CAD renders from the working prototype. New showcase images and captions are kept local for review; no deployment or Bunny writes are part of this redesign.
+
+`static/captions/` contains YouTube's auto-generated English VTT tracks for the two final recordings; the video player labels them accordingly. Manrope is self-hosted under `static/fonts/` with its OFL license. Large diagrams and 3D assets load on the engineering page instead of the homepage, and 3D model loading requires an explicit click.
 
 The SD2 timeline uses approximate historical milestone dates. ClickUp mostly has no completion timestamps, so the dates use the due dates for [bench hardware and procurement](https://app.clickup.com/t/wdy2xh0kyg), [PCB fabrication and parts](https://app.clickup.com/t/wdy2xh0kyq), [integrated detection and app workflow](https://app.clickup.com/t/wdy2xh0kzq), [midterm hardware build](https://app.clickup.com/t/wdy2xh0kzu), [final enclosure](https://app.clickup.com/t/wdy2xh0m09), and [final retests](https://app.clickup.com/t/wdy2xh0m08). Course anchors are the September 23 CDR package, October 9 PCB assembly deadline, and November 13 final-form submission / November 18 review meeting. Sensor testing and the small prototype are approximate dates around the bench and CDR milestones. ClickUp and Webcourses were read-only.
 

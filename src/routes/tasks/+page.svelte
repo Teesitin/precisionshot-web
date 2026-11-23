@@ -727,7 +727,7 @@
 	/>
 </svelte:head>
 
-<main class="min-h-screen bg-slate-50 text-slate-950 transition-colors dark:bg-slate-950 dark:text-slate-100">
+<main id="main" class="min-h-screen bg-slate-50 text-slate-950 transition-colors dark:bg-slate-950 dark:text-slate-100">
 	<section class="relative isolate overflow-hidden border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
 		<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(236,211,22,0.18),transparent_30%),radial-gradient(circle_at_90%_25%,rgba(127,104,63,0.14),transparent_32%)]"></div>
 		<div class="pointer-events-none absolute -right-24 top-1/2 size-96 -translate-y-1/2 rounded-full border border-accent/15"></div>

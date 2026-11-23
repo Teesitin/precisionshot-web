@@ -1,0 +1,1695 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.500 --> 00:00:05.990 align:start position:0%
+
+Hi,<00:00:04.800><c> I'm</c><00:00:04.900><c> Ken</c><00:00:05.100><c> Figueredo,</c><00:00:05.700><c> and</c><00:00:05.800><c> I'm</c><00:00:05.900><c> going</c><00:00:06.000><c> to</c>
+
+00:00:05.990 --> 00:00:06.000 align:start position:0%
+Hi, I'm Ken Figueredo, and I'm going to
+
+
+00:00:06.000 --> 00:00:07.390 align:start position:0%
+Hi, I'm Ken Figueredo, and I'm going to
+talk<00:00:06.200><c> about</c><00:00:06.400><c> the</c><00:00:06.500><c> chamber</c><00:00:07.000><c> and</c><00:00:07.100><c> sensing</c>
+
+00:00:07.390 --> 00:00:07.400 align:start position:0%
+talk about the chamber and sensing
+
+
+00:00:07.400 --> 00:00:09.490 align:start position:0%
+talk about the chamber and sensing
+system<00:00:07.800><c> we</c><00:00:07.900><c> have.</c><00:00:08.800><c> So,</c><00:00:09.000><c> we're</c><00:00:09.200><c> using</c><00:00:09.500><c> a</c>
+
+00:00:09.490 --> 00:00:09.500 align:start position:0%
+system we have. So, we're using a
+
+
+00:00:09.500 --> 00:00:11.290 align:start position:0%
+system we have. So, we're using a
+reflective<00:00:10.100><c> tape</c><00:00:10.400><c> on</c><00:00:10.600><c> each</c><00:00:10.800><c> of</c><00:00:10.800><c> the</c><00:00:11.000><c> side</c>
+
+00:00:11.290 --> 00:00:11.300 align:start position:0%
+reflective tape on each of the side
+
+
+00:00:11.300 --> 00:00:13.190 align:start position:0%
+reflective tape on each of the side
+walls<00:00:11.600><c> of</c><00:00:11.700><c> our</c><00:00:11.800><c> chamber</c><00:00:12.200><c> here,</c><00:00:12.800><c> and</c><00:00:13.000><c> that's</c>
+
+00:00:13.190 --> 00:00:13.200 align:start position:0%
+walls of our chamber here, and that's
+
+
+00:00:13.200 --> 00:00:15.290 align:start position:0%
+walls of our chamber here, and that's
+going<00:00:13.400><c> to</c><00:00:13.500><c> help</c><00:00:13.800><c> to</c><00:00:14.000><c> direct</c><00:00:14.400><c> the</c><00:00:14.600><c> light</c><00:00:15.200><c> and</c>
+
+00:00:15.290 --> 00:00:15.300 align:start position:0%
+going to help to direct the light and
+
+
+00:00:15.300 --> 00:00:17.990 align:start position:0%
+going to help to direct the light and
+also<00:00:15.800><c> reflect</c><00:00:16.400><c> it</c><00:00:16.600><c> into</c><00:00:16.800><c> the</c><00:00:17.000><c> lens,</c><00:00:17.900><c> which</c>
+
+00:00:17.990 --> 00:00:18.000 align:start position:0%
+also reflect it into the lens, which
+
+
+00:00:18.000 --> 00:00:19.690 align:start position:0%
+also reflect it into the lens, which
+hopefully<00:00:18.400><c> it</c><00:00:18.600><c> will</c><00:00:18.700><c> bring</c><00:00:18.900><c> it</c><00:00:19.000><c> back</c><00:00:19.300><c> down</c><00:00:19.600><c> to</c>
+
+00:00:19.690 --> 00:00:19.700 align:start position:0%
+hopefully it will bring it back down to
+
+
+00:00:19.700 --> 00:00:22.190 align:start position:0%
+hopefully it will bring it back down to
+the<00:00:19.800><c> sensor,</c><00:00:20.500><c> the</c><00:00:21.200><c> uh</c><00:00:21.300><c> phototransistors</c><00:00:22.100><c> what</c>
+
+00:00:22.190 --> 00:00:22.200 align:start position:0%
+the sensor, the uh phototransistors what
+
+
+00:00:22.200 --> 00:00:24.590 align:start position:0%
+the sensor, the uh phototransistors what
+we'll<00:00:22.400><c> be</c><00:00:22.500><c> using</c><00:00:23.300><c> for</c><00:00:23.400><c> the</c><00:00:23.500><c> sensing.</c>
+
+00:00:24.590 --> 00:00:24.600 align:start position:0%
+we'll be using for the sensing.
+
+
+00:00:24.600 --> 00:00:29.590 align:start position:0%
+we'll be using for the sensing.
+Um<00:00:24.900><c> we</c><00:00:25.200><c> tested</c><00:00:25.600><c> out</c><00:00:25.800><c> two</c><00:00:26.100><c> different</c><00:00:26.600><c> lenses.</c>
+
+00:00:29.590 --> 00:00:29.600 align:start position:0%
+
+
+
+00:00:29.600 --> 00:00:31.890 align:start position:0%
+
+We<00:00:29.800><c> have</c><00:00:30.200><c> a</c>
+
+00:00:31.890 --> 00:00:31.900 align:start position:0%
+We have a
+
+
+00:00:31.900 --> 00:00:36.790 align:start position:0%
+We have a
+34<00:00:32.400><c> mm</c><00:00:33.200><c> and</c><00:00:33.300><c> a</c><00:00:33.400><c> 50</c><00:00:33.700><c> mm</c><00:00:34.200><c> lens.</c><00:00:34.700><c> The</c><00:00:35.400><c> 50</c><00:00:35.700><c> mm</c><00:00:36.200><c> lens</c>
+
+00:00:36.790 --> 00:00:36.800 align:start position:0%
+34 mm and a 50 mm lens. The 50 mm lens
+
+
+00:00:36.800 --> 00:00:38.590 align:start position:0%
+34 mm and a 50 mm lens. The 50 mm lens
+was<00:00:37.100><c> our</c><00:00:37.200><c> second</c><00:00:37.500><c> option.</c><00:00:37.900><c> We</c><00:00:38.000><c> started</c><00:00:38.400><c> off</c>
+
+00:00:38.590 --> 00:00:38.600 align:start position:0%
+was our second option. We started off
+
+
+00:00:38.600 --> 00:00:40.490 align:start position:0%
+was our second option. We started off
+with<00:00:38.700><c> the</c><00:00:38.800><c> 34</c><00:00:39.300><c> mm</c>
+
+00:00:40.490 --> 00:00:40.500 align:start position:0%
+with the 34 mm
+
+
+00:00:40.500 --> 00:00:43.190 align:start position:0%
+with the 34 mm
+and<00:00:40.800><c> it</c><00:00:40.900><c> didn't</c><00:00:41.100><c> give</c><00:00:41.300><c> us</c><00:00:41.400><c> enough</c><00:00:41.700><c> margin</c><00:00:43.000><c> uh</c>
+
+00:00:43.190 --> 00:00:43.200 align:start position:0%
+and it didn't give us enough margin uh
+
+
+00:00:43.200 --> 00:00:45.490 align:start position:0%
+and it didn't give us enough margin uh
+of<00:00:43.300><c> error.</c><00:00:44.100><c> So,</c><00:00:44.500><c> when</c><00:00:44.700><c> the</c><00:00:44.800><c> light</c><00:00:45.100><c> would</c><00:00:45.200><c> hit</c>
+
+00:00:45.490 --> 00:00:45.500 align:start position:0%
+of error. So, when the light would hit
+
+
+00:00:45.500 --> 00:00:47.290 align:start position:0%
+of error. So, when the light would hit
+at<00:00:45.600><c> a</c><00:00:45.700><c> certain</c><00:00:46.000><c> angle</c><00:00:46.700><c> that</c><00:00:46.800><c> wasn't</c><00:00:47.000><c> really</c>
+
+00:00:47.290 --> 00:00:47.300 align:start position:0%
+at a certain angle that wasn't really
+
+
+00:00:47.300 --> 00:00:50.290 align:start position:0%
+at a certain angle that wasn't really
+perfectly<00:00:48.000><c> within</c><00:00:48.400><c> the</c><00:00:48.500><c> center,</c><00:00:49.400><c> uh</c><00:00:49.700><c> the</c>
+
+00:00:50.290 --> 00:00:50.300 align:start position:0%
+perfectly within the center, uh the
+
+
+00:00:50.300 --> 00:00:53.090 align:start position:0%
+perfectly within the center, uh the
+laser<00:00:50.700><c> would</c><00:00:51.300><c> divert.</c><00:00:52.000><c> Um</c><00:00:52.300><c> so,</c><00:00:52.400><c> that's</c><00:00:52.700><c> why</c><00:00:52.900><c> we</c>
+
+00:00:53.090 --> 00:00:53.100 align:start position:0%
+laser would divert. Um so, that's why we
+
+
+00:00:53.100 --> 00:00:55.690 align:start position:0%
+laser would divert. Um so, that's why we
+moved<00:00:53.400><c> to</c><00:00:53.600><c> the</c><00:00:53.700><c> 50</c><00:00:54.100><c> mm</c><00:00:54.700><c> which</c><00:00:54.900><c> gives</c><00:00:55.100><c> us</c><00:00:55.300><c> more</c>
+
+00:00:55.690 --> 00:00:55.700 align:start position:0%
+moved to the 50 mm which gives us more
+
+
+00:00:55.700 --> 00:00:57.690 align:start position:0%
+moved to the 50 mm which gives us more
+area<00:00:56.100><c> for</c><00:00:56.200><c> the</c><00:00:56.300><c> laser</c><00:00:56.600><c> to</c><00:00:56.700><c> hit</c><00:00:57.000><c> and</c><00:00:57.100><c> divert</c><00:00:57.500><c> it</c>
+
+00:00:57.690 --> 00:00:57.700 align:start position:0%
+area for the laser to hit and divert it
+
+
+00:00:57.700 --> 00:00:59.890 align:start position:0%
+area for the laser to hit and divert it
+to<00:00:57.800><c> the</c><00:00:57.900><c> center</c><00:00:58.500><c> of</c><00:00:58.700><c> our</c><00:00:59.100><c> chambers</c><00:00:59.600><c> which</c><00:00:59.800><c> will</c>
+
+00:00:59.890 --> 00:00:59.900 align:start position:0%
+to the center of our chambers which will
+
+
+00:00:59.900 --> 00:01:01.790 align:start position:0%
+to the center of our chambers which will
+hit<00:01:00.100><c> the</c><00:01:00.200><c> phototransistor.</c><00:01:01.300><c> In</c><00:01:01.400><c> front</c><00:01:01.700><c> of</c>
+
+00:01:01.790 --> 00:01:01.800 align:start position:0%
+hit the phototransistor. In front of
+
+
+00:01:01.800 --> 00:01:04.189 align:start position:0%
+hit the phototransistor. In front of
+that<00:01:02.200><c> we'll</c><00:01:02.400><c> have</c><00:01:02.600><c> a</c><00:01:02.800><c> diffuser</c>
+
+00:01:04.189 --> 00:01:04.199 align:start position:0%
+that we'll have a diffuser
+
+
+00:01:04.199 --> 00:01:07.590 align:start position:0%
+that we'll have a diffuser
+which<00:01:04.699><c> this</c><00:01:05.100><c> helps</c><00:01:06.100><c> widen</c><00:01:06.600><c> the</c><00:01:06.800><c> area</c><00:01:07.300><c> of</c><00:01:07.500><c> the</c>
+
+00:01:07.590 --> 00:01:07.600 align:start position:0%
+which this helps widen the area of the
+
+
+00:01:07.600 --> 00:01:09.990 align:start position:0%
+which this helps widen the area of the
+laser<00:01:08.000><c> since</c><00:01:08.200><c> the</c><00:01:08.200><c> laser</c><00:01:08.600><c> is</c><00:01:08.700><c> a</c><00:01:08.800><c> very</c><00:01:09.200><c> small</c><00:01:09.900><c> uh</c>
+
+00:01:09.990 --> 00:01:10.000 align:start position:0%
+laser since the laser is a very small uh
+
+
+00:01:10.000 --> 00:01:11.190 align:start position:0%
+laser since the laser is a very small uh
+point.
+
+00:01:11.190 --> 00:01:11.200 align:start position:0%
+point.
+
+
+00:01:11.200 --> 00:01:15.290 align:start position:0%
+point.
+And<00:01:11.400><c> so,</c><00:01:11.700><c> when</c><00:01:11.800><c> we</c><00:01:11.900><c> have</c><00:01:12.200><c> that</c><00:01:12.600><c> together</c>
+
+00:01:15.290 --> 00:01:15.300 align:start position:0%
+
+
+
+00:01:15.300 --> 00:01:18.290 align:start position:0%
+
+the<00:01:15.900><c> diffuser</c><00:01:16.500><c> widens</c><00:01:17.000><c> the</c><00:01:17.200><c> beam</c><00:01:17.900><c> and</c><00:01:18.100><c> then</c><00:01:18.200><c> it</c>
+
+00:01:18.290 --> 00:01:18.300 align:start position:0%
+the diffuser widens the beam and then it
+
+
+00:01:18.300 --> 00:01:22.190 align:start position:0%
+the diffuser widens the beam and then it
+will<00:01:18.800><c> hit</c><00:01:19.200><c> through</c><00:01:19.400><c> the</c><00:01:20.200><c> lens</c><00:01:20.600><c> there</c><00:01:21.400><c> and</c><00:01:22.000><c> make</c>
+
+00:01:22.190 --> 00:01:22.200 align:start position:0%
+will hit through the lens there and make
+
+
+00:01:22.200 --> 00:01:24.390 align:start position:0%
+will hit through the lens there and make
+its<00:01:22.400><c> way</c><00:01:23.000><c> to</c><00:01:23.100><c> the</c><00:01:23.200><c> small</c><00:01:23.500><c> sensor</c><00:01:24.100><c> in</c><00:01:24.300><c> the</c>
+
+00:01:24.390 --> 00:01:24.400 align:start position:0%
+its way to the small sensor in the
+
+
+00:01:24.400 --> 00:01:26.190 align:start position:0%
+its way to the small sensor in the
+middle.
+
+00:01:26.190 --> 00:01:26.200 align:start position:0%
+middle.
+
+
+00:01:26.200 --> 00:01:28.890 align:start position:0%
+middle.
+&gt;&gt; This<00:01:26.500><c> is</c><00:01:26.700><c> our</c><00:01:26.800><c> Precision</c><00:01:27.300><c> Shot</c><00:01:28.100><c> uh</c><00:01:28.200><c> enclosure</c>
+
+00:01:28.890 --> 00:01:28.900 align:start position:0%
+&gt;&gt; This is our Precision Shot uh enclosure
+
+
+00:01:28.900 --> 00:01:31.590 align:start position:0%
+&gt;&gt; This is our Precision Shot uh enclosure
+and<00:01:29.100><c> device.</c><00:01:30.200><c> As</c><00:01:30.400><c> you</c><00:01:30.400><c> can</c><00:01:30.600><c> see,</c>
+
+00:01:31.590 --> 00:01:31.600 align:start position:0%
+and device. As you can see,
+
+
+00:01:31.600 --> 00:01:34.190 align:start position:0%
+and device. As you can see,
+it<00:01:31.800><c> is</c><00:01:32.000><c> completely</c><00:01:32.500><c> modular,</c><00:01:33.600><c> set</c><00:01:33.800><c> up</c><00:01:33.900><c> into</c>
+
+00:01:34.190 --> 00:01:34.200 align:start position:0%
+it is completely modular, set up into
+
+
+00:01:34.200 --> 00:01:36.990 align:start position:0%
+it is completely modular, set up into
+two<00:01:34.600><c> separate</c><00:01:35.400><c> uh</c><00:01:35.700><c> pieces.</c>
+
+00:01:36.990 --> 00:01:37.000 align:start position:0%
+two separate uh pieces.
+
+
+00:01:37.000 --> 00:01:39.290 align:start position:0%
+two separate uh pieces.
+Uh<00:01:37.200><c> the</c><00:01:37.300><c> first</c><00:01:38.200><c> top</c>
+
+00:01:39.290 --> 00:01:39.300 align:start position:0%
+Uh the first top
+
+
+00:01:39.300 --> 00:01:42.490 align:start position:0%
+Uh the first top
+part<00:01:39.800><c> it</c><00:01:40.300><c> contains</c><00:01:40.800><c> the</c><00:01:41.200><c> main</c><00:01:41.500><c> board</c><00:01:42.000><c> and</c><00:01:42.400><c> the</c>
+
+00:01:42.490 --> 00:01:42.500 align:start position:0%
+part it contains the main board and the
+
+
+00:01:42.500 --> 00:01:44.990 align:start position:0%
+part it contains the main board and the
+screen,<00:01:43.300><c> the</c><00:01:43.400><c> touchscreen</c><00:01:44.000><c> that</c><00:01:44.400><c> uh</c><00:01:44.600><c> is</c><00:01:44.800><c> right</c>
+
+00:01:44.990 --> 00:01:45.000 align:start position:0%
+screen, the touchscreen that uh is right
+
+
+00:01:45.000 --> 00:01:48.290 align:start position:0%
+screen, the touchscreen that uh is right
+here,<00:01:45.600><c> that</c><00:01:45.800><c> would</c><00:01:46.000><c> show</c><00:01:46.800><c> where</c><00:01:47.000><c> which</c><00:01:47.900><c> tile</c>
+
+00:01:48.290 --> 00:01:48.300 align:start position:0%
+here, that would show where which tile
+
+
+00:01:48.300 --> 00:01:53.190 align:start position:0%
+here, that would show where which tile
+was<00:01:48.500><c> hit.</c>
+
+00:01:53.190 --> 00:01:53.200 align:start position:0%
+
+
+
+00:01:53.200 --> 00:01:53.990 align:start position:0%
+
+Uh
+
+00:01:53.990 --> 00:01:54.000 align:start position:0%
+Uh
+
+
+00:01:54.000 --> 00:01:56.890 align:start position:0%
+Uh
+the<00:01:54.400><c> back</c><00:01:54.700><c> cover</c><00:01:55.200><c> is</c><00:01:55.300><c> completely</c><00:01:56.300><c> uh</c><00:01:56.400><c> separate</c>
+
+00:01:56.890 --> 00:01:56.900 align:start position:0%
+the back cover is completely uh separate
+
+
+00:01:56.900 --> 00:01:59.382 align:start position:0%
+the back cover is completely uh separate
+from<00:01:57.400><c> the</c><00:01:57.600><c> rest</c><00:01:58.000><c> of</c><00:01:58.100><c> the</c><00:01:58.200><c> enclosure</c><00:01:59.000><c> so</c><00:01:59.200><c> that</c>
+
+00:01:59.382 --> 00:01:59.392 align:start position:0%
+from the rest of the enclosure so that
+
+
+00:01:59.392 --> 00:02:02.582 align:start position:0%
+from the rest of the enclosure so that
+be<00:01:59.692><c> removed</c><00:02:00.392><c> when</c><00:02:00.592><c> necessary.</c><00:02:01.792><c> Normally,</c><00:02:02.392><c> we</c>
+
+00:02:02.582 --> 00:02:02.592 align:start position:0%
+be removed when necessary. Normally, we
+
+
+00:02:02.592 --> 00:02:05.782 align:start position:0%
+be removed when necessary. Normally, we
+would<00:02:02.892><c> be</c><00:02:03.092><c> using</c><00:02:03.692><c> the</c><00:02:04.492><c> keyhole</c><00:02:05.092><c> mounts</c><00:02:05.492><c> right</c>
+
+00:02:05.782 --> 00:02:05.792 align:start position:0%
+would be using the keyhole mounts right
+
+
+00:02:05.792 --> 00:02:08.282 align:start position:0%
+would be using the keyhole mounts right
+here.<00:02:06.292><c> They</c><00:02:06.392><c> can</c><00:02:06.592><c> also</c><00:02:06.892><c> be</c><00:02:07.092><c> set</c><00:02:07.892><c> down</c><00:02:08.192><c> on</c><00:02:08.292><c> a</c>
+
+00:02:08.282 --> 00:02:08.292 align:start position:0%
+here. They can also be set down on a
+
+
+00:02:08.292 --> 00:02:14.482 align:start position:0%
+here. They can also be set down on a
+flat<00:02:08.592><c> surface</c><00:02:09.392><c> like</c><00:02:09.592><c> this.</c>
+
+00:02:14.482 --> 00:02:14.492 align:start position:0%
+
+
+
+00:02:14.492 --> 00:02:17.582 align:start position:0%
+
+As you<00:02:14.592><c> can</c><00:02:14.792><c> see,</c><00:02:15.392><c> we</c><00:02:15.992><c> have</c><00:02:16.592><c> uh</c><00:02:16.692><c> spots</c><00:02:17.192><c> also</c>
+
+00:02:17.582 --> 00:02:17.592 align:start position:0%
+As you can see, we have uh spots also
+
+
+00:02:17.592 --> 00:02:21.082 align:start position:0%
+As you can see, we have uh spots also
+for<00:02:17.992><c> the</c><00:02:18.392><c> speakers</c><00:02:19.392><c> so</c><00:02:19.492><c> that</c><00:02:19.992><c> uh</c><00:02:20.592><c> we</c><00:02:20.792><c> can</c>
+
+00:02:21.082 --> 00:02:21.092 align:start position:0%
+for the speakers so that uh we can
+
+
+00:02:21.092 --> 00:02:23.982 align:start position:0%
+for the speakers so that uh we can
+produce<00:02:21.392><c> noise</c><00:02:21.792><c> whenever</c><00:02:22.092><c> there</c><00:02:22.292><c> is</c><00:02:22.392><c> a</c><00:02:22.492><c> hit.</c>
+
+00:02:23.982 --> 00:02:23.992 align:start position:0%
+produce noise whenever there is a hit.
+
+
+00:02:23.992 --> 00:02:26.182 align:start position:0%
+produce noise whenever there is a hit.
+And<00:02:24.092><c> over</c><00:02:24.292><c> here,</c><00:02:24.892><c> there</c><00:02:25.092><c> is</c><00:02:25.292><c> a</c><00:02:25.292><c> slot</c><00:02:25.892><c> so</c><00:02:25.992><c> that</c>
+
+00:02:26.182 --> 00:02:26.192 align:start position:0%
+And over here, there is a slot so that
+
+
+00:02:26.192 --> 00:02:29.382 align:start position:0%
+And over here, there is a slot so that
+we<00:02:26.292><c> can</c><00:02:26.492><c> plug</c><00:02:26.892><c> in</c><00:02:27.492><c> uh</c><00:02:27.592><c> the</c><00:02:27.892><c> battery</c><00:02:28.792><c> and</c><00:02:28.992><c> also</c>
+
+00:02:29.382 --> 00:02:29.392 align:start position:0%
+we can plug in uh the battery and also
+
+
+00:02:29.392 --> 00:02:41.682 align:start position:0%
+we can plug in uh the battery and also
+access<00:02:29.892><c> the</c><00:02:29.992><c> PCB</c><00:02:30.892><c> and</c><00:02:31.892><c> microcontroller.</c>
+
+00:02:41.682 --> 00:02:41.692 align:start position:0%
+
+
+
+00:02:41.692 --> 00:02:45.282 align:start position:0%
+
+The<00:02:41.792><c> back</c><00:02:42.592><c> has</c><00:02:43.092><c> several</c><00:02:43.492><c> holes</c><00:02:44.092><c> along</c><00:02:44.492><c> it</c><00:02:44.992><c> uh</c>
+
+00:02:45.282 --> 00:02:45.292 align:start position:0%
+The back has several holes along it uh
+
+
+00:02:45.292 --> 00:02:47.682 align:start position:0%
+The back has several holes along it uh
+to<00:02:46.092><c> increase</c><00:02:46.492><c> the</c><00:02:46.592><c> amount</c><00:02:46.792><c> of</c><00:02:46.892><c> ventilation</c><00:02:47.492><c> so</c>
+
+00:02:47.682 --> 00:02:47.692 align:start position:0%
+to increase the amount of ventilation so
+
+
+00:02:47.692 --> 00:02:53.682 align:start position:0%
+to increase the amount of ventilation so
+that<00:02:47.792><c> the</c><00:02:47.892><c> PCBs</c><00:02:48.492><c> inside</c><00:02:49.192><c> do</c><00:02:49.292><c> not</c><00:02:49.492><c> overheat.</c>
+
+00:02:53.682 --> 00:02:53.692 align:start position:0%
+
+
+
+00:02:53.692 --> 00:02:57.682 align:start position:0%
+
+It<00:02:53.792><c> is</c><00:02:53.992><c> all</c><00:02:54.292><c> held</c><00:02:54.592><c> together</c><00:02:55.092><c> by</c><00:02:55.392><c> M3</c><00:02:56.092><c> screws</c><00:02:57.392><c> and</c>
+
+00:02:57.682 --> 00:02:57.692 align:start position:0%
+It is all held together by M3 screws and
+
+
+00:02:57.692 --> 00:03:01.182 align:start position:0%
+It is all held together by M3 screws and
+heat<00:02:58.092><c> inserts.</c>
+
+00:03:01.182 --> 00:03:01.192 align:start position:0%
+
+
+
+00:03:01.192 --> 00:03:02.482 align:start position:0%
+
+&gt;&gt; Go<00:03:01.292><c> ahead.</c>
+
+00:03:02.482 --> 00:03:02.492 align:start position:0%
+&gt;&gt; Go ahead.
+
+
+00:03:02.492 --> 00:03:04.382 align:start position:0%
+&gt;&gt; Go ahead.
+&gt;&gt; For<00:03:02.692><c> our</c><00:03:02.892><c> enclosure</c><00:03:03.492><c> design,</c><00:03:04.092><c> we</c><00:03:04.192><c> made</c><00:03:04.292><c> it</c>
+
+00:03:04.382 --> 00:03:04.392 align:start position:0%
+&gt;&gt; For our enclosure design, we made it
+
+
+00:03:04.392 --> 00:03:06.482 align:start position:0%
+&gt;&gt; For our enclosure design, we made it
+completely<00:03:04.892><c> modular,</c><00:03:05.692><c> set</c><00:03:05.892><c> up</c><00:03:05.992><c> into</c><00:03:06.292><c> two</c>
+
+00:03:06.482 --> 00:03:06.492 align:start position:0%
+completely modular, set up into two
+
+
+00:03:06.492 --> 00:03:08.982 align:start position:0%
+completely modular, set up into two
+separate<00:03:06.892><c> spaces</c><00:03:07.292><c> connected</c><00:03:07.892><c> right</c><00:03:08.092><c> here.</c>
+
+00:03:08.982 --> 00:03:08.992 align:start position:0%
+separate spaces connected right here.
+
+
+00:03:08.992 --> 00:03:11.482 align:start position:0%
+separate spaces connected right here.
+Uh<00:03:09.092><c> as</c><00:03:09.292><c> well</c><00:03:09.492><c> as</c><00:03:09.592><c> you</c><00:03:09.692><c> can</c><00:03:09.892><c> see</c><00:03:10.292><c> our</c><00:03:10.692><c> ports</c><00:03:11.292><c> and</c>
+
+00:03:11.482 --> 00:03:11.492 align:start position:0%
+Uh as well as you can see our ports and
+
+
+00:03:11.492 --> 00:03:13.982 align:start position:0%
+Uh as well as you can see our ports and
+also<00:03:11.992><c> uh</c><00:03:12.492><c> cutout</c><00:03:12.892><c> so</c><00:03:13.092><c> that</c><00:03:13.192><c> we</c><00:03:13.292><c> can</c><00:03:13.492><c> plug</c><00:03:13.792><c> in</c>
+
+00:03:13.982 --> 00:03:13.992 align:start position:0%
+also uh cutout so that we can plug in
+
+
+00:03:13.992 --> 00:03:15.482 align:start position:0%
+also uh cutout so that we can plug in
+our<00:03:14.092><c> device</c><00:03:14.492><c> whenever</c><00:03:14.792><c> needed</c><00:03:15.092><c> straight</c><00:03:15.392><c> to</c>
+
+00:03:15.482 --> 00:03:15.492 align:start position:0%
+our device whenever needed straight to
+
+
+00:03:15.492 --> 00:03:17.082 align:start position:0%
+our device whenever needed straight to
+our PCB.
+
+00:03:17.082 --> 00:03:17.092 align:start position:0%
+our PCB.
+
+
+00:03:17.092 --> 00:03:19.082 align:start position:0%
+our PCB.
+It is<00:03:17.192><c> currently</c><00:03:17.592><c> going</c><00:03:17.792><c> to</c><00:03:17.892><c> be</c><00:03:18.092><c> sitting</c><00:03:18.592><c> on</c><00:03:18.992><c> a</c>
+
+00:03:19.082 --> 00:03:19.092 align:start position:0%
+It is currently going to be sitting on a
+
+
+00:03:19.092 --> 00:03:21.182 align:start position:0%
+It is currently going to be sitting on a
+flat<00:03:19.492><c> surface.</c><00:03:19.892><c> However,</c><00:03:20.292><c> normally</c><00:03:20.892><c> we</c><00:03:21.092><c> would</c>
+
+00:03:21.182 --> 00:03:21.192 align:start position:0%
+flat surface. However, normally we would
+
+
+00:03:21.192 --> 00:03:23.382 align:start position:0%
+flat surface. However, normally we would
+be<00:03:21.292><c> mounting</c><00:03:21.792><c> it</c><00:03:22.192><c> uh</c><00:03:22.292><c> using</c><00:03:22.692><c> these</c><00:03:22.892><c> keyhole</c>
+
+00:03:23.382 --> 00:03:23.392 align:start position:0%
+be mounting it uh using these keyhole
+
+
+00:03:23.392 --> 00:03:25.082 align:start position:0%
+be mounting it uh using these keyhole
+devices.
+
+00:03:25.082 --> 00:03:25.092 align:start position:0%
+devices.
+
+
+00:03:25.092 --> 00:03:27.382 align:start position:0%
+devices.
+You<00:03:25.192><c> can</c><00:03:25.392><c> also</c><00:03:25.592><c> see</c><00:03:25.992><c> that</c><00:03:26.192><c> we</c><00:03:26.292><c> have</c><00:03:26.492><c> spaces</c><00:03:27.092><c> for</c>
+
+00:03:27.382 --> 00:03:27.392 align:start position:0%
+You can also see that we have spaces for
+
+
+00:03:27.392 --> 00:03:29.782 align:start position:0%
+You can also see that we have spaces for
+our<00:03:27.592><c> speakers</c><00:03:28.192><c> which</c><00:03:28.392><c> will</c><00:03:28.592><c> create</c><00:03:28.992><c> noise</c>
+
+00:03:29.782 --> 00:03:29.792 align:start position:0%
+our speakers which will create noise
+
+
+00:03:29.792 --> 00:03:32.482 align:start position:0%
+our speakers which will create noise
+whenever<00:03:30.092><c> a</c><00:03:30.092><c> hit</c><00:03:30.492><c> has</c><00:03:30.692><c> encountered.</c>
+
+00:03:32.482 --> 00:03:32.492 align:start position:0%
+whenever a hit has encountered.
+
+
+00:03:32.492 --> 00:03:33.682 align:start position:0%
+whenever a hit has encountered.
+Oh,<00:03:32.592><c> as</c><00:03:32.792><c> well</c><00:03:32.992><c> as</c><00:03:33.092><c> you</c><00:03:33.192><c> can</c><00:03:33.392><c> see</c><00:03:33.592><c> our</c>
+
+00:03:33.682 --> 00:03:33.692 align:start position:0%
+Oh, as well as you can see our
+
+
+00:03:33.692 --> 00:03:38.882 align:start position:0%
+Oh, as well as you can see our
+touchscreen<00:03:34.392><c> right</c><00:03:34.592><c> here.</c>
+
+00:03:38.882 --> 00:03:38.892 align:start position:0%
+
+
+
+00:03:38.892 --> 00:03:39.782 align:start position:0%
+
+Um
+
+00:03:39.782 --> 00:03:39.792 align:start position:0%
+Um
+
+
+00:03:39.792 --> 00:03:42.582 align:start position:0%
+Um
+the<00:03:39.892><c> back</c><00:03:40.892><c> is</c><00:03:40.992><c> also</c><00:03:41.392><c> completely</c><00:03:41.892><c> modular</c><00:03:42.492><c> and</c>
+
+00:03:42.582 --> 00:03:42.592 align:start position:0%
+the back is also completely modular and
+
+
+00:03:42.592 --> 00:03:44.682 align:start position:0%
+the back is also completely modular and
+can<00:03:42.692><c> be</c><00:03:43.392><c> uh</c>
+
+00:03:44.682 --> 00:03:44.692 align:start position:0%
+can be uh
+
+
+00:03:44.692 --> 00:03:46.982 align:start position:0%
+can be uh
+taken<00:03:44.992><c> off</c><00:03:45.192><c> when</c><00:03:45.592><c> when</c><00:03:45.792><c> needed</c><00:03:46.192><c> and</c><00:03:46.392><c> also</c>
+
+00:03:46.982 --> 00:03:46.992 align:start position:0%
+taken off when when needed and also
+
+
+00:03:46.992 --> 00:03:57.382 align:start position:0%
+taken off when when needed and also
+allows<00:03:47.392><c> for</c><00:03:47.492><c> ventilation.</c>
+
+00:03:57.382 --> 00:03:57.392 align:start position:0%
+
+
+
+00:03:57.392 --> 00:03:59.982 align:start position:0%
+
+Initially,<00:03:58.192><c> we</c><00:03:58.292><c> designed</c><00:03:58.792><c> our</c><00:03:59.092><c> face</c><00:03:59.392><c> plate</c><00:03:59.892><c> in</c>
+
+00:03:59.982 --> 00:03:59.992 align:start position:0%
+Initially, we designed our face plate in
+
+
+00:03:59.992 --> 00:04:02.382 align:start position:0%
+Initially, we designed our face plate in
+order<00:04:00.392><c> so</c><00:04:00.592><c> that</c><00:04:00.692><c> you</c><00:04:00.792><c> can</c><00:04:01.192><c> hit</c><00:04:01.492><c> anywhere</c><00:04:02.292><c> and</c>
+
+00:04:02.382 --> 00:04:02.392 align:start position:0%
+order so that you can hit anywhere and
+
+
+00:04:02.392 --> 00:04:04.284 align:start position:0%
+order so that you can hit anywhere and
+you'd<00:04:02.594><c> be</c><00:04:02.694><c> able</c><00:04:02.994><c> to</c><00:04:03.194><c> get</c><00:04:03.394><c> a</c><00:04:03.992><c> uh</c><00:04:03.994><c> sensor</c>
+
+00:04:04.284 --> 00:04:04.294 align:start position:0%
+you'd be able to get a uh sensor
+
+
+00:04:04.294 --> 00:04:06.384 align:start position:0%
+you'd be able to get a uh sensor
+reading.<00:04:05.094><c> However,</c>
+
+00:04:06.384 --> 00:04:06.394 align:start position:0%
+reading. However,
+
+
+00:04:06.394 --> 00:04:08.584 align:start position:0%
+reading. However,
+due<00:04:06.594><c> to</c><00:04:06.794><c> several</c><00:04:07.194><c> blind</c><00:04:07.394><c> spots,</c><00:04:07.794><c> we</c><00:04:08.094><c> decided</c>
+
+00:04:08.584 --> 00:04:08.594 align:start position:0%
+due to several blind spots, we decided
+
+
+00:04:08.594 --> 00:04:12.484 align:start position:0%
+due to several blind spots, we decided
+to<00:04:08.894><c> include</c><00:04:09.694><c> a</c><00:04:10.394><c> face</c><00:04:10.694><c> plate</c><00:04:11.294><c> that</c>
+
+00:04:12.484 --> 00:04:12.494 align:start position:0%
+to include a face plate that
+
+
+00:04:12.494 --> 00:04:14.784 align:start position:0%
+to include a face plate that
+would<00:04:12.594><c> only</c><00:04:12.894><c> allow</c><00:04:13.094><c> you</c><00:04:13.194><c> to</c><00:04:13.294><c> hit</c><00:04:14.194><c> directly</c><00:04:14.694><c> in</c>
+
+00:04:14.784 --> 00:04:14.794 align:start position:0%
+would only allow you to hit directly in
+
+
+00:04:14.794 --> 00:04:16.884 align:start position:0%
+would only allow you to hit directly in
+the<00:04:14.894><c> center</c><00:04:15.294><c> of</c><00:04:15.394><c> each</c>
+
+00:04:16.884 --> 00:04:16.894 align:start position:0%
+the center of each
+
+
+00:04:16.894 --> 00:04:27.784 align:start position:0%
+the center of each
+array.
+
+00:04:27.784 --> 00:04:27.794 align:start position:0%
+
+
+
+00:04:27.794 --> 00:04:30.784 align:start position:0%
+
+&gt;&gt; All<00:04:27.994><c> right.</c><00:04:28.694><c> So</c><00:04:28.894><c> here</c><00:04:29.094><c> we</c><00:04:29.294><c> have</c><00:04:29.694><c> our</c><00:04:29.994><c> two</c><00:04:30.294><c> main</c>
+
+00:04:30.784 --> 00:04:30.794 align:start position:0%
+&gt;&gt; All right. So here we have our two main
+
+
+00:04:30.794 --> 00:04:33.984 align:start position:0%
+&gt;&gt; All right. So here we have our two main
+PCBs.<00:04:32.094><c> The</c><00:04:32.194><c> bottom</c><00:04:32.594><c> one</c><00:04:32.894><c> has</c><00:04:33.194><c> the</c><00:04:33.394><c> photo</c>
+
+00:04:33.984 --> 00:04:33.994 align:start position:0%
+PCBs. The bottom one has the photo
+
+
+00:04:33.994 --> 00:04:36.684 align:start position:0%
+PCBs. The bottom one has the photo
+transistor<00:04:34.894><c> circuit</c>
+
+00:04:36.684 --> 00:04:36.694 align:start position:0%
+transistor circuit
+
+
+00:04:36.694 --> 00:04:38.684 align:start position:0%
+transistor circuit
+has<00:04:36.794><c> that</c><00:04:37.094><c> 16</c><00:04:37.594><c> times.</c>
+
+00:04:38.684 --> 00:04:38.694 align:start position:0%
+has that 16 times.
+
+
+00:04:38.694 --> 00:04:41.284 align:start position:0%
+has that 16 times.
+And<00:04:38.794><c> then</c><00:04:38.994><c> the</c><00:04:39.294><c> top</c><00:04:39.694><c> one</c><00:04:39.994><c> has</c><00:04:40.194><c> the</c><00:04:40.494><c> speakers,</c>
+
+00:04:41.284 --> 00:04:41.294 align:start position:0%
+And then the top one has the speakers,
+
+
+00:04:41.294 --> 00:04:44.084 align:start position:0%
+And then the top one has the speakers,
+the<00:04:41.994><c> voltage</c><00:04:42.394><c> regulators</c><00:04:43.394><c> on</c><00:04:43.494><c> the</c><00:04:43.694><c> back.</c><00:04:43.994><c> You</c>
+
+00:04:44.084 --> 00:04:44.094 align:start position:0%
+the voltage regulators on the back. You
+
+
+00:04:44.094 --> 00:04:46.884 align:start position:0%
+the voltage regulators on the back. You
+can<00:04:44.194><c> see</c><00:04:44.394><c> it</c><00:04:44.594><c> there.</c><00:04:45.394><c> And</c><00:04:45.594><c> then</c><00:04:45.794><c> it</c><00:04:45.994><c> also</c><00:04:46.394><c> has</c>
+
+00:04:46.884 --> 00:04:46.894 align:start position:0%
+can see it there. And then it also has
+
+
+00:04:46.894 --> 00:04:48.484 align:start position:0%
+can see it there. And then it also has
+the
+
+00:04:48.484 --> 00:04:48.494 align:start position:0%
+the
+
+
+00:04:48.494 --> 00:04:50.784 align:start position:0%
+the
+microcontroller<00:04:49.894><c> and</c><00:04:50.094><c> everything</c><00:04:50.494><c> that</c><00:04:50.594><c> goes</c>
+
+00:04:50.784 --> 00:04:50.794 align:start position:0%
+microcontroller and everything that goes
+
+
+00:04:50.794 --> 00:04:52.084 align:start position:0%
+microcontroller and everything that goes
+with<00:04:50.994><c> that.</c>
+
+00:04:52.084 --> 00:04:52.094 align:start position:0%
+with that.
+
+
+00:04:52.094 --> 00:04:54.784 align:start position:0%
+with that.
+Over<00:04:52.294><c> here,</c><00:04:52.894><c> we</c><00:04:53.094><c> have</c><00:04:53.194><c> a</c><00:04:53.294><c> closer</c><00:04:53.794><c> look</c><00:04:54.094><c> at</c><00:04:54.294><c> the</c>
+
+00:04:54.784 --> 00:04:54.794 align:start position:0%
+Over here, we have a closer look at the
+
+
+00:04:54.794 --> 00:04:57.284 align:start position:0%
+Over here, we have a closer look at the
+lens<00:04:55.094><c> system</c><00:04:55.894><c> in</c><00:04:55.994><c> order</c><00:04:56.294><c> to</c><00:04:56.594><c> capture</c><00:04:57.094><c> the</c>
+
+00:04:57.284 --> 00:04:57.294 align:start position:0%
+lens system in order to capture the
+
+
+00:04:57.294 --> 00:04:59.884 align:start position:0%
+lens system in order to capture the
+laser<00:04:57.694><c> hit.</c><00:04:58.594><c> So</c><00:04:58.694><c> we</c><00:04:58.794><c> have</c><00:04:58.994><c> this</c><00:04:59.194><c> face</c><00:04:59.494><c> plate</c>
+
+00:04:59.884 --> 00:04:59.894 align:start position:0%
+laser hit. So we have this face plate
+
+
+00:04:59.894 --> 00:05:02.984 align:start position:0%
+laser hit. So we have this face plate
+here<00:05:00.294><c> with</c><00:05:00.494><c> circles</c><00:05:01.594><c> that</c><00:05:01.894><c> correspond</c><00:05:02.594><c> to</c>
+
+00:05:02.984 --> 00:05:02.994 align:start position:0%
+here with circles that correspond to
+
+
+00:05:02.994 --> 00:05:05.684 align:start position:0%
+here with circles that correspond to
+each<00:05:03.294><c> lens.</c><00:05:04.194><c> And</c><00:05:04.394><c> then</c><00:05:04.494><c> behind</c><00:05:04.894><c> that,</c><00:05:05.194><c> we</c><00:05:05.294><c> have</c>
+
+00:05:05.684 --> 00:05:05.694 align:start position:0%
+each lens. And then behind that, we have
+
+
+00:05:05.694 --> 00:05:06.884 align:start position:0%
+each lens. And then behind that, we have
+the
+
+00:05:06.884 --> 00:05:06.894 align:start position:0%
+the
+
+
+00:05:06.894 --> 00:05:17.684 align:start position:0%
+the
+chamber<00:05:07.494><c> with</c><00:05:07.694><c> the</c><00:05:07.894><c> four</c><00:05:08.194><c> slanted</c><00:05:08.694><c> walls.</c>
+
+00:05:17.684 --> 00:05:17.694 align:start position:0%
+
+
+
+00:05:17.694 --> 00:05:19.784 align:start position:0%
+
+As<00:05:17.794><c> you</c><00:05:17.894><c> can</c><00:05:18.094><c> see</c><00:05:18.494><c> on</c><00:05:18.794><c> our</c><00:05:18.994><c> physical</c><00:05:19.394><c> board</c>
+
+00:05:19.784 --> 00:05:19.794 align:start position:0%
+As you can see on our physical board
+
+
+00:05:19.794 --> 00:05:22.984 align:start position:0%
+As you can see on our physical board
+here,<00:05:20.494><c> we</c><00:05:20.694><c> have</c><00:05:21.094><c> a</c><00:05:21.794><c> mirror</c><00:05:22.094><c> film</c><00:05:22.494><c> on</c><00:05:22.694><c> each</c><00:05:22.894><c> of</c>
+
+00:05:22.984 --> 00:05:22.994 align:start position:0%
+here, we have a mirror film on each of
+
+
+00:05:22.994 --> 00:05:25.584 align:start position:0%
+here, we have a mirror film on each of
+those<00:05:23.194><c> slanted</c><00:05:23.594><c> walls</c>
+
+00:05:25.584 --> 00:05:25.594 align:start position:0%
+those slanted walls
+
+
+00:05:25.594 --> 00:05:27.384 align:start position:0%
+those slanted walls
+to<00:05:25.694><c> help</c><00:05:25.894><c> direct</c><00:05:26.294><c> the</c><00:05:26.394><c> laser</c><00:05:26.794><c> where</c><00:05:26.994><c> it</c><00:05:27.094><c> needs</c>
+
+00:05:27.384 --> 00:05:27.394 align:start position:0%
+to help direct the laser where it needs
+
+
+00:05:27.394 --> 00:05:35.184 align:start position:0%
+to help direct the laser where it needs
+to<00:05:27.494><c> go.</c>
+
+00:05:35.184 --> 00:05:35.194 align:start position:0%
+
+
+
+00:05:35.194 --> 00:05:38.884 align:start position:0%
+
+Um<00:05:35.894><c> in</c><00:05:36.094><c> addition,</c><00:05:36.694><c> we</c><00:05:37.494><c> have</c>
+
+00:05:38.884 --> 00:05:38.894 align:start position:0%
+Um in addition, we have
+
+
+00:05:38.894 --> 00:05:41.384 align:start position:0%
+Um in addition, we have
+each<00:05:39.194><c> photo</c><00:05:39.494><c> transistor</c>
+
+00:05:41.384 --> 00:05:41.394 align:start position:0%
+each photo transistor
+
+
+00:05:41.394 --> 00:05:43.684 align:start position:0%
+each photo transistor
+is<00:05:41.894><c> shown</c><00:05:42.394><c> through</c><00:05:42.694><c> one</c><00:05:42.894><c> of</c><00:05:42.994><c> these</c><00:05:43.294><c> small</c>
+
+00:05:43.684 --> 00:05:43.694 align:start position:0%
+is shown through one of these small
+
+
+00:05:43.694 --> 00:05:46.784 align:start position:0%
+is shown through one of these small
+holes<00:05:44.594><c> also</c><00:05:44.994><c> shown</c><00:05:45.494><c> here.</c>
+
+00:05:46.784 --> 00:05:46.794 align:start position:0%
+holes also shown here.
+
+
+00:05:46.794 --> 00:05:49.584 align:start position:0%
+holes also shown here.
+Very<00:05:47.194><c> small</c><00:05:47.594><c> hole</c><00:05:47.794><c> there</c><00:05:48.294><c> corresponds</c><00:05:48.894><c> to</c><00:05:49.094><c> our</c>
+
+00:05:49.584 --> 00:05:49.594 align:start position:0%
+Very small hole there corresponds to our
+
+
+00:05:49.594 --> 00:05:52.384 align:start position:0%
+Very small hole there corresponds to our
+SMD<00:05:50.294><c> photo</c><00:05:50.494><c> transistor.</c><00:05:51.694><c> And</c><00:05:51.894><c> then</c><00:05:52.094><c> right</c>
+
+00:05:52.384 --> 00:05:52.394 align:start position:0%
+SMD photo transistor. And then right
+
+
+00:05:52.394 --> 00:05:54.884 align:start position:0%
+SMD photo transistor. And then right
+above<00:05:52.694><c> that</c><00:05:53.094><c> is</c><00:05:53.394><c> where</c><00:05:53.594><c> our</c><00:05:53.794><c> indicator</c><00:05:54.394><c> LEDs</c>
+
+00:05:54.884 --> 00:05:54.894 align:start position:0%
+above that is where our indicator LEDs
+
+
+00:05:54.894 --> 00:05:56.984 align:start position:0%
+above that is where our indicator LEDs
+are.
+
+00:05:56.984 --> 00:05:56.994 align:start position:0%
+are.
+
+
+00:05:56.994 --> 00:05:58.684 align:start position:0%
+are.
+So<00:05:57.094><c> you</c><00:05:57.194><c> can</c><00:05:57.394><c> see</c>
+
+00:05:58.684 --> 00:05:58.694 align:start position:0%
+So you can see
+
+
+00:05:58.694 --> 00:06:08.885 align:start position:0%
+So you can see
+every<00:05:58.894><c> time</c><00:05:59.094><c> you</c><00:05:59.194><c> make</c><00:05:59.394><c> it.</c>
+
+00:06:08.885 --> 00:06:08.895 align:start position:0%
+
+
+
+00:06:08.895 --> 00:06:10.885 align:start position:0%
+
+&gt;&gt; Hi,<00:06:09.095><c> I'm</c><00:06:09.395><c> Anthony</c><00:06:09.795><c> and</c><00:06:09.995><c> I'm</c><00:06:10.195><c> going</c><00:06:10.295><c> to</c><00:06:10.395><c> show</c>
+
+00:06:10.885 --> 00:06:10.895 align:start position:0%
+&gt;&gt; Hi, I'm Anthony and I'm going to show
+
+
+00:06:10.895 --> 00:06:12.685 align:start position:0%
+&gt;&gt; Hi, I'm Anthony and I'm going to show
+the<00:06:11.095><c> different</c><00:06:11.395><c> modes</c><00:06:11.695><c> that</c><00:06:12.095><c> the</c><00:06:12.195><c> Precision</c>
+
+00:06:12.685 --> 00:06:12.695 align:start position:0%
+the different modes that the Precision
+
+
+00:06:12.695 --> 00:06:14.785 align:start position:0%
+the different modes that the Precision
+Shot<00:06:12.995><c> has.</c><00:06:13.395><c> So</c><00:06:13.795><c> the</c><00:06:13.895><c> freestyle</c><00:06:14.295><c> mode</c><00:06:14.595><c> is</c>
+
+00:06:14.785 --> 00:06:14.795 align:start position:0%
+Shot has. So the freestyle mode is
+
+
+00:06:14.795 --> 00:06:16.485 align:start position:0%
+Shot has. So the freestyle mode is
+basically<00:06:15.295><c> just</c>
+
+00:06:16.485 --> 00:06:16.495 align:start position:0%
+basically just
+
+
+00:06:16.495 --> 00:06:17.685 align:start position:0%
+basically just
+shoot<00:06:16.695><c> at</c><00:06:16.895><c> whatever</c><00:06:17.095><c> you</c><00:06:17.295><c> want</c><00:06:17.495><c> and</c><00:06:17.595><c> it'll</c>
+
+00:06:17.685 --> 00:06:17.695 align:start position:0%
+shoot at whatever you want and it'll
+
+
+00:06:17.695 --> 00:06:19.585 align:start position:0%
+shoot at whatever you want and it'll
+show<00:06:17.895><c> you</c><00:06:17.995><c> the</c><00:06:18.095><c> score</c><00:06:18.295><c> you'll</c><00:06:18.495><c> get.</c><00:06:18.895><c> And</c><00:06:19.195><c> rapid</c>
+
+00:06:19.585 --> 00:06:19.595 align:start position:0%
+show you the score you'll get. And rapid
+
+
+00:06:19.595 --> 00:06:21.485 align:start position:0%
+show you the score you'll get. And rapid
+is<00:06:19.895><c> basically</c><00:06:20.295><c> just</c><00:06:20.595><c> a</c><00:06:20.795><c> quick</c><00:06:21.095><c> like</c><00:06:21.195><c> target</c>
+
+00:06:21.485 --> 00:06:21.495 align:start position:0%
+is basically just a quick like target
+
+
+00:06:21.495 --> 00:06:23.585 align:start position:0%
+is basically just a quick like target
+switching<00:06:21.895><c> mode</c><00:06:22.295><c> so</c><00:06:22.495><c> that</c><00:06:22.695><c> you</c><00:06:22.695><c> can</c><00:06:23.295><c> quickly</c>
+
+00:06:23.585 --> 00:06:23.595 align:start position:0%
+switching mode so that you can quickly
+
+
+00:06:23.595 --> 00:06:26.485 align:start position:0%
+switching mode so that you can quickly
+switch<00:06:23.895><c> between</c><00:06:24.195><c> the</c><00:06:24.595><c> different</c><00:06:25.095><c> areas.</c>
+
+00:06:26.485 --> 00:06:26.495 align:start position:0%
+switch between the different areas.
+
+
+00:06:26.495 --> 00:06:27.585 align:start position:0%
+switch between the different areas.
+The first<00:06:26.795><c> mode</c><00:06:26.895><c> I'll</c><00:06:27.095><c> be</c><00:06:27.195><c> showing</c><00:06:27.495><c> is</c>
+
+00:06:27.585 --> 00:06:27.595 align:start position:0%
+The first mode I'll be showing is
+
+
+00:06:27.595 --> 00:06:29.785 align:start position:0%
+The first mode I'll be showing is
+freestyle.
+
+00:06:29.785 --> 00:06:29.795 align:start position:0%
+freestyle.
+
+
+00:06:29.795 --> 00:06:31.285 align:start position:0%
+freestyle.
+I'll<00:06:29.895><c> start</c><00:06:30.095><c> by</c><00:06:30.195><c> hitting</c><00:06:30.395><c> one</c><00:06:30.595><c> of</c><00:06:30.695><c> the</c><00:06:31.195><c> the</c>
+
+00:06:31.285 --> 00:06:31.295 align:start position:0%
+I'll start by hitting one of the the
+
+
+00:06:31.295 --> 00:06:34.385 align:start position:0%
+I'll start by hitting one of the the
+10-point<00:06:32.495><c> areas</c><00:06:32.895><c> which</c><00:06:32.995><c> are</c><00:06:33.095><c> in</c><00:06:33.195><c> the</c><00:06:33.195><c> middle</c>
+
+00:06:34.385 --> 00:06:34.395 align:start position:0%
+10-point areas which are in the middle
+
+
+00:06:34.395 --> 00:06:35.985 align:start position:0%
+10-point areas which are in the middle
+as<00:06:34.495><c> you</c><00:06:34.495><c> can</c><00:06:34.695><c> see.</c>
+
+00:06:35.985 --> 00:06:35.995 align:start position:0%
+as you can see.
+
+
+00:06:35.995 --> 00:06:37.385 align:start position:0%
+as you can see.
+Five<00:06:36.295><c> folds</c>
+
+00:06:37.385 --> 00:06:37.395 align:start position:0%
+Five folds
+
+
+00:06:37.395 --> 00:06:38.885 align:start position:0%
+Five folds
+right<00:06:37.595><c> there.</c>
+
+00:06:38.885 --> 00:06:38.895 align:start position:0%
+right there.
+
+
+00:06:38.895 --> 00:06:40.685 align:start position:0%
+right there.
+And then<00:06:39.095><c> a</c><00:06:39.195><c> three</c><00:06:39.695><c> point</c><00:06:40.095><c> is</c><00:06:40.195><c> at</c><00:06:40.295><c> the</c><00:06:40.395><c> very</c>
+
+00:06:40.685 --> 00:06:40.695 align:start position:0%
+And then a three point is at the very
+
+
+00:06:40.695 --> 00:06:44.085 align:start position:0%
+And then a three point is at the very
+corner.
+
+00:06:44.085 --> 00:06:44.095 align:start position:0%
+
+
+
+00:06:44.095 --> 00:06:45.685 align:start position:0%
+
+And<00:06:44.195><c> as</c><00:06:44.295><c> you</c><00:06:44.395><c> can</c><00:06:44.495><c> see</c>
+
+00:06:45.685 --> 00:06:45.695 align:start position:0%
+And as you can see
+
+
+00:06:45.695 --> 00:06:47.685 align:start position:0%
+And as you can see
+depending<00:06:46.095><c> on</c><00:06:46.295><c> the</c>
+
+00:06:47.685 --> 00:06:47.695 align:start position:0%
+depending on the
+
+
+00:06:47.695 --> 00:06:49.485 align:start position:0%
+depending on the
+photo<00:06:47.895><c> transistor</c><00:06:48.395><c> that</c><00:06:48.595><c> I</c><00:06:48.595><c> hit</c><00:06:49.095><c> we</c><00:06:49.195><c> receive</c><00:06:49.395><c> a</c>
+
+00:06:49.485 --> 00:06:49.495 align:start position:0%
+photo transistor that I hit we receive a
+
+
+00:06:49.495 --> 00:06:53.685 align:start position:0%
+photo transistor that I hit we receive a
+different<00:06:49.695><c> score.</c>
+
+00:06:53.685 --> 00:06:53.695 align:start position:0%
+
+
+
+00:06:53.695 --> 00:07:37.785 align:start position:0%
+
+And<00:06:53.795><c> yeah.</c>
+
+00:07:37.785 --> 00:07:37.795 align:start position:0%
+
+
+
+00:07:37.795 --> 00:07:39.185 align:start position:0%
+
+&gt;&gt; Hi,<00:07:37.895><c> my</c><00:07:37.995><c> name's</c><00:07:38.195><c> Lane</c><00:07:38.495><c> and</c><00:07:38.595><c> I'm</c><00:07:38.795><c> the</c><00:07:38.895><c> software</c>
+
+00:07:39.185 --> 00:07:39.195 align:start position:0%
+&gt;&gt; Hi, my name's Lane and I'm the software
+
+
+00:07:39.195 --> 00:07:41.085 align:start position:0%
+&gt;&gt; Hi, my name's Lane and I'm the software
+engineer<00:07:39.595><c> and</c><00:07:39.695><c> the</c><00:07:39.795><c> team</c><00:07:39.995><c> lead</c><00:07:40.395><c> for</c><00:07:40.895><c> uh</c><00:07:40.995><c> the</c>
+
+00:07:41.085 --> 00:07:41.095 align:start position:0%
+engineer and the team lead for uh the
+
+
+00:07:41.095 --> 00:07:43.785 align:start position:0%
+engineer and the team lead for uh the
+Precision<00:07:41.395><c> Shot.</c><00:07:42.195><c> This</c><00:07:42.495><c> is</c><00:07:42.695><c> the</c><00:07:42.995><c> mobile</c><00:07:43.295><c> app.</c>
+
+00:07:43.785 --> 00:07:43.795 align:start position:0%
+Precision Shot. This is the mobile app.
+
+
+00:07:43.795 --> 00:07:45.685 align:start position:0%
+Precision Shot. This is the mobile app.
+As<00:07:43.995><c> you</c><00:07:43.995><c> can</c><00:07:44.195><c> see</c><00:07:44.395><c> the</c><00:07:44.495><c> zones</c>
+
+00:07:45.685 --> 00:07:45.695 align:start position:0%
+As you can see the zones
+
+
+00:07:45.695 --> 00:07:47.885 align:start position:0%
+As you can see the zones
+connect<00:07:45.995><c> to</c><00:07:46.195><c> the</c><00:07:46.295><c> zones</c><00:07:46.595><c> here</c><00:07:47.095><c> for</c><00:07:47.395><c> rapid</c><00:07:47.695><c> and</c>
+
+00:07:47.885 --> 00:07:47.895 align:start position:0%
+connect to the zones here for rapid and
+
+
+00:07:47.895 --> 00:07:49.485 align:start position:0%
+connect to the zones here for rapid and
+freestyle.<00:07:48.595><c> But</c><00:07:48.795><c> first</c><00:07:49.095><c> before</c><00:07:49.295><c> we</c><00:07:49.395><c> do</c>
+
+00:07:49.485 --> 00:07:49.495 align:start position:0%
+freestyle. But first before we do
+
+
+00:07:49.495 --> 00:07:51.385 align:start position:0%
+freestyle. But first before we do
+anything<00:07:49.795><c> let's</c><00:07:49.995><c> connect</c><00:07:50.295><c> to</c><00:07:50.295><c> the</c><00:07:50.395><c> board.</c>
+
+00:07:51.385 --> 00:07:51.395 align:start position:0%
+anything let's connect to the board.
+
+
+00:07:51.395 --> 00:07:52.985 align:start position:0%
+anything let's connect to the board.
+When<00:07:51.495><c> the</c><00:07:51.595><c> board</c><00:07:51.795><c> is</c><00:07:51.895><c> turned</c><00:07:52.195><c> on</c><00:07:52.395><c> it</c><00:07:52.595><c> uh</c><00:07:52.795><c> it</c>
+
+00:07:52.985 --> 00:07:52.995 align:start position:0%
+When the board is turned on it uh it
+
+
+00:07:52.995 --> 00:07:55.385 align:start position:0%
+When the board is turned on it uh it
+automatically<00:07:53.495><c> starts</c><00:07:53.695><c> Bluetooth</c><00:07:54.395><c> uh</c>
+
+00:07:55.385 --> 00:07:55.395 align:start position:0%
+automatically starts Bluetooth uh
+
+
+00:07:55.395 --> 00:07:57.185 align:start position:0%
+automatically starts Bluetooth uh
+signaling<00:07:56.195><c> telling</c><00:07:56.495><c> everybody</c><00:07:56.895><c> that</c><00:07:57.095><c> it's</c>
+
+00:07:57.185 --> 00:07:57.195 align:start position:0%
+signaling telling everybody that it's
+
+
+00:07:57.195 --> 00:07:58.985 align:start position:0%
+signaling telling everybody that it's
+ready<00:07:57.395><c> to</c><00:07:57.495><c> go.</c><00:07:57.895><c> So</c><00:07:57.995><c> if</c><00:07:58.195><c> you</c><00:07:58.295><c> have</c><00:07:58.395><c> the</c><00:07:58.495><c> app</c><00:07:58.895><c> you</c>
+
+00:07:58.985 --> 00:07:58.995 align:start position:0%
+ready to go. So if you have the app you
+
+
+00:07:58.995 --> 00:08:00.985 align:start position:0%
+ready to go. So if you have the app you
+can<00:07:59.095><c> hit</c><00:07:59.295><c> find</c><00:07:59.495><c> board.</c><00:08:00.095><c> And</c><00:08:00.195><c> as</c><00:08:00.295><c> you</c><00:08:00.395><c> can</c><00:08:00.595><c> see</c>
+
+00:08:00.985 --> 00:08:00.995 align:start position:0%
+can hit find board. And as you can see
+
+
+00:08:00.995 --> 00:08:02.685 align:start position:0%
+can hit find board. And as you can see
+instead<00:08:01.295><c> of</c><00:08:01.295><c> showing</c><00:08:01.595><c> a</c><00:08:01.595><c> list</c><00:08:01.795><c> of</c><00:08:01.895><c> devices</c><00:08:02.495><c> it</c>
+
+00:08:02.685 --> 00:08:02.695 align:start position:0%
+instead of showing a list of devices it
+
+
+00:08:02.695 --> 00:08:04.185 align:start position:0%
+instead of showing a list of devices it
+just<00:08:02.795><c> says</c><00:08:03.195><c> that</c><00:08:03.395><c> you're</c><00:08:03.495><c> ready</c><00:08:03.695><c> to</c><00:08:03.895><c> connect</c>
+
+00:08:04.185 --> 00:08:04.195 align:start position:0%
+just says that you're ready to connect
+
+
+00:08:04.195 --> 00:08:05.685 align:start position:0%
+just says that you're ready to connect
+to<00:08:04.395><c> the</c><00:08:04.495><c> Precision</c><00:08:04.795><c> Shot.</c>
+
+00:08:05.685 --> 00:08:05.695 align:start position:0%
+to the Precision Shot.
+
+
+00:08:05.695 --> 00:08:07.085 align:start position:0%
+to the Precision Shot.
+After<00:08:05.795><c> connecting</c><00:08:06.495><c> we</c><00:08:06.595><c> go</c><00:08:06.695><c> through</c><00:08:06.895><c> a</c><00:08:06.895><c> sync</c>
+
+00:08:07.085 --> 00:08:07.095 align:start position:0%
+After connecting we go through a sync
+
+
+00:08:07.095 --> 00:08:08.787 align:start position:0%
+After connecting we go through a sync
+first<00:08:07.595><c> and</c><00:08:07.695><c> as</c><00:08:07.897><c> you</c><00:08:07.997><c> can</c><00:08:08.097><c> see,</c><00:08:08.397><c> it</c><00:08:08.497><c> changed</c>
+
+00:08:08.787 --> 00:08:08.797 align:start position:0%
+first and as you can see, it changed
+
+
+00:08:08.797 --> 00:08:11.087 align:start position:0%
+first and as you can see, it changed
+from<00:08:08.897><c> rapid</c><00:08:09.297><c> to</c><00:08:09.397><c> freestyle</c><00:08:09.797><c> because</c><00:08:10.597><c> the</c><00:08:10.697><c> USB</c>
+
+00:08:11.087 --> 00:08:11.097 align:start position:0%
+from rapid to freestyle because the USB
+
+
+00:08:11.097 --> 00:08:13.587 align:start position:0%
+from rapid to freestyle because the USB
+32<00:08:11.797><c> or</c><00:08:11.997><c> the</c><00:08:12.097><c> Precision</c><00:08:12.597><c> Shot</c><00:08:12.697><c> itself</c><00:08:13.097><c> is</c><00:08:13.197><c> on</c>
+
+00:08:13.587 --> 00:08:13.597 align:start position:0%
+32 or the Precision Shot itself is on
+
+
+00:08:13.597 --> 00:08:14.687 align:start position:0%
+32 or the Precision Shot itself is on
+freestyle<00:08:13.897><c> mode.</c>
+
+00:08:14.687 --> 00:08:14.697 align:start position:0%
+freestyle mode.
+
+
+00:08:14.697 --> 00:08:16.687 align:start position:0%
+freestyle mode.
+Let's<00:08:14.897><c> change</c><00:08:15.197><c> it</c><00:08:15.197><c> to</c><00:08:15.397><c> rapid</c><00:08:15.697><c> mode.</c>
+
+00:08:16.687 --> 00:08:16.697 align:start position:0%
+Let's change it to rapid mode.
+
+
+00:08:16.697 --> 00:08:18.087 align:start position:0%
+Let's change it to rapid mode.
+And<00:08:16.797><c> as</c><00:08:16.897><c> you</c><00:08:16.897><c> can</c><00:08:17.097><c> see,</c><00:08:17.297><c> we</c><00:08:17.397><c> have</c><00:08:17.597><c> rapid</c><00:08:17.897><c> mode</c>
+
+00:08:18.087 --> 00:08:18.097 align:start position:0%
+And as you can see, we have rapid mode
+
+
+00:08:18.097 --> 00:08:20.387 align:start position:0%
+And as you can see, we have rapid mode
+set<00:08:18.297><c> up</c><00:08:18.597><c> and</c><00:08:18.697><c> rapid</c><00:08:18.997><c> mode</c><00:08:19.097><c> happens</c><00:08:19.397><c> over</c><00:08:19.597><c> here.</c>
+
+00:08:20.387 --> 00:08:20.397 align:start position:0%
+set up and rapid mode happens over here.
+
+
+00:08:20.397 --> 00:08:21.987 align:start position:0%
+set up and rapid mode happens over here.
+If<00:08:20.597><c> we</c><00:08:20.697><c> go</c><00:08:20.897><c> to</c><00:08:20.997><c> the</c><00:08:21.097><c> settings</c><00:08:21.397><c> here</c><00:08:21.697><c> and</c><00:08:21.797><c> maybe</c>
+
+00:08:21.987 --> 00:08:21.997 align:start position:0%
+If we go to the settings here and maybe
+
+
+00:08:21.997 --> 00:08:23.887 align:start position:0%
+If we go to the settings here and maybe
+change<00:08:22.297><c> something</c><00:08:22.597><c> technical</c><00:08:23.097><c> like</c><00:08:23.297><c> changing</c>
+
+00:08:23.887 --> 00:08:23.897 align:start position:0%
+change something technical like changing
+
+
+00:08:23.897 --> 00:08:28.087 align:start position:0%
+change something technical like changing
+our<00:08:24.097><c> distance</c>
+
+00:08:28.087 --> 00:08:28.097 align:start position:0%
+
+
+
+00:08:28.097 --> 00:08:29.887 align:start position:0%
+
+to
+
+00:08:29.887 --> 00:08:29.897 align:start position:0%
+to
+
+
+00:08:29.897 --> 00:08:33.687 align:start position:0%
+to
+20<00:08:30.097><c> m.</c><00:08:30.897><c> And</c><00:08:30.997><c> we</c><00:08:30.997><c> come</c><00:08:31.197><c> over</c><00:08:31.397><c> here</c><00:08:31.797><c> to</c><00:08:32.497><c> the</c>
+
+00:08:33.687 --> 00:08:33.697 align:start position:0%
+20 m. And we come over here to the
+
+
+00:08:33.697 --> 00:08:35.587 align:start position:0%
+20 m. And we come over here to the
+um<00:08:34.297><c> Precision</c><00:08:34.697><c> Shot,</c><00:08:34.997><c> you'll</c><00:08:35.097><c> see</c><00:08:35.297><c> here</c><00:08:35.397><c> that</c>
+
+00:08:35.587 --> 00:08:35.597 align:start position:0%
+um Precision Shot, you'll see here that
+
+
+00:08:35.597 --> 00:08:37.287 align:start position:0%
+um Precision Shot, you'll see here that
+it<00:08:35.697><c> changed</c><00:08:35.997><c> to</c><00:08:36.097><c> the</c><00:08:36.097><c> settings</c><00:08:36.397><c> page</c><00:08:36.897><c> and</c><00:08:37.097><c> it</c>
+
+00:08:37.287 --> 00:08:37.297 align:start position:0%
+it changed to the settings page and it
+
+
+00:08:37.297 --> 00:08:39.487 align:start position:0%
+it changed to the settings page and it
+updates<00:08:37.697><c> to</c><00:08:37.997><c> 20</c><00:08:38.497><c> m.</c>
+
+00:08:39.487 --> 00:08:39.497 align:start position:0%
+updates to 20 m.
+
+
+00:08:39.497 --> 00:08:42.687 align:start position:0%
+updates to 20 m.
+Let's<00:08:39.697><c> change</c><00:08:39.897><c> the</c><00:08:39.997><c> sensitivity</c><00:08:40.697><c> to</c><00:08:41.097><c> 10</c><00:08:41.697><c> or</c><00:08:41.897><c> 1</c>
+
+00:08:42.687 --> 00:08:42.697 align:start position:0%
+Let's change the sensitivity to 10 or 1
+
+
+00:08:42.697 --> 00:08:44.087 align:start position:0%
+Let's change the sensitivity to 10 or 1
+and<00:08:42.797><c> as</c><00:08:42.897><c> you</c><00:08:42.997><c> can</c><00:08:43.097><c> see</c><00:08:43.297><c> here,</c><00:08:43.497><c> the</c><00:08:43.597><c> sensitivity</c>
+
+00:08:44.087 --> 00:08:44.097 align:start position:0%
+and as you can see here, the sensitivity
+
+
+00:08:44.097 --> 00:08:46.187 align:start position:0%
+and as you can see here, the sensitivity
+has<00:08:44.297><c> changed</c><00:08:44.697><c> to</c><00:08:44.897><c> 1.</c><00:08:45.497><c> Though</c><00:08:45.697><c> honestly,</c><00:08:46.097><c> I</c>
+
+00:08:46.187 --> 00:08:46.197 align:start position:0%
+has changed to 1. Though honestly, I
+
+
+00:08:46.197 --> 00:08:47.687 align:start position:0%
+has changed to 1. Though honestly, I
+would<00:08:46.297><c> suggest</c><00:08:46.697><c> auto</c><00:08:46.897><c> calibrating</c><00:08:47.497><c> before</c>
+
+00:08:47.687 --> 00:08:47.697 align:start position:0%
+would suggest auto calibrating before
+
+
+00:08:47.697 --> 00:08:50.087 align:start position:0%
+would suggest auto calibrating before
+you<00:08:48.097><c> use</c><00:08:48.297><c> this</c><00:08:48.397><c> one.</c><00:08:49.097><c> Let's</c><00:08:49.297><c> change</c><00:08:49.597><c> the</c><00:08:49.797><c> dark</c>
+
+00:08:50.087 --> 00:08:50.097 align:start position:0%
+you use this one. Let's change the dark
+
+
+00:08:50.097 --> 00:08:51.987 align:start position:0%
+you use this one. Let's change the dark
+to<00:08:50.197><c> light</c><00:08:50.297><c> mode</c><00:08:51.097><c> and</c><00:08:51.197><c> as</c><00:08:51.297><c> you</c><00:08:51.297><c> can</c><00:08:51.397><c> see,</c><00:08:51.697><c> both</c>
+
+00:08:51.987 --> 00:08:51.997 align:start position:0%
+to light mode and as you can see, both
+
+
+00:08:51.997 --> 00:08:53.787 align:start position:0%
+to light mode and as you can see, both
+the phone<00:08:52.697><c> and</c><00:08:52.797><c> the</c><00:08:52.897><c> Precision</c><00:08:53.297><c> Shot</c><00:08:53.597><c> changed</c>
+
+00:08:53.787 --> 00:08:53.797 align:start position:0%
+the phone and the Precision Shot changed
+
+
+00:08:53.797 --> 00:08:55.087 align:start position:0%
+the phone and the Precision Shot changed
+to<00:08:53.897><c> light</c><00:08:54.097><c> mode.</c>
+
+00:08:55.087 --> 00:08:55.097 align:start position:0%
+to light mode.
+
+
+00:08:55.097 --> 00:08:57.087 align:start position:0%
+to light mode.
+And<00:08:55.197><c> in</c><00:08:55.297><c> the</c><00:08:55.397><c> debug</c><00:08:55.697><c> zone,</c><00:08:55.997><c> we</c><00:08:56.097><c> have</c><00:08:56.297><c> lots</c><00:08:56.697><c> of</c>
+
+00:08:57.087 --> 00:08:57.097 align:start position:0%
+And in the debug zone, we have lots of
+
+
+00:08:57.097 --> 00:08:58.787 align:start position:0%
+And in the debug zone, we have lots of
+uh<00:08:57.197><c> debugging</c><00:08:57.697><c> that</c><00:08:57.797><c> shows</c><00:08:58.097><c> you</c><00:08:58.297><c> your</c><00:08:58.497><c> regular</c>
+
+00:08:58.787 --> 00:08:58.797 align:start position:0%
+uh debugging that shows you your regular
+
+
+00:08:58.797 --> 00:08:59.887 align:start position:0%
+uh debugging that shows you your regular
+temperature<00:08:59.197><c> so</c><00:08:59.297><c> make</c><00:08:59.497><c> sure</c><00:08:59.597><c> that</c><00:08:59.697><c> your</c>
+
+00:08:59.887 --> 00:08:59.897 align:start position:0%
+temperature so make sure that your
+
+
+00:08:59.897 --> 00:09:02.187 align:start position:0%
+temperature so make sure that your
+Precision<00:09:00.297><c> Shot</c><00:09:00.697><c> is</c><00:09:00.997><c> uh</c><00:09:01.197><c> not</c><00:09:01.397><c> hot</c><00:09:01.997><c> and</c><00:09:02.097><c> your</c>
+
+00:09:02.187 --> 00:09:02.197 align:start position:0%
+Precision Shot is uh not hot and your
+
+
+00:09:02.197 --> 00:09:04.087 align:start position:0%
+Precision Shot is uh not hot and your
+sensor<00:09:02.497><c> inputs</c><00:09:02.997><c> and</c><00:09:03.297><c> other</c><00:09:03.597><c> settings</c><00:09:03.997><c> that</c>
+
+00:09:04.087 --> 00:09:04.097 align:start position:0%
+sensor inputs and other settings that
+
+
+00:09:04.097 --> 00:09:05.987 align:start position:0%
+sensor inputs and other settings that
+you<00:09:04.197><c> can</c><00:09:04.397><c> explore</c><00:09:04.697><c> on</c><00:09:04.797><c> your</c><00:09:04.897><c> own.</c><00:09:05.197><c> Okay.</c>
+
+00:09:05.987 --> 00:09:05.997 align:start position:0%
+you can explore on your own. Okay.
+
+
+00:09:05.997 --> 00:09:09.287 align:start position:0%
+you can explore on your own. Okay.
+So<00:09:06.097><c> as</c><00:09:06.297><c> you</c><00:09:06.297><c> can</c><00:09:06.497><c> see,</c><00:09:06.797><c> if</c><00:09:06.997><c> I</c><00:09:07.097><c> hit</c><00:09:07.397><c> zone</c><00:09:07.597><c> 15,</c>
+
+00:09:09.287 --> 00:09:09.297 align:start position:0%
+So as you can see, if I hit zone 15,
+
+
+00:09:09.297 --> 00:09:11.187 align:start position:0%
+So as you can see, if I hit zone 15,
+we<00:09:09.397><c> get</c><00:09:09.497><c> a</c><00:09:09.597><c> shot</c><00:09:09.797><c> here</c><00:09:10.097><c> on</c><00:09:10.197><c> zone</c><00:09:10.397><c> 15</c><00:09:10.897><c> and</c><00:09:10.997><c> I</c><00:09:11.097><c> get</c>
+
+00:09:11.187 --> 00:09:11.197 align:start position:0%
+we get a shot here on zone 15 and I get
+
+
+00:09:11.197 --> 00:09:12.787 align:start position:0%
+we get a shot here on zone 15 and I get
+a<00:09:11.297><c> shot</c><00:09:11.497><c> of</c><00:09:11.597><c> five</c><00:09:11.897><c> points.</c>
+
+00:09:12.787 --> 00:09:12.797 align:start position:0%
+a shot of five points.
+
+
+00:09:12.797 --> 00:09:15.987 align:start position:0%
+a shot of five points.
+And<00:09:12.997><c> if</c><00:09:13.097><c> I</c><00:09:13.197><c> hit</c><00:09:13.697><c> um</c><00:09:13.997><c> zone</c><00:09:14.497><c> 11,</c>
+
+00:09:15.987 --> 00:09:15.997 align:start position:0%
+And if I hit um zone 11,
+
+
+00:09:15.997 --> 00:09:19.187 align:start position:0%
+And if I hit um zone 11,
+I<00:09:16.097><c> get</c><00:09:16.197><c> a</c><00:09:16.197><c> shot</c><00:09:16.597><c> on</c><00:09:16.797><c> zone</c><00:09:17.197><c> 11</c><00:09:17.897><c> on</c><00:09:18.097><c> both</c><00:09:18.297><c> screens.</c>
+
+00:09:19.187 --> 00:09:19.197 align:start position:0%
+I get a shot on zone 11 on both screens.
+
+
+00:09:19.197 --> 00:09:20.587 align:start position:0%
+I get a shot on zone 11 on both screens.
+Let's<00:09:19.397><c> go</c><00:09:19.497><c> over</c><00:09:19.697><c> to</c><00:09:19.697><c> rapid</c><00:09:19.997><c> mode</c><00:09:20.297><c> and</c><00:09:20.397><c> let's</c>
+
+00:09:20.587 --> 00:09:20.597 align:start position:0%
+Let's go over to rapid mode and let's
+
+
+00:09:20.597 --> 00:09:25.487 align:start position:0%
+Let's go over to rapid mode and let's
+see<00:09:20.697><c> how</c><00:09:20.797><c> we</c><00:09:20.897><c> do.</c><00:09:21.097><c> Let's</c><00:09:21.297><c> start</c><00:09:21.497><c> the</c><00:09:21.597><c> round.</c>
+
+00:09:25.487 --> 00:09:25.497 align:start position:0%
+
+
+
+00:09:25.497 --> 00:09:27.487 align:start position:0%
+
+I<00:09:25.597><c> need</c><00:09:25.697><c> to</c><00:09:25.797><c> hit</c><00:09:25.997><c> zone</c><00:09:26.297><c> 14</c><00:09:27.097><c> and</c><00:09:27.197><c> let's</c><00:09:27.297><c> see</c><00:09:27.397><c> how</c>
+
+00:09:27.487 --> 00:09:27.497 align:start position:0%
+I need to hit zone 14 and let's see how
+
+
+00:09:27.497 --> 00:09:29.387 align:start position:0%
+I need to hit zone 14 and let's see how
+fast<00:09:27.797><c> I</c><00:09:27.797><c> can</c><00:09:27.897><c> hit</c><00:09:28.097><c> it.</c><00:09:28.697><c> As</c><00:09:28.797><c> you</c><00:09:28.897><c> can</c><00:09:28.997><c> see,</c><00:09:29.097><c> I</c><00:09:29.197><c> hit</c>
+
+00:09:29.387 --> 00:09:29.397 align:start position:0%
+fast I can hit it. As you can see, I hit
+
+
+00:09:29.397 --> 00:09:31.287 align:start position:0%
+fast I can hit it. As you can see, I hit
+it<00:09:29.497><c> in</c><00:09:29.597><c> 3</c><00:09:29.797><c> seconds</c><00:09:30.597><c> and</c><00:09:30.697><c> in</c><00:09:30.797><c> the</c><00:09:30.897><c> next</c><00:09:31.097><c> 3</c>
+
+00:09:31.287 --> 00:09:31.297 align:start position:0%
+it in 3 seconds and in the next 3
+
+
+00:09:31.297 --> 00:09:32.487 align:start position:0%
+it in 3 seconds and in the next 3
+seconds,<00:09:31.697><c> it's</c><00:09:31.797><c> going</c><00:09:31.897><c> to</c><00:09:31.997><c> start</c><00:09:32.197><c> the</c><00:09:32.297><c> next</c>
+
+00:09:32.487 --> 00:09:32.497 align:start position:0%
+seconds, it's going to start the next
+
+
+00:09:32.497 --> 00:09:33.687 align:start position:0%
+seconds, it's going to start the next
+round.
+
+00:09:33.687 --> 00:09:33.697 align:start position:0%
+round.
+
+
+00:09:33.697 --> 00:09:41.087 align:start position:0%
+round.
+I need<00:09:33.897><c> to</c><00:09:33.897><c> hit</c><00:09:33.997><c> two.</c>
+
+00:09:41.087 --> 00:09:41.097 align:start position:0%
+
+
+
+00:09:41.097 --> 00:09:43.187 align:start position:0%
+
+Took<00:09:41.297><c> about</c><00:09:41.497><c> 10</c><00:09:41.697><c> seconds</c><00:09:41.997><c> plus.</c>
+
+00:09:43.187 --> 00:09:43.197 align:start position:0%
+Took about 10 seconds plus.
+
+
+00:09:43.197 --> 00:09:46.787 align:start position:0%
+Took about 10 seconds plus.
+So<00:09:43.297><c> now</c><00:09:43.397><c> I</c><00:09:43.497><c> need</c><00:09:43.697><c> to</c><00:09:43.697><c> hit</c><00:09:43.897><c> nine.</c>
+
+00:09:46.787 --> 00:09:46.797 align:start position:0%
+
+
+
+00:09:46.797 --> 00:10:00.787 align:start position:0%
+
+5<00:09:46.997><c> seconds.</c>
+
+00:10:00.787 --> 00:10:00.797 align:start position:0%
+
+
+
+00:10:00.797 --> 00:10:02.987 align:start position:0%
+
+And<00:10:00.997><c> after</c><00:10:01.197><c> going</c><00:10:01.497><c> through</c><00:10:01.897><c> all</c><00:10:02.197><c> 10</c><00:10:02.397><c> rounds,</c><00:10:02.897><c> I</c>
+
+00:10:02.987 --> 00:10:02.997 align:start position:0%
+And after going through all 10 rounds, I
+
+
+00:10:02.997 --> 00:10:05.487 align:start position:0%
+And after going through all 10 rounds, I
+have<00:10:03.097><c> an</c><00:10:03.197><c> average</c><00:10:03.497><c> of</c><00:10:03.597><c> 3.43</c><00:10:04.297><c> seconds.</c>
+
+00:10:05.487 --> 00:10:05.497 align:start position:0%
+have an average of 3.43 seconds.
+
+
+00:10:05.497 --> 00:10:06.887 align:start position:0%
+have an average of 3.43 seconds.
+So<00:10:05.597><c> yeah,</c><00:10:05.897><c> that's</c><00:10:06.097><c> going</c><00:10:06.197><c> to</c><00:10:06.297><c> be</c><00:10:06.397><c> the</c><00:10:06.497><c> software</c>
+
+00:10:06.887 --> 00:10:06.897 align:start position:0%
+So yeah, that's going to be the software
+
+
+00:10:06.897 --> 00:10:08.588 align:start position:0%
+So yeah, that's going to be the software
+and<00:10:06.997><c> the</c><00:10:06.997><c> Bluetooth</c><00:10:07.397><c> connectivity</c><00:10:07.997><c> of</c><00:10:08.197><c> the</c>
+
+00:10:08.588 --> 00:10:08.598 align:start position:0%
+and the Bluetooth connectivity of the
+
+
+00:10:08.598 --> 00:10:10.898 align:start position:0%
+and the Bluetooth connectivity of the
+shot.
