@@ -6,7 +6,7 @@
 		<meta name="text-scale" content="scale" />
 		<script>
 			try {
-				if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+				if (localStorage.getItem('theme') !== 'light') document.documentElement.classList.add('dark');
 			} catch {}
 		</script>
 		%sveltekit.head%

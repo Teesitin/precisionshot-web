@@ -58,9 +58,9 @@ def render(vertices, faces, part_ids, names, *, exploded=False):
     # Use double-sided lighting, matching the interactive viewer.
     lighting = 0.52 + 0.48 * np.abs(normals @ light)
     palette = np.array([
-        [120, 145, 128], [63, 85, 74], [148, 166, 150], [148, 166, 150],
-        [129, 151, 135], [129, 151, 135], [137, 157, 143], [129, 151, 135],
-        [109, 133, 117], [72, 95, 81]
+        [100, 116, 139], [51, 65, 85], [148, 163, 184], [148, 163, 184],
+        [126, 143, 164], [126, 143, 164], [137, 153, 174], [126, 143, 164],
+        [100, 116, 139], [71, 85, 105]
     ])
     colors = np.clip(palette[part_ids] * lighting[:, None], 0, 255).astype(np.uint8)
 

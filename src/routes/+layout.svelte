@@ -6,7 +6,7 @@
 	import { page } from '$app/state';
 
 	let { children } = $props();
-	let isDark = $state(false);
+	let isDark = $state(true);
 	let menuOpen = $state(false);
 	const navigation = [
 		{ label: 'The system', href: '#project' },
@@ -17,7 +17,8 @@
 	const homeLink = (hash: string) => page.url.pathname === '/' ? hash : `/${hash}`;
 
 	onMount(() => {
-		isDark = localStorage.getItem('theme') === 'dark';
+		const savedTheme = localStorage.getItem('theme');
+		isDark = savedTheme ? savedTheme === 'dark' : true;
 		document.documentElement.classList.toggle('dark', isDark);
 	});
 	function toggleTheme() {
@@ -29,10 +30,9 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<link rel="preload" href="/fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-	<link rel="preload" href="/fonts/Manrope-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/BlackOpsOne-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 	<link rel="preload" href="/fonts/MaterialSymbolsOutlined.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-	<meta name="theme-color" content="#edf149" />
+	<meta name="theme-color" content={isDark ? '#020617' : '#f8fafc'} />
 </svelte:head>
 
 <a class="skip-link" href="#main">Skip to content</a>

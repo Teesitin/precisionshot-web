@@ -113,8 +113,8 @@ export function createObjViewer(canvas: HTMLCanvasElement) {
 					// The V8 print meshes have no material library. Give them a neutral
 					// display finish while preserving the supplied geometry and files.
 					if (!mtl && material instanceof MeshPhongMaterial) {
-						material.color.set(0x8b9d92);
-						material.specular.set(0x28382f);
+						material.color.set(0x94a3b8);
+						material.specular.set(0x334155);
 						material.shininess = 25;
 					}
 					// Fusion exports its clear diffuser appearance as opaque black in MTL.
